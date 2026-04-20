@@ -1,0 +1,11 @@
+{
+  "name": "magic-bosses-frontend",
+  "version": "1.0.0",
+  "description": "Site vitrine Magic Bosses",
+  "scripts": {
+    "start": "serve . --listen $PORT --single"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}

@@ -1,0 +1,4 @@
+node_modules
+*.sh
+*.zip
+simulate_devis.js

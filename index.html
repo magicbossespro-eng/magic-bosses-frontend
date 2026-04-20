@@ -1,0 +1,2290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magic Bosses — Débosselage Sans Peinture | Lons-le-Saunier</title>
+<meta name="description" content="Magic Bosses, expert en débosselage sans peinture à Lons-le-Saunier (39000). Résultat invisible, zéro peinture, zéro mastic. Devis gratuit.">
+<meta name="google-site-verification" content="IdNERERtBurgvSdHQosjK3BmI8Zcj6cO_yNLKkBWhV4" />
+
+<!-- Open Graph / Partages réseaux sociaux -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Magic Bosses — Débosselage Sans Peinture | Lons-le-Saunier">
+<meta property="og:description" content="Expert en débosselage sans peinture à Lons-le-Saunier. Résultat invisible, zéro peinture. Je me déplace dans le Jura, l'Ain et la Saône-et-Loire. Devis gratuit !">
+<meta property="og:image" content="og-image.png">
+<meta property="og:url" content="https://magicbosses.fr/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Magic Bosses">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Magic Bosses — Débosselage Sans Peinture">
+<meta name="twitter:description" content="Expert DSP à Lons-le-Saunier. Résultat invisible, zéro peinture. Devis gratuit.">
+<meta name="twitter:image" content="og-image.png">
+
+<!-- Données structurées Google (référencement local) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Magic Bosses",
+  "description": "Débosselage sans peinture à Lons-le-Saunier. Intervention dans le Jura, l'Ain et la Saône-et-Loire.",
+  "url": "https://magicbosses.fr",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lons-le-Saunier",
+    "postalCode": "39000",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 46.675,
+    "longitude": 5.556
+  },
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Jura" },
+    { "@type": "AdministrativeArea", "name": "Ain" },
+    { "@type": "AdministrativeArea", "name": "Saône-et-Loire" }
+  ],
+  "priceRange": "€€",
+  "openingHours": "Mo-Fr 08:00-18:00"
+}
+</script>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#7B2FBE">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"></noscript>
+<style>
+:root {
+  /* Couleurs */
+  --black: #000000;
+  --purple: #7B2FBE;
+  --orange: #F5820A;
+  --gold: #F5C518;
+  --white: #FFFFFF;
+  --bg-alt: #06030f;
+  --bg-card: #0a0814;
+
+  /* Typographie */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --text-xs:   clamp(0.75rem,  1.5vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 2vw,   1rem);
+  --text-base: clamp(1rem,     2.5vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 3vw,   1.375rem);
+  --text-xl:   clamp(1.5rem,   4vw,   2rem);
+  --text-2xl:  clamp(2rem,     6vw,   3.5rem);
+  --text-hero: clamp(2.5rem,   10vw,  5rem);
+
+  /* Espacements */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 7rem;
+
+  /* Rayons */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-pill: 999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Ombres */
+  --shadow-purple: 0 0 20px rgba(123, 47, 190, 0.4);
+  --shadow-orange: 0 0 20px rgba(245, 130, 10, 0.4);
+  --shadow-card:   0 4px 24px rgba(0, 0, 0, 0.5);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{background:linear-gradient(180deg,#000 0%,#04020d 40%,#060212 70%,#000 100%);background-attachment:fixed;color:#fff;font-family:'Barlow',sans-serif;overflow-x:hidden;max-width:100%;}
+section{position:relative;}
+section::after{content:'';display:block;height:1px;background:linear-gradient(90deg,transparent,rgba(123,47,190,0.3),rgba(245,130,10,0.2),transparent);pointer-events:none;}
+img{max-width:100%;height:auto;}
+
+/* ===== KEYFRAMES ===== */
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
+@keyframes twinkle{0%,100%{opacity:0.2;transform:scale(1) rotate(0deg);}50%{opacity:1;transform:scale(1.3) rotate(20deg);}}
+@keyframes pulseRing{0%{transform:translate(-50%,-50%) scale(0.8);opacity:0.8;}100%{transform:translate(-50%,-50%) scale(2.5);opacity:0;}}
+@keyframes bubbleAppear{0%{opacity:0;transform:translateY(10px) scale(0.9);}100%{opacity:1;transform:translateY(0) scale(1);}}
+@keyframes slideInRight{0%{transform:translateX(100%);}100%{transform:translateX(0);}}
+@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+@keyframes navBlur{to{background:rgba(0,0,0,0.92);backdrop-filter:blur(12px);border-bottom-color:rgba(123,47,190,0.6);}}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 10px rgba(123,47,190,0.3);}50%{box-shadow:0 0 25px rgba(123,47,190,0.7);}}
+@keyframes haloPulse{0%,100%{transform:scale(1);opacity:0.5;}50%{transform:scale(1.12);opacity:0.9;}}
+@keyframes speedLine{0%{transform:translateX(-120%) skewX(-15deg);opacity:0;}20%{opacity:1;}100%{transform:translateX(200vw) skewX(-15deg);opacity:0;}}
+@keyframes floatParticle{0%{transform:translateY(0) translateX(0);opacity:0;}10%{opacity:0.8;}90%{opacity:0.4;}100%{transform:translateY(-80vh) translateX(40px);opacity:0;}}
+/* ===== HERO BACKGROUND ===== */
+.hero-halo{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;}
+.hero-halo-purple{width:700px;height:700px;background:radial-gradient(circle,rgba(123,47,190,0.3) 0%,transparent 70%);top:-150px;right:-80px;animation:haloPulse 5s ease-in-out infinite;}
+.hero-halo-orange{width:450px;height:450px;background:radial-gradient(circle,rgba(245,130,10,0.18) 0%,transparent 70%);bottom:-80px;left:15%;animation:haloPulse 6s ease-in-out infinite 1.5s;}
+.hero-halo-violet2{width:300px;height:300px;background:radial-gradient(circle,rgba(168,85,247,0.15) 0%,transparent 70%);top:30%;left:-60px;animation:haloPulse 4s ease-in-out infinite 2s;}
+.hero-geom{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0.04;background-image:repeating-linear-gradient(60deg,rgba(245,197,24,1) 0,rgba(245,197,24,1) 1px,transparent 0,transparent 50%),repeating-linear-gradient(120deg,rgba(245,197,24,1) 0,rgba(245,197,24,1) 1px,transparent 0,transparent 50%);background-size:60px 60px;}
+.hero-speedlines{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.speed-line{position:absolute;height:1px;width:300px;background:linear-gradient(90deg,transparent,rgba(245,197,24,0.7),transparent);animation:speedLine linear infinite;}
+/* ===== WATERMARK ===== */
+.wm-wrap{position:relative;width:100%;height:100%;}
+.wm-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
+.watermark{position:absolute;bottom:8px;right:10px;font-size:11px;color:rgba(255,255,255,0.45);font-family:'Barlow',sans-serif;font-weight:400;letter-spacing:1px;pointer-events:none;z-index:4;text-shadow:0 1px 3px rgba(0,0,0,0.8);}
+/* ===== HISTOIRE PHOTO ===== */
+.histoire-photo{width:100%;max-width:380px;border-radius:12px;overflow:hidden;border:2px solid rgba(123,47,190,0.4);box-shadow:0 20px 60px rgba(123,47,190,0.2);}
+.histoire-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+/* ===== GALERIE RÉELLE ===== */
+.gallery-real-img{width:100%;display:block;}
+/* ===== LEAFLET MAP ===== */
+#mapLeaflet{width:100%;height:480px;border-radius:12px;border:1px solid rgba(123,47,190,0.4);margin:40px 0;}
+.leaflet-container{background:#0d0d0d!important;}
+.leaflet-tile{filter:invert(1) hue-rotate(200deg) brightness(0.75) saturate(0.6)!important;}
+.mb-tooltip{background:#0d0d0d!important;border:1px solid rgba(123,47,190,0.5)!important;color:#fff!important;font-family:'Barlow',sans-serif!important;font-size:11px!important;font-weight:600!important;letter-spacing:0.5px!important;padding:3px 8px!important;border-radius:4px!important;box-shadow:0 2px 8px rgba(0,0,0,0.5)!important;}
+.mb-tooltip::before{display:none!important;}
+.mb-popup .leaflet-popup-content-wrapper{background:#0d0d0d;border:1px solid #7B2FBE;color:#fff;}
+.mb-popup .leaflet-popup-tip{background:#0d0d0d;}
+
+/* ===== NAVBAR ===== */
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,0,0,0.85);border-bottom:1px solid rgba(123,47,190,0.4);transition:all 0.3s ease;padding:0 24px;}
+#navbar.scrolled{background:rgba(0,0,0,0.95);backdrop-filter:blur(12px);border-bottom-color:rgba(123,47,190,0.7);}
+.nav-container{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px;}
+.nav-logo img{width:180px;height:auto;display:block;}
+.logo-fallback{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:2px;}
+.nav-links{display:flex;list-style:none;gap:32px;align-items:center;}
+.nav-links a{color:#fff;text-decoration:none;font-family:'Barlow',sans-serif;font-weight:400;font-size:15px;letter-spacing:1px;transition:color 0.2s;text-transform:uppercase;}
+.nav-links a:hover{color:var(--orange);}
+.btn-cta{background:var(--orange);color:#000;padding:10px 22px;border-radius:4px;text-decoration:none;font-family:'Bebas Neue',cursive;font-size:18px;letter-spacing:1px;transition:all 0.2s;white-space:nowrap;border:none;cursor:pointer;}
+.btn-cta:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 6px 20px rgba(245,130,10,0.4);}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:26px;height:2px;background:#fff;transition:all 0.3s;}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+
+/* ===== HERO ===== */
+#accueil{position:relative;min-height:100vh;display:flex;align-items:center;background:#000;overflow:hidden;padding-top:70px;}
+.hero-inner{max-width:1280px;margin:0 auto;padding:60px 24px;display:flex;align-items:center;justify-content:space-between;gap:40px;width:100%;}
+.hero-left{flex:1;max-width:600px;animation:fadeInUp 0.8s ease both;}
+.hero-badge{display:inline-block;background:rgba(123,47,190,0.2);border:1px solid var(--purple);color:var(--purple);padding:6px 18px;border-radius:50px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;}
+.hero-title{font-family:'Bebas Neue',cursive;font-size:78px;line-height:0.95;color:#fff;margin-bottom:20px;letter-spacing:2px;}
+.hero-title span{color:var(--orange);}
+.hero-subtitle{font-family:'Barlow',sans-serif;font-weight:300;font-size:18px;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:36px;}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-primary{background:var(--orange);color:#000;padding:14px 30px;border-radius:4px;text-decoration:none;font-family:'Bebas Neue',cursive;font-size:20px;letter-spacing:1px;transition:all 0.2s;border:none;cursor:pointer;}
+.btn-primary:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 8px 25px rgba(245,130,10,0.45);}
+.btn-outline{background:transparent;color:#fff;padding:14px 30px;border-radius:4px;text-decoration:none;font-family:'Bebas Neue',cursive;font-size:20px;letter-spacing:1px;border:2px solid var(--purple);transition:all 0.2s;cursor:pointer;}
+.btn-outline:hover{background:rgba(123,47,190,0.15);transform:translateY(-2px);}
+.hero-right{flex:0 0 420px;display:flex;flex-direction:column;align-items:center;position:relative;}
+.hero-mascot-wrap{position:relative;display:inline-block;}
+.hero-mascot-wrap img{width:380px;max-width:100%;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 20px 40px rgba(123,47,190,0.3));}
+.mascot-fallback-hero{width:320px;height:400px;background:linear-gradient(135deg,#1a1a1a,#0d0d0d);border:2px solid var(--purple);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;animation:float 3s ease-in-out infinite;}
+.hero-bubble{position:absolute;top:-20px;left:-80px;background:#fff;color:#000;padding:12px 18px;border-radius:16px 16px 4px 16px;font-size:14px;font-weight:600;white-space:nowrap;opacity:0;animation:bubbleAppear 0.5s ease 2s forwards;box-shadow:0 4px 20px rgba(0,0,0,0.4);}
+.hero-bubble::after{content:'';position:absolute;bottom:-10px;right:20px;border:6px solid transparent;border-top-color:#fff;border-right:0;border-bottom:0;}
+.star-particle{position:absolute;pointer-events:none;}
+
+/* ===== SECTION HISTOIRE ===== */
+#histoire{background:linear-gradient(135deg,#06030f 0%,#0a0520 50%,#06030f 100%);padding:100px 24px;position:relative;overflow:hidden;}
+.histoire-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:3fr 2fr;gap:60px;align-items:center;}
+.histoire-deco{position:relative;display:flex;align-items:center;justify-content:center;height:100%;}
+.histoire-logo-bg{opacity:0.05;width:100%;max-width:320px;}
+.histoire-stars{position:absolute;width:100%;height:100%;}
+.section-label{font-family:'Bebas Neue',cursive;font-size:13px;letter-spacing:4px;color:var(--purple);margin-bottom:12px;display:block;}
+.section-title{font-family:'Bebas Neue',cursive;font-size:64px;color:#fff;line-height:1;margin-bottom:32px;}
+.histoire-text{font-family:'Barlow',sans-serif;font-weight:300;font-size:17px;color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:32px;}
+.histoire-quote{border-left:3px solid var(--orange);padding:20px 28px;background:rgba(245,130,10,0.05);margin-top:32px;border-radius:0 8px 8px 0;}
+.histoire-quote p{font-family:'Barlow',sans-serif;font-style:italic;font-size:20px;color:#fff;line-height:1.6;}
+
+/* ===== SECTION DSP ===== */
+#dsp{padding:100px 24px;background:linear-gradient(135deg,#020010 0%,#050018 50%,#020010 100%);}
+.dsp-inner{max-width:1280px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:60px;}
+.dsp-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.dsp-card{background:var(--bg-card);border:1px solid rgba(123,47,190,0.3);border-radius:12px;padding:36px;transition:all 0.3s;position:relative;overflow:hidden;}
+.dsp-card::before{content:'';position:absolute;inset:0;border-radius:12px;opacity:0;background:rgba(123,47,190,0.04);transition:opacity 0.3s;}
+.dsp-card:hover{border-color:var(--purple);box-shadow:0 0 30px rgba(123,47,190,0.25);}
+.dsp-card:hover::before{opacity:1;}
+.dsp-icon{width:56px;height:56px;margin-bottom:20px;}
+.dsp-card-title{font-family:'Bebas Neue',cursive;font-size:26px;color:var(--orange);letter-spacing:1px;margin-bottom:12px;}
+.dsp-card-text{font-family:'Barlow',sans-serif;font-weight:300;font-size:16px;color:rgba(255,255,255,0.75);line-height:1.7;}
+
+/* ===== AVANT/APRÈS ===== */
+#avantapres{padding:100px 24px;background:linear-gradient(135deg,#06030f,#0d0520,#06030f);}
+.avantapres-inner{max-width:1280px;margin:0 auto;}
+.sliders-row{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px;}
+.slider-wrap{position:relative;}
+.slider-container{position:relative;width:100%;padding-bottom:70%;overflow:hidden;border-radius:10px;cursor:ew-resize;user-select:none;border:1px solid rgba(123,47,190,0.3);}
+.slider-before,.slider-after{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.slider-after{background:linear-gradient(135deg,#111 0%,#1a1a1a 100%);}
+.slider-before{background:linear-gradient(135deg,#0a0a0a 0%,#141414 100%);clip-path:inset(0 50% 0 0);}
+.slider-before-content{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.dent-sim{position:absolute;width:60px;height:40px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,0.9) 0%,rgba(30,30,30,0.4) 60%,transparent 100%);box-shadow:inset 0 4px 12px rgba(0,0,0,0.8),0 2px 8px rgba(0,0,0,0.5);}
+.slider-label{position:absolute;top:12px;z-index:3;padding:4px 12px;border-radius:4px;font-family:'Bebas Neue',cursive;font-size:14px;letter-spacing:1px;}
+.label-avant{left:12px;background:rgba(123,47,190,0.85);color:#fff;}
+.label-apres{right:12px;background:rgba(245,130,10,0.85);color:#000;}
+.slider-divider{position:absolute;top:0;bottom:0;width:3px;background:var(--gold);left:50%;transform:translateX(-50%);z-index:2;transition:left 0s;}
+.slider-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;background:var(--gold);border-radius:50%;z-index:3;display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px rgba(245,197,24,0.5);cursor:ew-resize;}
+.slider-handle svg{width:20px;height:20px;}
+.slider-caption{text-align:center;margin-top:12px;font-size:14px;color:rgba(255,255,255,0.6);font-style:italic;}
+
+/* ===== GALERIE ===== */
+#galerie{padding:100px 24px;background:linear-gradient(135deg,#03010a,#060318,#03010a);}
+.galerie-inner{max-width:1280px;margin:0 auto;}
+.galerie-filters{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0;}
+.filter-btn{background:transparent;border:1px solid rgba(123,47,190,0.4);color:rgba(255,255,255,0.7);padding:8px 20px;border-radius:50px;font-size:14px;cursor:pointer;transition:all 0.2s;font-family:'Barlow',sans-serif;}
+.filter-btn.active,.filter-btn:hover{background:var(--purple);border-color:var(--purple);color:#fff;}
+.gallery-grid{columns:3;gap:16px;}
+.gallery-item{break-inside:avoid;margin-bottom:16px;position:relative;cursor:pointer;border-radius:8px;overflow:hidden;border:1px solid rgba(123,47,190,0.2);transition:all 0.3s;}
+.gallery-item:hover{border-color:var(--purple);transform:translateY(-3px);box-shadow:0 10px 30px rgba(123,47,190,0.25);}
+.gallery-placeholder{width:100%;background:linear-gradient(135deg,#0d0d0d,#1a1a1a);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;min-height:180px;}
+.gallery-placeholder .ph-type{font-family:'Bebas Neue',cursive;font-size:16px;color:var(--orange);letter-spacing:2px;margin-top:12px;}
+.gallery-placeholder .ph-detail{font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px;}
+
+/* ===== LIGHTBOX ===== */
+#lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:9000;align-items:center;justify-content:center;}
+#lightbox.open{display:flex;}
+.lightbox-content{max-width:90vw;max-height:90vh;position:relative;}
+.lightbox-close{position:absolute;top:-40px;right:0;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;opacity:0.7;transition:opacity 0.2s;}
+.lightbox-close:hover{opacity:1;}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(123,47,190,0.6);border:none;color:#fff;font-size:24px;padding:12px 16px;cursor:pointer;border-radius:4px;transition:all 0.2s;}
+.lightbox-nav:hover{background:var(--purple);}
+.lightbox-prev{left:-60px;}
+.lightbox-next{right:-60px;}
+.lightbox-placeholder{width:600px;max-width:90vw;height:400px;background:linear-gradient(135deg,#0d0d0d,#1a1a1a);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-direction:column;}
+
+/* ===== TARIFS ===== */
+#tarifs{padding:100px 24px;background:linear-gradient(135deg,#08050a,#100a1a,#08050a);}
+.tarifs-inner{max-width:1280px;margin:0 auto;}
+.tarifs-mention{font-style:italic;font-size:14px;color:rgba(255,255,255,0.5);text-align:center;max-width:700px;margin:0 auto 48px;line-height:1.7;}
+.tarifs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.tarif-grele{border-color:rgba(245,197,24,0.4)!important;background:linear-gradient(135deg,#0d0d0d,#120d00)!important;}
+.tarif-grele:hover{border-color:var(--gold)!important;box-shadow:0 0 35px rgba(245,197,24,0.25)!important;}
+.badge-gold{background:rgba(245,197,24,0.15);color:var(--gold);border:1px solid var(--gold);}
+.tarif-accroche{font-family:'Bebas Neue',cursive;font-size:18px;color:var(--gold);letter-spacing:1px;margin-bottom:16px;line-height:1.3;}
+.tarif-note{font-size:11px;color:rgba(255,255,255,0.3);margin-top:16px;line-height:1.6;text-align:left;font-style:italic;}
+/* ===== RISQUES DSP ===== */
+.risques-box{border:1px solid rgba(245,197,24,0.3);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;background:linear-gradient(135deg,rgba(245,197,24,0.04),rgba(245,130,10,0.03));padding:28px 32px;margin:40px 0 0;}
+.risques-title{font-family:'Bebas Neue',cursive;font-size:22px;color:var(--gold);letter-spacing:2px;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.risques-list{list-style:none;margin-bottom:20px;}
+.risques-list li{padding:8px 0;font-size:14px;color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
+.risques-list li:last-child{border-bottom:none;}
+.risques-list li::before{content:'▲';color:rgba(245,197,24,0.6);font-size:10px;margin-top:3px;flex-shrink:0;}
+.risques-list strong{color:rgba(255,255,255,0.9);}
+.risques-reassure{font-size:14px;color:rgba(255,255,255,0.55);font-style:italic;line-height:1.7;border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;margin-top:4px;}
+.risques-remise{font-size:14px;color:var(--orange);margin-top:12px;font-weight:600;}
+/* ===== CHECKBOX RESPONSABILITÉ ===== */
+.accept-box{background:rgba(123,47,190,0.06);border:1px solid rgba(123,47,190,0.25);border-radius:8px;padding:16px;margin-bottom:16px;}
+.accept-label{display:flex;align-items:flex-start;gap:12px;cursor:pointer;}
+.accept-label input[type="checkbox"]{width:18px;height:18px;accent-color:var(--purple);cursor:pointer;flex-shrink:0;margin-top:2px;}
+.accept-label span{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6;}
+.accept-label span strong{color:rgba(255,255,255,0.85);}
+.accept-label:has(input:checked) span{color:rgba(255,255,255,0.8);}
+#acceptResponsabilite:not(:checked) ~ .form-submit-btn{opacity:0.5;}
+.liberte-box{background:linear-gradient(135deg,rgba(123,47,190,0.12),rgba(245,130,10,0.06));border:1px solid rgba(123,47,190,0.35);border-radius:10px;padding:20px 28px;margin:32px 0;display:flex;align-items:flex-start;gap:14px;}
+.liberte-icon{font-size:24px;flex-shrink:0;margin-top:2px;}
+.liberte-text{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.7;}
+.liberte-text strong{color:var(--orange);}
+/* ===== DISPO VISUELLE ===== */
+.dispo-visual{margin-top:8px;}
+.dispo-legend{display:flex;gap:16px;margin-bottom:12px;font-size:12px;flex-wrap:wrap;}
+.dispo-leg-sel{color:#4ade80;display:flex;align-items:center;gap:5px;}
+.dispo-leg-def{color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:5px;}
+.dispo-leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.dispo-table{display:grid;grid-template-columns:70px repeat(6,1fr);gap:5px;align-items:center;}
+.dispo-th{font-size:11px;color:rgba(255,255,255,0.45);text-align:center;text-transform:uppercase;letter-spacing:0.5px;padding:4px 0;}
+.dispo-row-lbl{font-size:12px;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:5px;white-space:nowrap;}
+.dispo-slot{background:#111;border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.35);padding:10px 4px;border-radius:6px;cursor:pointer;font-size:11px;font-family:'Barlow',sans-serif;font-weight:600;text-align:center;transition:all 0.2s;letter-spacing:0.5px;line-height:1.2;}
+.dispo-slot:hover{border-color:rgba(74,222,128,0.4);color:rgba(74,222,128,0.7);}
+.dispo-slot.sel{background:rgba(74,222,128,0.12);border-color:#4ade80;color:#4ade80;}
+.tarif-card{background:var(--bg-card);border:1px solid rgba(123,47,190,0.3);border-radius:12px;padding:36px;position:relative;transition:all 0.3s;text-align:center;}
+.tarif-card:hover{border-color:var(--purple);box-shadow:0 0 35px rgba(123,47,190,0.3);transform:translateY(-4px);}
+.tarif-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:4px 16px;border-radius:50px;font-size:12px;font-weight:600;white-space:nowrap;letter-spacing:1px;}
+.badge-green{background:#1a4a1a;color:#4ade80;border:1px solid #4ade80;}
+.badge-orange{background:rgba(245,130,10,0.2);color:var(--orange);border:1px solid var(--orange);}
+.tarif-name{font-family:'Bebas Neue',cursive;font-size:30px;color:#fff;margin-bottom:8px;letter-spacing:1px;}
+.tarif-price{font-family:'Bebas Neue',cursive;font-size:56px;color:var(--orange);line-height:1;margin-bottom:8px;}
+.tarif-price span{font-size:22px;color:rgba(255,255,255,0.5);}
+.tarif-desc{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:24px;line-height:1.5;}
+.tarif-features{list-style:none;margin-bottom:28px;text-align:left;}
+.tarif-features li{padding:7px 0;font-size:15px;color:rgba(255,255,255,0.75);display:flex;align-items:center;gap:8px;}
+.tarif-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;}
+.tarif-btn{width:100%;background:transparent;border:2px solid var(--orange);color:var(--orange);padding:12px;border-radius:6px;font-family:'Bebas Neue',cursive;font-size:20px;letter-spacing:1px;cursor:pointer;transition:all 0.2s;}
+.tarif-btn:hover{background:var(--orange);color:#000;}
+/* ===== TABLEAU TARIF PROGRESSIF ===== */
+.tarif-table-wrap{overflow-x:auto;margin:24px 0;border-radius:8px;border:1px solid rgba(123,47,190,0.25);}
+.tarif-table{width:100%;border-collapse:collapse;font-family:'Barlow',sans-serif;min-width:520px;}
+.tarif-table thead tr{background:rgba(123,47,190,0.12);}
+.tarif-table th{padding:14px 16px;font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:1px;color:rgba(255,255,255,0.9);text-align:center;border-bottom:1px solid rgba(123,47,190,0.3);}
+.tarif-table th small{display:block;font-family:'Barlow',sans-serif;font-size:10px;color:rgba(255,255,255,0.38);font-weight:400;letter-spacing:0;margin-top:2px;text-transform:none;}
+.tarif-table th:first-child{text-align:left;}
+.tarif-table td{padding:13px 16px;font-size:15px;color:rgba(255,255,255,0.75);text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);}
+.tarif-table td:first-child{font-weight:600;color:rgba(255,255,255,0.92);text-align:left;font-size:13px;}
+.tarif-table tbody tr:last-child td{border-bottom:none;}
+.tarif-table tbody tr:hover{background:rgba(255,255,255,0.025);}
+.tarif-table tbody tr:nth-child(odd){background:rgba(255,255,255,0.012);}
+.price-main{color:var(--orange)!important;font-family:'Bebas Neue',cursive;font-size:22px;line-height:1.1;}
+.price-sub{color:rgba(255,255,255,0.72)!important;font-family:'Bebas Neue',cursive;font-size:20px;line-height:1.1;}
+.price-devis{color:rgba(168,85,247,0.9)!important;font-size:13px;font-style:italic;}
+.tarif-saving{font-size:10px;color:#4ade80;display:block;margin-top:2px;font-family:'Barlow',sans-serif;font-weight:600;letter-spacing:0.3px;}
+.tarif-row-first td{background:rgba(245,130,10,0.05)!important;}
+.tarif-ttc-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);border-radius:50px;padding:5px 14px;font-size:12px;color:rgba(74,222,128,0.9);font-weight:600;letter-spacing:0.5px;margin-bottom:10px;}
+
+/* ===== ZONE INTERVENTION ===== */
+#zone{padding:100px 24px;background:linear-gradient(135deg,#04020e,#080418,#04020e);}
+.zone-inner{max-width:1280px;margin:0 auto;text-align:center;}
+.zone-visual{position:relative;width:320px;height:320px;margin:48px auto;}
+.zone-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;}
+.zone-dot{width:20px;height:20px;background:var(--orange);border-radius:50%;box-shadow:0 0 20px var(--orange);}
+.zone-label-city{position:absolute;top:calc(50% + 16px);left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'Bebas Neue',cursive;font-size:16px;color:var(--orange);letter-spacing:2px;}
+.zone-ring{position:absolute;top:50%;left:50%;width:200px;height:200px;margin-left:-100px;margin-top:-100px;border-radius:50%;border:2px solid rgba(123,47,190,0.4);}
+.zone-ring-anim{position:absolute;top:50%;left:50%;width:200px;height:200px;margin-left:-100px;margin-top:-100px;border-radius:50%;border:2px solid var(--purple);animation:pulseRingZone 2s ease-out infinite;}
+.zone-ring-anim2{animation-delay:1s;}
+@keyframes pulseRingZone{0%{transform:scale(0.8);opacity:0.8;}100%{transform:scale(1.6);opacity:0;}}
+.zone-text{max-width:600px;margin:0 auto;font-family:'Barlow',sans-serif;font-weight:300;font-size:17px;color:rgba(255,255,255,0.75);line-height:1.8;}
+
+/* ===== CONTACT FOOTER ===== */
+#contact{padding:80px 24px 40px;background:#000;border-top:1px solid rgba(123,47,190,0.3);}
+.footer-inner{max-width:1280px;margin:0 auto;text-align:center;}
+.footer-logo{margin-bottom:36px;display:inline-block;cursor:pointer;}
+.footer-logo img{width:220px;}
+.footer-logo .logo-fallback{font-size:36px;}
+.footer-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
+.footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:8px;font-size:15px;transition:color 0.2s;padding:8px 16px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;}
+.footer-links a:hover{color:#fff;border-color:var(--orange);}
+.footer-links svg{width:18px;height:18px;flex-shrink:0;}
+.footer-social{display:flex;gap:16px;justify-content:center;margin-bottom:32px;}
+.footer-social a{width:44px;height:44px;border:1px solid rgba(123,47,190,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);text-decoration:none;font-size:14px;transition:all 0.2s;}
+.footer-social a:hover{border-color:var(--purple);color:var(--purple);background:rgba(123,47,190,0.1);}
+.footer-legal{font-size:12px;color:rgba(255,255,255,0.3);line-height:1.8;}
+.footer-stars{position:relative;height:40px;margin:24px 0;}
+
+/* ===== MASCOTTE FLOTTANTE ===== */
+#floatingMascot{position:fixed;bottom:24px;right:24px;z-index:5000;cursor:pointer;display:flex;flex-direction:column;align-items:flex-end;}
+#floatingMascot img{width:120px;filter:drop-shadow(0 8px 20px rgba(123,47,190,0.5));transition:transform 0.2s;}
+#floatingMascot:hover img{transform:scale(1.05);}
+.float-mascot-fallback{width:80px;height:100px;background:linear-gradient(135deg,#1a1a1a,#0d0d0d);border:2px solid var(--purple);border-radius:50% 50% 40% 40%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',cursive;font-size:11px;color:var(--orange);text-align:center;padding:8px;}
+#mascotBubble{background:#fff;color:#000;padding:10px 16px;border-radius:12px 12px 4px 12px;font-size:13px;font-weight:600;white-space:nowrap;margin-bottom:8px;animation:bubbleAppear 0.3s ease;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
+
+/* ===== PANNEAU DEVIS ===== */
+#devisOverlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:5500;display:none;backdrop-filter:blur(4px);}
+#devisOverlay.open{display:block;}
+#devisPanel{position:fixed;top:0;right:0;bottom:0;width:440px;max-width:100vw;background:var(--bg-card);z-index:6000;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;display:flex;flex-direction:column;}
+#devisPanel.open{transform:translateX(0);}
+.devis-header{background:#000;padding:20px;border-bottom:1px solid rgba(123,47,190,0.3);display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:1;}
+.devis-header img{width:60px;flex-shrink:0;}
+.devis-header .mascot-fallback-sm{width:50px;height:60px;background:linear-gradient(135deg,#1a1a1a,#0d0d0d);border:1px solid var(--purple);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',cursive;font-size:9px;color:var(--orange);text-align:center;flex-shrink:0;}
+#devisBubble{flex:1;background:#fff;color:#000;padding:10px 14px;border-radius:12px 12px 12px 4px;font-size:13px;font-weight:600;line-height:1.4;}
+.devis-close{background:none;border:none;color:rgba(255,255,255,0.6);font-size:24px;cursor:pointer;flex-shrink:0;padding:4px 8px;}
+.devis-close:hover{color:#fff;}
+.devis-form-body{padding:24px;flex:1;}
+.devis-title{font-family:'Bebas Neue',cursive;font-size:28px;color:#fff;margin-bottom:24px;letter-spacing:1px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:6px;letter-spacing:1px;text-transform:uppercase;}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:#111;border:1px solid rgba(123,47,190,0.3);color:#fff;padding:12px 14px;border-radius:6px;font-family:'Barlow',sans-serif;font-size:15px;outline:none;transition:border-color 0.2s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--purple);box-shadow:0 0 0 2px rgba(123,47,190,0.15);}
+.form-group select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237B2FBE' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.form-group select option{background:#111;color:#fff;}
+.form-group textarea{resize:vertical;min-height:90px;}
+.photo-upload-btn{width:100%;background:transparent;border:2px dashed rgba(245,130,10,0.5);color:var(--orange);padding:16px;border-radius:8px;font-family:'Bebas Neue',cursive;font-size:18px;letter-spacing:1px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.photo-upload-btn:hover{border-color:var(--orange);background:rgba(245,130,10,0.05);}
+#photoPreview{display:none;margin-top:12px;border-radius:8px;overflow:hidden;border:1px solid rgba(123,47,190,0.3);}
+#photoPreview img{width:100%;display:block;}
+.dispo-label{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:10px;letter-spacing:1px;text-transform:uppercase;}
+.dispo-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:4px;}
+.dispo-day-label{font-size:11px;color:rgba(255,255,255,0.4);text-align:center;text-transform:uppercase;letter-spacing:0.5px;}
+.dispo-checks{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:4px;}
+.dispo-row-label{font-size:11px;color:rgba(255,255,255,0.4);grid-column:span 1;}
+.dispo-checks label{display:flex;align-items:center;justify-content:center;}
+.dispo-checks input[type="checkbox"]{width:16px;height:16px;accent-color:var(--purple);cursor:pointer;}
+.form-submit-btn{width:100%;background:var(--orange);color:#000;border:none;padding:16px;border-radius:6px;font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:2px;cursor:pointer;transition:all 0.2s;margin-top:16px;}
+.form-submit-btn:hover{background:var(--gold);transform:translateY(-2px);}
+#devisSuccess{display:none;padding:40px 24px;text-align:center;flex:1;}
+.success-icon{font-size:60px;margin-bottom:20px;}
+.success-title{font-family:'Bebas Neue',cursive;font-size:36px;color:var(--gold);margin-bottom:16px;}
+.success-text{font-family:'Barlow',sans-serif;font-weight:300;font-size:16px;color:rgba(255,255,255,0.75);line-height:1.7;}
+
+/* ===== CONFETTI ===== */
+.confetti-piece{position:fixed;width:10px;height:10px;top:-20px;z-index:9999;border-radius:2px;animation:confettiFall linear forwards;pointer-events:none;}
+
+/* ===== ADMIN ===== */
+#adminPanel{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.97);z-index:9500;flex-direction:column;}
+.admin-inner{max-width:900px;margin:0 auto;padding:32px 24px;width:100%;height:100%;overflow-y:auto;display:flex;flex-direction:column;}
+.admin-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;flex-wrap:wrap;}
+.admin-header h2{font-family:'Bebas Neue',cursive;font-size:32px;color:#fff;letter-spacing:2px;flex:1;}
+.admin-btn{background:transparent;border:1px solid rgba(123,47,190,0.5);color:var(--purple);padding:8px 18px;border-radius:4px;font-size:14px;cursor:pointer;transition:all 0.2s;}
+.admin-btn:hover{background:var(--purple);color:#fff;}
+.admin-btn-close{border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.5);}
+.admin-btn-close:hover{background:rgba(255,255,255,0.1);color:#fff;}
+.admin-empty{text-align:center;padding:60px;color:rgba(255,255,255,0.3);font-style:italic;}
+.devis-item{background:var(--bg-card);border:1px solid rgba(123,47,190,0.2);border-radius:8px;padding:20px;margin-bottom:16px;}
+.devis-item-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+.devis-item-id{font-family:'Bebas Neue',cursive;font-size:14px;color:rgba(255,255,255,0.4);letter-spacing:1px;}
+.devis-item-name{font-weight:600;font-size:16px;color:#fff;flex:1;}
+.devis-item-date{font-size:13px;color:rgba(255,255,255,0.4);}
+.badge-statut{padding:3px 12px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:1px;}
+.badge-attente{background:rgba(245,130,10,0.2);color:var(--orange);border:1px solid var(--orange);}
+.badge-planifie{background:rgba(123,47,190,0.2);color:#a855f7;border:1px solid #a855f7;}
+.badge-termine{background:rgba(74,222,128,0.2);color:#4ade80;border:1px solid #4ade80;}
+.badge-cluster{background:rgba(245,197,24,0.15);color:var(--gold);border:1px solid var(--gold);font-size:12px;padding:3px 10px;border-radius:50px;}
+.devis-item-body{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.8;}
+.devis-item-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+.devis-action-btn{background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:5px 12px;border-radius:4px;font-size:12px;cursor:pointer;transition:all 0.2s;}
+.devis-action-btn:hover{border-color:var(--purple);color:var(--purple);}
+.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
+.admin-stat{background:var(--bg-card);border:1px solid rgba(123,47,190,0.2);border-radius:8px;padding:16px;text-align:center;}
+.admin-stat-val{font-family:'Bebas Neue',cursive;font-size:36px;color:var(--orange);}
+.admin-stat-label{font-size:12px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;}
+
+/* ===== URGENCE HERO ===== */
+.hero-urgence{font-size:13px;color:rgba(255,255,255,0.5);margin-top:14px;font-style:italic;}
+
+/* ===== RÉASSURANCE BAR ===== */
+.reassurance-bar{display:flex;justify-content:center;flex-wrap:wrap;gap:0;background:rgba(123,47,190,0.08);border-top:1px solid rgba(123,47,190,0.25);border-bottom:1px solid rgba(123,47,190,0.25);padding:18px 24px;}
+.reassurance-item{display:flex;align-items:center;gap:10px;padding:10px 28px;font-size:14px;color:rgba(255,255,255,0.8);border-right:1px solid rgba(255,255,255,0.08);}
+.reassurance-item:last-child{border-right:none;}
+.reassurance-icon{font-size:20px;}
+@media(max-width:768px){.reassurance-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.06);width:100%;padding:10px 16px;}.reassurance-item:last-child{border-bottom:none;}}
+
+/* ===== TÉMOIGNAGES ===== */
+.avis-inner{max-width:1100px;margin:0 auto;padding:80px 24px;}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+.avis-card{background:var(--bg-card);border:1px solid rgba(123,47,190,0.2);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px;transition:transform 0.3s ease,border-color 0.3s ease;}
+.avis-card:hover{transform:translateY(-4px);border-color:rgba(123,47,190,0.5);}
+.avis-card-featured{border-color:rgba(245,130,10,0.4);box-shadow:0 0 30px rgba(245,130,10,0.1);}
+.avis-stars{color:var(--gold);font-size:20px;letter-spacing:2px;}
+.avis-text{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.8);font-style:italic;}
+.avis-text::before{content:'"';color:var(--purple);font-size:40px;line-height:0;vertical-align:-16px;margin-right:4px;font-style:normal;}
+.avis-author{display:flex;align-items:center;gap:8px;margin-top:auto;}
+.avis-name{font-weight:600;font-size:14px;}
+.avis-ville{font-size:13px;color:rgba(255,255,255,0.4);}
+.avis-note{text-align:center;font-size:12px;color:rgba(255,255,255,0.25);margin-top:32px;font-style:italic;}
+@media(max-width:768px){.avis-grid{grid-template-columns:1fr;}}
+
+/* ===== CTA FINAL ===== */
+#cta-final{background:linear-gradient(135deg,rgba(123,47,190,0.15) 0%,rgba(245,130,10,0.08) 100%);border-top:1px solid rgba(123,47,190,0.3);}
+.cta-final-inner{max-width:700px;margin:0 auto;padding:90px 24px;text-align:center;}
+.cta-final-label{font-size:13px;text-transform:uppercase;letter-spacing:3px;color:var(--orange);margin-bottom:16px;}
+.cta-final-title{font-family:'Bebas Neue',cursive;font-size:clamp(2.5rem,7vw,4rem);line-height:1;margin-bottom:20px;}
+.cta-final-title span{color:var(--orange);}
+.cta-final-sub{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:36px;}
+.cta-final-btn{font-size:22px;padding:18px 40px;}
+.cta-final-garanties{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-top:24px;}
+.cta-final-garanties span{font-size:13px;color:rgba(255,255,255,0.5);}
+.cta-final-email{margin-top:16px;font-size:13px;color:rgba(255,255,255,0.35);}
+
+/* ===== BADGE JEUDI (au-dessus du titre) ===== */
+#badgeJeudiContainer{margin-bottom:14px;}
+
+/* ===== STATS BAR ===== */
+.stats-bar{display:flex;gap:0;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);}
+.stat-item{display:flex;flex-direction:column;flex:1;padding:0 20px 0 0;}
+.stat-item+.stat-item{padding-left:20px;border-left:1px solid rgba(255,255,255,0.1);}
+.stat-item .stat-number{font-family:'Bebas Neue',cursive;font-size:36px;line-height:1;color:var(--orange);}
+.stat-item .stat-pct{font-family:'Bebas Neue',cursive;font-size:36px;line-height:1;color:var(--orange);}
+.stat-item .stat-label{font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+
+/* ===== TOAST SOCIAL PROOF ===== */
+.social-toast{position:fixed;bottom:110px;left:1rem;z-index:900;background:rgba(10,8,20,0.96);border:1px solid var(--purple);border-radius:12px;padding:12px 16px;font-size:0.85rem;max-width:230px;animation:fadeInUp 0.4s ease;line-height:1.4;}
+
+/* ===== BADGE JEUDI ===== */
+.badge-jeudi{display:inline-flex;align-items:center;gap:8px;background:rgba(245,197,24,0.12);border:1px solid var(--gold);color:var(--gold);padding:7px 16px;border-radius:50px;font-size:13px;font-weight:600;margin-top:14px;letter-spacing:0.5px;}
+.badge-jeudi::before{content:'📍';font-size:14px;}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section{max-width:700px;margin:0 auto;padding:80px 24px 60px;}
+.contact-intro{text-align:center;color:rgba(255,255,255,0.5);font-size:16px;margin-top:16px;}
+.contact-cards{display:flex;flex-direction:column;gap:16px;margin-top:40px;}
+.contact-card{display:flex;align-items:center;gap:20px;background:var(--bg-card);border:1px solid rgba(123,47,190,0.2);border-radius:16px;padding:22px 24px;text-decoration:none;color:#fff;transition:all 0.25s ease;}
+.contact-card:hover{border-color:rgba(123,47,190,0.6);transform:translateX(4px);background:rgba(123,47,190,0.08);}
+.contact-card-primary{border-color:rgba(37,211,102,0.4);background:rgba(37,211,102,0.05);}
+.contact-card-primary:hover{border-color:rgba(37,211,102,0.8);background:rgba(37,211,102,0.1);}
+.contact-card-icon{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-card-primary .contact-card-icon{background:rgba(37,211,102,0.12);color:#25d366;}
+.contact-card-content{display:flex;flex-direction:column;gap:4px;flex:1;}
+.contact-card-label{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.35);}
+.contact-card-value{font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:1px;}
+.contact-card-hint{font-size:13px;color:rgba(255,255,255,0.4);}
+.contact-card-primary .contact-card-hint{color:rgba(37,211,102,0.7);}
+.contact-card-arrow{font-size:22px;color:rgba(255,255,255,0.2);transition:transform 0.2s;}
+.contact-card:hover .contact-card-arrow{transform:translateX(4px);color:rgba(255,255,255,0.5);}
+
+/* ===== FOOTER BAS ===== */
+.footer-bottom{border-top:1px solid rgba(123,47,190,0.2);padding:32px 24px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+
+/* ===== UTILITIES ===== */
+.section-title-center{font-family:'Bebas Neue',cursive;font-size:56px;color:#fff;text-align:center;letter-spacing:2px;margin-bottom:12px;}
+.section-sub{font-family:'Barlow',sans-serif;font-weight:300;font-size:17px;color:rgba(255,255,255,0.55);text-align:center;}
+.separator{width:60px;height:3px;background:linear-gradient(90deg,var(--purple),var(--orange));margin:16px auto 0;border-radius:2px;}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  /* Navbar */
+  .nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:#000;border-bottom:1px solid rgba(123,47,190,0.4);flex-direction:column;gap:0;padding:16px 0;}
+  .nav-links.open{display:flex;}
+  .nav-links li a{display:block;padding:12px 24px;}
+  .hamburger{display:flex;}
+
+  /* Hero */
+  .hero-inner{flex-direction:column;align-items:stretch;padding:40px 20px;text-align:center;}
+  .hero-left{width:100%;max-width:100%;}
+  .hero-right{order:-1;flex:none;width:100%;display:flex;justify-content:center;}
+  .hero-title{font-size:52px;}
+  .hero-mascot-wrap img{width:220px;}
+  .hero-bubble{left:50%;transform:translateX(-50%);top:-30px;white-space:normal;max-width:80vw;text-align:center;}
+  .hero-badge{white-space:normal;max-width:90%;text-align:center;letter-spacing:1px;}
+  .hero-ctas{justify-content:center;}
+  .stats-bar{width:100%;}
+  .stat-item{align-items:center;padding:0 12px;}
+  .stat-item:first-child{padding-left:0;}
+  .stat-item .stat-number{font-size:26px;}
+  .stat-item .stat-pct{font-size:26px;}
+  .stat-item .stat-label{font-size:10px;text-align:center;}
+  .badge-jeudi{justify-content:center;font-size:12px;white-space:normal;text-align:center;max-width:90%;}
+  #floatingMascot img{width:80px;}
+  #floatingMascot{bottom:16px;right:12px;}
+
+  /* Histoire */
+  .histoire-inner{grid-template-columns:1fr;}
+  .histoire-deco{display:none;}
+  .section-title{font-size:44px;}
+
+  /* DSP / Sliders / Galerie / Tarifs */
+  .dsp-grid{grid-template-columns:1fr;}
+  .sliders-row{grid-template-columns:1fr;}
+  .gallery-grid{columns:2;}
+  .tarifs-grid{grid-template-columns:1fr;}
+  .tarif-card{overflow:hidden;padding:24px 16px;}
+  .tarif-table-wrap{max-width:100%;overflow-x:auto;}
+  .tarif-table{min-width:0;width:100%;font-size:12px;}
+  .tarif-table th,.tarif-table td{padding:8px 6px;}
+  .tarif-name{font-size:22px;word-break:break-word;}
+  .tarif-ttc-badge{flex-wrap:wrap;justify-content:center;text-align:center;font-size:11px;}
+  .tarif-badge{position:static;display:inline-block;white-space:normal;text-align:center;max-width:100%;margin:0 auto 12px;transform:none;}
+  #mascotBubble{display:none;}
+  #floatingMascot{bottom:16px;right:8px;}
+  #floatingMascot img{width:75px;}
+  #tarifs{overflow:hidden;}
+
+  /* Témoignages */
+  .avis-grid{grid-template-columns:1fr;}
+  .avis-inner{padding:60px 20px;}
+
+  /* CTA final */
+  .cta-final-inner{padding:60px 20px;}
+  .cta-final-btn{font-size:18px;padding:16px 28px;width:100%;}
+  .cta-final-garanties{gap:10px;}
+
+  /* Contact */
+  .contact-section{padding:60px 20px 40px;}
+  .contact-card{padding:18px 16px;gap:14px;}
+  .contact-card-value{font-size:18px;}
+
+  /* Admin / Devis */
+  .admin-stats{grid-template-columns:1fr 1fr;}
+  #devisPanel{width:100%;}
+  .dispo-grid,.dispo-checks{grid-template-columns:repeat(3,1fr);}
+}
+
+@media(max-width:480px){
+  /* Hero */
+  .hero-title{font-size:40px;}
+  .stat-item .stat-number{font-size:22px;}
+  .stat-item .stat-pct{font-size:22px;}
+  .stat-item .stat-label{font-size:9px;}
+
+  /* Galerie */
+  .gallery-grid{columns:1;}
+
+  /* Titres */
+  .section-title-center{font-size:36px;}
+  .cta-final-title{font-size:2rem;}
+
+  /* Contact */
+  .contact-card-value{font-size:16px;}
+  .contact-card-icon{width:44px;height:44px;}
+
+  /* Formulaire devis */
+  .dispo-grid,.dispo-checks{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#accueil" class="nav-logo">
+      <img src="logo.png" alt="Magic Bosses" width="140" height="50" loading="eager" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="logo-fallback" style="display:none">MAGIC <span style="color:#7B2FBE">BOSSES</span></span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#accueil" onclick="closeMenu()">Accueil</a></li>
+      <li><a href="#histoire" onclick="closeMenu()">Mon Métier</a></li>
+      <li><a href="#galerie" onclick="closeMenu()">Galerie</a></li>
+      <li><a href="#tarifs" onclick="closeMenu()">Tarifs</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+    <button class="btn-cta" onclick="openDevis()">Devis Gratuit</button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="accueil">
+  <div id="heroStars"></div>
+  <!-- Halos animés -->
+  <div class="hero-halo hero-halo-purple"></div>
+  <div class="hero-halo hero-halo-orange"></div>
+  <div class="hero-halo hero-halo-violet2"></div>
+  <!-- Motif géométrique -->
+  <div class="hero-geom"></div>
+  <!-- Lignes de vitesse -->
+  <div class="hero-speedlines" id="heroSpeedlines"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div id="badgeJeudiContainer"></div>
+      <span class="hero-badge">⚡ Répond sous 2h · Jura · Ain · Saône-et-Loire</span>
+      <h1 class="hero-title">TA BOSSE<br><span>DISPARAÎT.</span><br>GARANTI.</h1>
+      <p class="hero-subtitle">Débosselage sans peinture — résultat <strong style="color:#fff">invisible</strong>.<br>Pas de carrossier, pas de délai, pas de mauvaise surprise.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="openDevis()">Devis gratuit en 2 min →</button>
+        <a href="#avantapres" class="btn-outline">Voir les résultats</a>
+      </div>
+
+      <!-- Compteur animé -->
+      <div class="stats-bar" id="statsBar">
+        <div class="stat-item">
+          <span class="stat-number" data-target="347">0</span>
+          <span class="stat-label">bosses réparées</span>
+        </div>
+        <div class="stat-item">
+          <div style="display:flex;align-items:baseline;justify-content:center;gap:1px;">
+            <span class="stat-number" data-target="98">0</span><span class="stat-pct">%</span>
+          </div>
+          <span class="stat-label">clients satisfaits</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="5">0</span>
+          <span class="stat-label">ans d'expérience</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-mascot-wrap">
+        <div class="hero-bubble" id="heroBubble">Montre-moi ta bosse, je m'en occupe&nbsp;!</div>
+        <img src="mascotte.png" alt="Maxime - Magic Bosses" width="320" height="400" loading="eager"
+          onerror="this.style.display='none';document.getElementById('mascotFallbackHero').style.display='flex'">
+        <div class="mascot-fallback-hero" id="mascotFallbackHero" style="display:none">
+          <svg viewBox="0 0 80 100" width="80"><rect x="10" y="40" width="60" height="60" rx="8" fill="#1a1a1a" stroke="#F5C518" stroke-width="2"/><circle cx="40" cy="30" r="22" fill="#1a1a1a" stroke="#F5C518" stroke-width="2"/><text x="40" y="36" text-anchor="middle" font-size="20" fill="#F5C518">MB</text></svg>
+          <span style="font-family:'Bebas Neue',cursive;font-size:11px;color:#F5820A;margin-top:4px">MAXIME</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BARRE RÉASSURANCE ===== -->
+<div class="reassurance-bar">
+  <div class="reassurance-item">
+    <span class="reassurance-icon">⚡</span>
+    <span>Réponse en <strong>moins de 2h</strong></span>
+  </div>
+  <div class="reassurance-item">
+    <span class="reassurance-icon">🚗</span>
+    <span>Intervention <strong>à domicile</strong></span>
+  </div>
+  <div class="reassurance-item">
+    <span class="reassurance-icon">💰</span>
+    <span><strong>Devis gratuit</strong> sans engagement</span>
+  </div>
+</div>
+
+<!-- ===== MON HISTOIRE ===== -->
+<section id="histoire">
+  <div class="histoire-inner">
+    <div class="histoire-left">
+      <span class="section-label">À propos</span>
+      <h2 class="section-title">MON HISTOIRE</h2>
+      <p class="histoire-text">
+        Magic Bosses est née d'un constat simple : <strong>la carrosserie traditionnelle coûte cher, prend du temps, et n'est pas toujours nécessaire.</strong> Il existe une meilleure méthode — le débosselage sans peinture — et c'est autour d'elle qu'on a tout construit.
+      </p>
+      <p class="histoire-text">
+        Depuis 5 ans, on intervient directement chez nos clients dans le Jura, l'Ain et la Saône-et-Loire. Plus de <strong>347 véhicules</strong> remis en état, sans peinture, sans mastic, sans immobilisation longue.
+      </p>
+      <p class="histoire-text">
+        Aujourd'hui, Magic Bosses c'est une référence locale bâtie sur un seul principe : un travail bien fait, du premier coup.
+      </p>
+      <div class="histoire-quote">
+        <p>"La tôle a une mémoire. Mon métier, c'est de lui rappeler sa forme d'origine."</p>
+      </div>
+    </div>
+    <div class="histoire-deco">
+      <div class="histoire-photo">
+        <img src="atelier.png" alt="Maxime en intervention DSP" width="600" height="400" loading="lazy"
+          onerror="this.src='';this.parentNode.style.background='linear-gradient(135deg,#1a0a2e,#0d0d0d)';this.style.display='none'">
+      </div>
+      <div class="histoire-stars" id="histoireStars" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== POURQUOI LE DSP ===== -->
+<section id="dsp">
+  <div class="dsp-inner">
+    <div class="section-header">
+      <span class="section-label" style="display:block;text-align:center">Technique</span>
+      <h2 class="section-title-center">POURQUOI LE DSP ?</h2>
+      <div class="separator"></div>
+    </div>
+    <div class="dsp-grid">
+      <!-- Carte 1 -->
+      <div class="dsp-card">
+        <svg class="dsp-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="12" stroke="#F5820A" stroke-width="2.5"/>
+          <circle cx="28" cy="28" r="4" fill="#F5820A"/>
+          <path d="M4 28 C10 14 46 14 52 28 C46 42 10 42 4 28Z" stroke="#7B2FBE" stroke-width="2" fill="none"/>
+          <circle cx="28" cy="28" r="18" stroke="rgba(123,47,190,0.3)" stroke-width="1" stroke-dasharray="4 4"/>
+        </svg>
+        <h3 class="dsp-card-title">RÉSULTAT 100% INVISIBLE</h3>
+        <p class="dsp-card-text">Aucune trace visible. La peinture d'origine reste intacte — impossible de distinguer la zone réparée, même de près. Comme si la bosse n'avait jamais existé.</p>
+      </div>
+      <!-- Carte 2 -->
+      <div class="dsp-card">
+        <svg class="dsp-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 10 L18 28 C18 36 24 42 28 42 C32 42 38 36 38 28 L38 10" stroke="#F5820A" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M22 10 L34 10" stroke="#F5820A" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24 22 L24 34" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round"/>
+          <path d="M32 22 L32 34" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round"/>
+          <line x1="8" y1="8" x2="48" y2="48" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+          <line x1="48" y1="8" x2="8" y2="48" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <h3 class="dsp-card-title">ZÉRO PEINTURE, ZÉRO MASTIC</h3>
+        <p class="dsp-card-text">Aucun produit chimique. Pas de raccord de teinte qui vieillira différemment de votre carrosserie. La peinture constructeur reste celle d'usine, intacte.</p>
+      </div>
+      <!-- Carte 3 -->
+      <div class="dsp-card">
+        <svg class="dsp-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="20" stroke="#F5820A" stroke-width="2.5"/>
+          <path d="M28 16 L28 28 L36 34" stroke="#7B2FBE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="28" cy="28" r="2" fill="#F5820A"/>
+        </svg>
+        <h3 class="dsp-card-title">RAPIDE — VOUS REPARTEZ LE JOUR MÊME</h3>
+        <p class="dsp-card-text">30 minutes à 3 heures selon l'intervention. Pas d'immobilisation de votre véhicule pendant des jours. On traite, vous repartez.</p>
+      </div>
+      <!-- Carte 4 -->
+      <div class="dsp-card">
+        <svg class="dsp-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M28 6 L32 20 L46 20 L35 29 L39 43 L28 34 L17 43 L21 29 L10 20 L24 20 Z" stroke="#F5820A" stroke-width="2" fill="none"/>
+          <path d="M28 10 L31 19 L42 19 L34 25 L37 36 L28 30 L19 36 L22 25 L14 19 L25 19 Z" fill="rgba(245,197,24,0.15)"/>
+          <path d="M14 46 L42 46" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round"/>
+          <path d="M18 50 L38 50" stroke="rgba(123,47,190,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3 class="dsp-card-title">VOTRE VÉHICULE GARDE SA VALEUR</h3>
+        <p class="dsp-card-text">La peinture constructeur est préservée intégralement. Un atout majeur à la revente — aucune mention de retouche peinture dans l'historique.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AVANT / APRÈS ===== -->
+<section id="avantapres">
+  <div class="avantapres-inner">
+    <div class="section-header">
+      <span class="section-label" style="display:block;text-align:center">Résultats</span>
+      <h2 class="section-title-center">LE RÉSULTAT PARLE LUI-MÊME</h2>
+      <div class="separator"></div>
+      <p class="section-sub" style="margin-top:12px">Glissez le curseur pour voir la transformation</p>
+    </div>
+    <div class="sliders-row">
+      <!-- Slider 1 : APRÈS 20260331_145415 / AVANT 20260331_144333 -->
+      <div class="slider-wrap">
+        <div class="slider-container" data-slider="0">
+          <div class="slider-after">
+            <div class="wm-wrap">
+              <img src="20260331_145415.jpg" alt="Après réparation DSP" loading="lazy">
+              <span class="watermark">© Magic Bosses</span>
+            </div>
+          </div>
+          <div class="slider-before" id="sliderBefore0">
+            <div class="wm-wrap">
+              <img src="20260331_144333.jpg" alt="Avant réparation DSP" loading="lazy">
+              <span class="watermark">© Magic Bosses</span>
+            </div>
+          </div>
+          <span class="slider-label label-avant">AVANT</span>
+          <span class="slider-label label-apres">APRÈS</span>
+          <div class="slider-divider" id="sliderDiv0"></div>
+          <div class="slider-handle" id="sliderHandle0">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M7 4l-4 6 4 6M13 4l4 6-4 6" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="slider-caption">Réparation carrosserie · Résultat invisible</p>
+      </div>
+      <!-- Slider 2 : APRÈS 20260331_151025 / AVANT 20260331_145701 -->
+      <div class="slider-wrap">
+        <div class="slider-container" data-slider="1">
+          <div class="slider-after">
+            <div class="wm-wrap">
+              <img src="20260331_151025.jpg" alt="Après réparation DSP" loading="lazy">
+              <span class="watermark">© Magic Bosses</span>
+            </div>
+          </div>
+          <div class="slider-before" id="sliderBefore1">
+            <div class="wm-wrap">
+              <img src="20260331_145701.jpg" alt="Avant réparation DSP" loading="lazy">
+              <span class="watermark">© Magic Bosses</span>
+            </div>
+          </div>
+          <span class="slider-label label-avant">AVANT</span>
+          <span class="slider-label label-apres">APRÈS</span>
+          <div class="slider-divider" id="sliderDiv1"></div>
+          <div class="slider-handle" id="sliderHandle1">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M7 4l-4 6 4 6M13 4l4 6-4 6" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="slider-caption">Débosselage sans peinture · Peinture préservée</p>
+      </div>
+      <!-- Slider 3 : AVANT 20260331_140839 / APRÈS 20260331_142036 -->
+      <div class="slider-wrap">
+        <div class="slider-container" data-slider="2">
+          <div class="slider-after">
+            <div class="wm-wrap">
+              <img src="20260331_142036.jpg" alt="Après réparation DSP" loading="lazy">
+              <span class="watermark">© Magic Bosses</span>
+            </div>
+          </div>
+          <div class="slider-before" id="sliderBefore2">
+            <div class="wm-wrap">
+              <img src="20260331_140839.jpg" alt="Avant réparation DSP" loading="lazy">
+              <span class="watermark">© Magic Bosses</span>
+            </div>
+          </div>
+          <span class="slider-label label-avant">AVANT</span>
+          <span class="slider-label label-apres">APRÈS</span>
+          <div class="slider-divider" id="sliderDiv2"></div>
+          <div class="slider-handle" id="sliderHandle2">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M7 4l-4 6 4 6M13 4l4 6-4 6" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="slider-caption">Bosse complexe · Travail chirurgical</p>
+      </div>
+      <!-- Slider 4 : AVANT 20260331_152944 / APRÈS 20260331_154329 -->
+      <div class="slider-wrap">
+        <div class="slider-container" data-slider="3">
+          <div class="slider-after">
+            <div class="wm-wrap">
+              <img src="20260331_154329.jpg" alt="Après réparation DSP" loading="lazy">
+              <span class="watermark">© Magic Bosses</span>
+            </div>
+          </div>
+          <div class="slider-before" id="sliderBefore3">
+            <div class="wm-wrap">
+              <img src="20260331_152944.jpg" alt="Avant réparation DSP" loading="lazy">
+              <span class="watermark">© Magic Bosses</span>
+            </div>
+          </div>
+          <span class="slider-label label-avant">AVANT</span>
+          <span class="slider-label label-apres">APRÈS</span>
+          <div class="slider-divider" id="sliderDiv3"></div>
+          <div class="slider-handle" id="sliderHandle3">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M7 4l-4 6 4 6M13 4l4 6-4 6" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="slider-caption">Résultat net · Zéro mastic</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALERIE ===== -->
+<section id="galerie">
+  <div class="galerie-inner">
+    <div class="section-header">
+      <span class="section-label" style="display:block;text-align:center">Portfolio</span>
+      <h2 class="section-title-center">MES RÉALISATIONS</h2>
+      <div class="separator"></div>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Items générés dynamiquement par JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== TÉMOIGNAGES ===== -->
+<section id="avis">
+  <div class="avis-inner">
+    <div class="section-header">
+      <span class="section-label" style="display:block;text-align:center">Ils témoignent</span>
+      <h2 class="section-title-center">CE QUE DISENT MES CLIENTS</h2>
+      <div class="separator"></div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">Coup de portière sur l'aile arrière, résultat impeccable en moins d'une heure. La technique est expliquée à chaque étape, c'est bluffant. Je recommande sans hésiter.</p>
+        <div class="avis-author">
+          <span class="avis-name">Nicolas B.</span>
+          <span class="avis-ville">— Dole</span>
+        </div>
+      </div>
+      <div class="avis-card avis-card-featured">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">Plusieurs impacts de grêle sur le capot, voiture rendue comme neuve. Bilan complet à l'arrivée, technique bien expliquée. On voit quelqu'un qui maîtrise son métier et qui aime ce qu'il fait.</p>
+        <div class="avis-author">
+          <span class="avis-name">Sophie C.</span>
+          <span class="avis-ville">— Lons-le-Saunier</span>
+        </div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">J'étais sceptique au départ, mais c'est un vrai savoir-faire. Contact sympa, tarif honnête, travail soigné — aucune trace visible. À recommander à tout le monde dans la région.</p>
+        <div class="avis-author">
+          <span class="avis-name">Romain M.</span>
+          <span class="avis-ville">— Dole</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LIGHTBOX ===== -->
+<div id="lightbox" role="dialog" aria-label="Visualisation photo">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fermer">✕</button>
+  <div class="lightbox-content" id="lightboxContent">
+    <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)" aria-label="Précédent">‹</button>
+    <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)" aria-label="Suivant">›</button>
+    <div class="lightbox-placeholder" id="lightboxPlaceholder"></div>
+  </div>
+</div>
+
+<!-- ===== TARIFS ===== -->
+<section id="tarifs">
+  <div class="tarifs-inner">
+    <div class="section-header">
+      <span class="section-label" style="display:block;text-align:center">Transparence</span>
+      <h2 class="section-title-center">TARIFS INDICATIFS</h2>
+      <div class="separator"></div>
+    </div>
+    <div class="tarifs-grid">
+      <!-- Tableau bosses uniques -->
+      <div class="tarif-card" style="grid-column:1/-1;text-align:center;">
+        <span class="tarif-badge badge-green">Hors grêle · Déplacement inclus</span>
+        <div class="tarif-name" style="margin-top:10px;">ESTIMEZ VOTRE RÉPARATION</div>
+        <div class="tarif-desc" style="margin-bottom:12px;">Bosses uniques — trouvez votre tarif en un coup d'œil</div>
+        <div class="tarif-ttc-badge" style="margin:0 auto 4px;">✓ Tous les prix sont TTC &nbsp;·&nbsp; ✓ Déplacement inclus</div>
+        <div class="tarif-table-wrap">
+          <table class="tarif-table">
+            <thead>
+              <tr>
+                <th>Nb de bosses</th>
+                <th>Bosse simple <small>sans arête · ≤ pièce de 2 €</small></th>
+                <th>Bosse sur arête <small>arête marquée · ≤ pièce de 2 €</small></th>
+                <th>Bosse technique <small>≈ 10 cm · complexité élevée</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tarif-row-first">
+                <td>1 bosse</td>
+                <td class="price-main">100 € TTC</td>
+                <td class="price-sub">150 € TTC</td>
+                <td class="price-sub">200 € TTC</td>
+              </tr>
+              <tr>
+                <td>2 bosses</td>
+                <td class="price-main">150 € TTC <span class="tarif-saving">économie 50 €</span></td>
+                <td class="price-sub">200 € TTC <span class="tarif-saving">économie 100 €</span></td>
+                <td class="price-sub">400 € TTC</td>
+              </tr>
+              <tr>
+                <td>3 bosses</td>
+                <td class="price-main">200 € TTC <span class="tarif-saving">économie 100 €</span></td>
+                <td class="price-sub">250 € TTC <span class="tarif-saving">économie 200 €</span></td>
+                <td class="price-sub">600 € TTC</td>
+              </tr>
+              <tr>
+                <td>4 bosses</td>
+                <td class="price-main">250 € TTC <span class="tarif-saving">économie 150 €</span></td>
+                <td class="price-sub">300 € TTC <span class="tarif-saving">économie 300 €</span></td>
+                <td class="price-sub">800 € TTC</td>
+              </tr>
+              <tr>
+                <td>5 bosses et +</td>
+                <td colspan="3" class="price-devis" style="text-align:center;">Devis personnalisé gratuit — chaque bosse supplémentaire est négociée</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tarif-note" style="text-align:center;margin-top:8px;">Tarifs indicatifs TTC, déplacement inclus. Les économies s'entendent par rapport au tarif unitaire répété. Le prix définitif est confirmé après examen photo de votre véhicule.</p>
+        <button class="tarif-btn" style="max-width:320px;margin:20px auto 0;" onclick="openDevis()">Obtenir mon devis gratuit</button>
+      </div>
+      <!-- Carte Grêle — centrée -->
+      <div class="tarif-card tarif-grele" style="grid-column:1/-1;max-width:640px;margin:0 auto;width:100%;">
+        <span class="tarif-badge badge-gold">Franchise prise en charge*</span>
+        <div class="tarif-name">VÉHICULE GRÊLÉ</div>
+        <div class="tarif-accroche">Tempête de grêle ?<br>Zéro reste à charge pour vous.</div>
+        <div class="tarif-price" style="font-size:30px;color:var(--gold)">Sur devis</div>
+        <div class="tarif-desc">Évaluation gratuite selon l'étendue des dégâts</div>
+        <ul class="tarif-features">
+          <li>Prise en charge via assurance</li>
+          <li>Franchise offerte sous conditions*</li>
+          <li>Tous les impacts traités</li>
+          <li>Véhicule comme neuf garanti</li>
+        </ul>
+        <button class="tarif-btn" style="border-color:var(--gold);color:var(--gold)" onclick="openDevis()">Évaluation gratuite</button>
+        <p class="tarif-note">*Franchise offerte pour tout véhicule grêlé pris en charge via votre assurance, sous conditions : montant de la réparation supérieur à la franchise, véhicule assuré tous risques ou garantie grêle active, accord préalable de votre assureur. Renseignez-vous auprès de Magic Bosses pour vérifier votre éligibilité.</p>
+      </div>
+    </div>
+    <!-- Encadré risques DSP -->
+    <div class="risques-box">
+      <div class="risques-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Risques possibles du débosselage sans peinture
+      </div>
+      <ul class="risques-list">
+        <li><strong>Décollement de peinture</strong> — La peinture fragilisée ou anciennement réparée peut se décoller lors de l'intervention.</li>
+        <li><strong>Éclat de peinture</strong> — Un impact peut provoquer un micro-éclat sur la zone travaillée.</li>
+        <li><strong>Non-accès à l'impact</strong> — Certaines zones sont inaccessibles selon la structure du véhicule (renforts, doublures).</li>
+        <li><strong>Allongement de la tôle</strong> — Sur les bosses importantes, la tôle peut légèrement s'allonger sans retour parfait possible.</li>
+      </ul>
+      <p class="risques-reassure">Ces risques existent dans le métier du débosselage. Mon professionnalisme et mon expérience les réduisent au maximum — mais la transparence est ma priorité.</p>
+      <p class="risques-remise">Si un risque est identifié avant l'intervention et accepté par le client, une remise de 20% est appliquée sur le tarif final.</p>
+    </div>
+    <!-- Liberté de choix -->
+    <div class="liberte-box" style="margin-top:24px">
+      <div class="liberte-icon">⚖️</div>
+      <p class="liberte-text"><strong>Vous êtes libre de choisir votre réparateur.</strong> Votre assurance ne peut pas vous imposer un prestataire — c'est votre droit légal. Quel que soit votre assureur, vous pouvez faire appel à Magic Bosses pour votre réparation DSP.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ZONE INTERVENTION ===== -->
+<section id="zone">
+  <div class="zone-inner">
+    <span class="section-label" style="display:block;text-align:center">Mobilité</span>
+    <h2 class="section-title-center">ZONE D'INTERVENTION</h2>
+    <div class="separator"></div>
+    <div id="mapLeaflet"></div>
+    <p class="zone-text">
+      Magic Bosses intervient dans le <strong style="color:var(--orange)">Jura (39)</strong>, l'<strong style="color:var(--orange)">Ain (01)</strong> et la <strong style="color:var(--orange)">Saône-et-Loire (71)</strong> et alentours.<br>
+      Hors zone ? Contactez-nous directement — des déplacements ponctuels sont toujours possibles.
+    </p>
+
+    <!-- Encadré lieu d'intervention -->
+    <div style="max-width:700px;margin:40px auto 0;background:var(--bg-card);border:1px solid rgba(123,47,190,0.3);border-left:4px solid var(--orange);border-radius:0 12px 12px 0;padding:28px 32px;text-align:left;">
+      <div style="font-family:'Bebas Neue',cursive;font-size:22px;color:var(--orange);letter-spacing:2px;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        JE VIENS CHEZ VOUS
+      </div>
+      <ul style="list-style:none;margin:0;padding:0;">
+        <li style="padding:8px 0;font-size:14px;color:rgba(255,255,255,0.8);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:flex-start;gap:10px;">
+          <span style="color:var(--orange);font-size:16px;flex-shrink:0;">✓</span>
+          <span><strong>Domicile, entreprise, parking</strong> — j'interviens là où se trouve votre véhicule.</span>
+        </li>
+        <li style="padding:8px 0;font-size:14px;color:rgba(255,255,255,0.8);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:flex-start;gap:10px;">
+          <span style="color:var(--orange);font-size:16px;flex-shrink:0;">✓</span>
+          <span><strong>Abri ou garage recommandé</strong> — un espace à l'abri du soleil et de la pluie garantit un meilleur résultat et de meilleures conditions de travail.</span>
+        </li>
+        <li style="padding:8px 0;font-size:14px;color:rgba(255,255,255,0.8);display:flex;align-items:flex-start;gap:10px;">
+          <span style="color:var(--orange);font-size:16px;flex-shrink:0;">✓</span>
+          <span><strong>Pas d'abri disponible ?</strong> — pas de panique, je m'adapte aux contraintes. On trouve toujours une solution ensemble.</span>
+        </li>
+      </ul>
+    </div>
+
+    <button class="btn-primary" style="margin-top:32px" onclick="openDevis()">Je vérifie ma zone</button>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section id="cta-final">
+  <div class="cta-final-inner">
+    <p class="cta-final-label">Tu attends quoi ?</p>
+    <h2 class="cta-final-title">Ta bosse ne va pas<br><span>disparaître toute seule.</span></h2>
+    <p class="cta-final-sub">Envoie-moi une photo maintenant — je te réponds personnellement avec une estimation précise. Gratuit, sans engagement, en moins de 2h.</p>
+    <button class="btn-primary cta-final-btn" onclick="openDevis()">J'envoie ma photo maintenant →</button>
+    <div class="cta-final-garanties">
+      <span>✅ Gratuit</span>
+      <span>✅ Sans engagement</span>
+      <span>✅ Réponse en 2h</span>
+      <span>✅ Je me déplace chez toi</span>
+    </div>
+    <p class="cta-final-email">ou par mail : <a href="mailto:magicbosses.pro@gmail.com" style="color:var(--orange);text-decoration:none;">magicbosses.pro@gmail.com</a></p>
+  </div>
+</section>
+
+<!-- ===== MENTIONS LÉGALES ===== -->
+<section id="mentions-legales" style="background:#0a0a0a;border-top:1px solid rgba(123,47,190,0.15);padding:60px 24px;">
+  <div style="max-width:800px;margin:0 auto;color:rgba(255,255,255,0.5);font-size:13px;line-height:1.9;">
+    <h2 style="font-family:'Bebas Neue',cursive;font-size:28px;color:rgba(255,255,255,0.7);letter-spacing:2px;margin-bottom:28px;">MENTIONS LÉGALES</h2>
+
+    <p style="margin-bottom:6px;"><strong style="color:rgba(255,255,255,0.7);">Éditeur du site</strong></p>
+    <p>Magic Bosses SASU — Société par actions simplifiée à associé unique</p>
+    <p>Capital social : 1 000,00 €</p>
+    <p>RCS Lons-le-Saunier n° 951 024 769</p>
+    <p>Siège social : 39190 Cousance (Jura)</p>
+    <p>Président : Maxime Chevassu</p>
+    <p>Email : magicbosses.pro@gmail.com</p>
+    <p style="margin-bottom:24px;"></p>
+
+    <p style="margin-bottom:6px;"><strong style="color:rgba(255,255,255,0.7);">Hébergement</strong></p>
+    <p style="margin-bottom:24px;">Backend : Railway Corporation — 340 S Lemon Ave #4133, Walnut, CA 91789, USA</p>
+
+    <p style="margin-bottom:6px;"><strong style="color:rgba(255,255,255,0.7);">Données personnelles</strong></p>
+    <p>Les informations collectées via le formulaire de devis (nom, prénom, adresse, téléphone, photo) sont utilisées uniquement pour traiter votre demande de devis. Elles ne sont pas transmises à des tiers.</p>
+    <p style="margin-top:8px;">Les données sont conservées pendant une durée maximale de 3 ans à compter de votre dernière demande.</p>
+    <p style="margin-top:8px;">Conformément au RGPD (Règlement UE 2016/679), vous disposez des droits suivants : accès, rectification, suppression, opposition, limitation du traitement et portabilité de vos données. Pour exercer ces droits, contactez-nous à : <strong>magicbosses.pro@gmail.com</strong></p>
+    <p style="margin-top:8px;">Ce site utilise des ressources externes (Google Fonts, Leaflet) susceptibles de déposer des cookies. Un bandeau de consentement vous est présenté lors de votre première visite.</p>
+  </div>
+</section>
+
+<!-- ===== CONTACT + FOOTER ===== -->
+<footer id="contact">
+  <div class="footer-stars" id="footerStars" aria-hidden="true"></div>
+  <div class="contact-section">
+    <div class="contact-header">
+      <span class="section-label" style="display:block;text-align:center">Contact</span>
+      <h2 class="section-title-center">PRENONS CONTACT</h2>
+      <div class="separator"></div>
+      <p class="contact-intro">Choisis le moyen qui te convient le mieux — je réponds personnellement.</p>
+    </div>
+    <div class="contact-cards">
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/33772009377" target="_blank" rel="noopener" class="contact-card contact-card-primary">
+        <div class="contact-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div class="contact-card-content">
+          <span class="contact-card-label">WhatsApp</span>
+          <span class="contact-card-value">07 72 00 93 77</span>
+          <span class="contact-card-hint">⚡ Réponse en quelques minutes</span>
+        </div>
+        <span class="contact-card-arrow">→</span>
+      </a>
+
+      <!-- Téléphone -->
+      <a href="tel:+33772009377" class="contact-card">
+        <div class="contact-card-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.1 2.38 2 2 0 012.08.4h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.06-.44a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="contact-card-content">
+          <span class="contact-card-label">Téléphone</span>
+          <span class="contact-card-value">07 72 00 93 77</span>
+          <span class="contact-card-hint">Lun–Sam · 8h–19h</span>
+        </div>
+        <span class="contact-card-arrow">→</span>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:magicbosses.pro@gmail.com" class="contact-card">
+        <div class="contact-card-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="contact-card-content">
+          <span class="contact-card-label">Email</span>
+          <span class="contact-card-value">magicbosses.pro@gmail.com</span>
+          <span class="contact-card-hint">Réponse sous 24h</span>
+        </div>
+        <span class="contact-card-arrow">→</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Footer bas de page -->
+  <div class="footer-bottom">
+    <div id="footerLogo" class="footer-logo" title="Double-cliquez pour l'interface admin">
+      <img src="logo.png" alt="Magic Bosses" loading="lazy" width="100" height="36"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="logo-fallback" style="display:none">MAGIC <span style="color:#7B2FBE">BOSSES</span></span>
+    </div>
+    <div class="footer-social">
+      <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+    </div>
+    <div class="footer-legal">
+      <p>Magic Bosses SASU — Capital 1 000 € · RCS Lons-le-Saunier n° 951 024 769</p>
+      <p style="margin-top:4px"><a href="#mentions-legales" style="color:rgba(255,255,255,0.4);text-decoration:underline;">Mentions légales</a></p>
+      <p style="margin-top:4px">© 2026 Magic Bosses — Tous droits réservés</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MASCOTTE FLOTTANTE ===== -->
+<div id="floatingMascot" onclick="openDevis()" title="Obtenir un devis gratuit" role="button" tabindex="0" aria-label="Ouvrir le formulaire de devis">
+  <div id="mascotBubble">Montre-moi ta bosse !</div>
+  <img src="mascotte.png" alt="Maxime"
+    onerror="this.style.display='none';document.getElementById('mascotFallbackFloat').style.display='flex'">
+  <div class="float-mascot-fallback" id="mascotFallbackFloat" style="display:none">
+    MAGIC<br>BOSSES
+  </div>
+</div>
+
+<!-- ===== PANNEAU DEVIS ===== -->
+<div id="devisOverlay" onclick="closeDevis()"></div>
+<div id="devisPanel" role="dialog" aria-label="Formulaire de devis" aria-modal="true">
+  <div class="devis-header">
+    <img src="mascotte.png" alt="" width="55"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="mascot-fallback-sm" style="display:none">MB</div>
+    <div id="devisBubble">Dis-moi tout sur ta bosse !</div>
+    <button class="devis-close" onclick="closeDevis()" aria-label="Fermer">✕</button>
+  </div>
+  <div class="devis-form-body">
+    <div class="devis-title">DEVIS GRATUIT</div>
+    <form id="devisForm" onsubmit="submitDevis(event)" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="devisPrenom">Prénom *</label>
+          <input type="text" id="devisPrenom" name="prenom" required placeholder="Prénom" autocomplete="given-name">
+        </div>
+        <div class="form-group">
+          <label for="devisNom">Nom *</label>
+          <input type="text" id="devisNom" name="nom" required placeholder="Nom" autocomplete="family-name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="devisAdresse">Adresse *</label>
+        <input type="text" id="devisAdresse" name="adresse" required placeholder="Numéro et rue" autocomplete="street-address">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="devisCP">Code postal *</label>
+          <input type="text" id="devisCP" name="codePostal" required placeholder="39000" maxlength="5" autocomplete="postal-code">
+        </div>
+        <div class="form-group">
+          <label for="devisVille">Ville *</label>
+          <input type="text" id="devisVille" name="ville" required placeholder="Votre ville" autocomplete="address-level2">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="devisTel">Téléphone *</label>
+        <input type="tel" id="devisTel" name="telephone" required placeholder="06 XX XX XX XX" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label for="devisType">Type de bosse *</label>
+        <select id="devisType" name="typeBosse" required>
+          <option value="" disabled selected>Choisir...</option>
+          <option value="simple">Simple (sans arête)</option>
+          <option value="arete">Sur arête</option>
+          <option value="technique">Technique (grande, complexe)</option>
+          <option value="grele">Grêle (multiples bosses)</option>
+          <option value="sais_pas">Je ne sais pas</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="devisDesc">Description</label>
+        <textarea id="devisDesc" name="description" placeholder="Décris ta bosse : zone du véhicule, taille approximative, circonstances..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Photo du dommage *</label>
+        <input type="file" id="photoInput" accept="image/*" style="display:none" required>
+        <input type="file" id="photoCameraInput" accept="image/*" capture="environment" style="display:none">
+        <div style="display:flex;gap:10px;">
+          <button type="button" class="photo-upload-btn" style="flex:1;font-size:14px;" onclick="document.getElementById('photoInput').click()">
+            📁 Depuis la galerie
+          </button>
+          <button type="button" class="photo-upload-btn" style="flex:1;font-size:14px;" onclick="document.getElementById('photoCameraInput').click()">
+            📷 Prendre une photo
+          </button>
+        </div>
+        <div id="photoPreview"></div>
+      </div>
+      <div class="form-group">
+        <label>Vos disponibilités</label>
+        <div class="dispo-visual">
+          <div class="dispo-legend">
+            <span class="dispo-leg-sel"><span class="dispo-leg-dot" style="background:#4ade80"></span>Sélectionné</span>
+            <span class="dispo-leg-def"><span class="dispo-leg-dot" style="background:rgba(255,255,255,0.15)"></span>Disponible</span>
+          </div>
+          <div class="dispo-table">
+            <div class="dispo-th"></div>
+            <div class="dispo-th">Lun</div>
+            <div class="dispo-th">Mar</div>
+            <div class="dispo-th">Mer</div>
+            <div class="dispo-th">Jeu</div>
+            <div class="dispo-th">Ven</div>
+            <div class="dispo-th">Sam</div>
+            <div class="dispo-row-lbl">🌅 Matin</div>
+            <button type="button" class="dispo-slot" data-val="lun_matin">Lun</button>
+            <button type="button" class="dispo-slot" data-val="mar_matin">Mar</button>
+            <button type="button" class="dispo-slot" data-val="mer_matin">Mer</button>
+            <button type="button" class="dispo-slot" data-val="jeu_matin">Jeu</button>
+            <button type="button" class="dispo-slot" data-val="ven_matin">Ven</button>
+            <button type="button" class="dispo-slot" data-val="sam_matin">Sam</button>
+            <div class="dispo-row-lbl">🌇 Après-midi</div>
+            <button type="button" class="dispo-slot" data-val="lun_apm">Lun</button>
+            <button type="button" class="dispo-slot" data-val="mar_apm">Mar</button>
+            <button type="button" class="dispo-slot" data-val="mer_apm">Mer</button>
+            <button type="button" class="dispo-slot" data-val="jeu_apm">Jeu</button>
+            <button type="button" class="dispo-slot" data-val="ven_apm">Ven</button>
+            <button type="button" class="dispo-slot" data-val="sam_apm">Sam</button>
+          </div>
+        </div>
+      </div>
+      <div class="accept-box">
+        <label class="accept-label">
+          <input type="checkbox" id="acceptResponsabilite" required>
+          <span>
+            <strong>J'ai pris connaissance des risques liés au débosselage sans peinture</strong> (décollement, éclat, non-accès, allongement de tôle). Je comprends que ces risques, bien que rares, existent et j'en accepte l'entière responsabilité. Magic Bosses ne pourra être tenu responsable en cas de survenance de l'un de ces risques préalablement identifiés.
+          </span>
+        </label>
+      </div>
+      <button type="submit" class="form-submit-btn">ENVOYER MA DEMANDE →</button>
+    </form>
+    <div id="devisSuccess">
+      <div class="success-icon">✨</div>
+      <div class="success-title">REÇU !</div>
+      <p class="success-text">Maxime analyse ta bosse et te recontacte très vite.<br><br>
+      <em style="color:rgba(255,255,255,0.5);font-size:14px">Tu recevras un appel ou un message WhatsApp dans les plus brefs délais.</em></p>
+      <button class="btn-primary" style="margin-top:28px;border:none" onclick="closeDevis()">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ADMIN ===== -->
+<div id="adminPanel" role="dialog" aria-label="Interface d'administration" aria-modal="true">
+  <div class="admin-inner">
+    <div class="admin-header">
+      <h2>🗂 MAGIC BOSSES — ADMIN</h2>
+      <button class="admin-btn" onclick="exportJSON()">⬇ Export JSON</button>
+      <button class="admin-btn admin-btn-close" onclick="closeAdmin()">✕ Fermer</button>
+    </div>
+    <div class="admin-stats" id="adminStats"></div>
+    <!-- MAGIC APP SYNC POINT — liste des devis, sync avec app Claude Code via localStorage -->
+    <div id="adminList"></div>
+  </div>
+</div>
+
+<script>
+// ==========================================
+// MAGIC BOSSES — JavaScript Core
+// ==========================================
+
+const BACKEND_URL = 'https://magic-bosses-backend-production.up.railway.app';
+
+// ===== NAVBAR =====
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+
+function closeMenu() {
+  hamburger.classList.remove('open');
+  navLinks.classList.remove('open');
+}
+
+// ===== ÉTOILES HERO =====
+function createStarSVG(size, color) {
+  return `<svg width="${size}" height="${size}" viewBox="0 0 20 20" fill="${color}" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 0 L11.5 8.5 L20 10 L11.5 11.5 L10 20 L8.5 11.5 L0 10 L8.5 8.5 Z"/>
+  </svg>`;
+}
+
+function createStars() {
+  const container = document.getElementById('heroStars');
+  const histContainer = document.getElementById('histoireStars');
+  const footerContainer = document.getElementById('footerStars');
+  const colors = ['#F5C518', '#7B2FBE', '#F5820A'];
+
+  // Hero stars
+  for (let i = 0; i < 22; i++) {
+    const star = document.createElement('div');
+    star.className = 'star-particle';
+    const size = 6 + Math.random() * 14;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    star.innerHTML = createStarSVG(size, color);
+    star.style.cssText = `
+      position:absolute;
+      left:${Math.random() * 100}%;
+      top:${Math.random() * 100}%;
+      animation: twinkle ${1.5 + Math.random() * 3}s ease-in-out infinite;
+      animation-delay: ${Math.random() * 3}s;
+      pointer-events:none;
+      z-index:0;
+    `;
+    container.appendChild(star);
+  }
+
+  // Histoire stars
+  if (histContainer) {
+    for (let i = 0; i < 12; i++) {
+      const star = document.createElement('div');
+      star.className = 'star-particle';
+      const size = 8 + Math.random() * 16;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      star.innerHTML = createStarSVG(size, color);
+      star.style.cssText = `
+        position:absolute;
+        left:${Math.random() * 100}%;
+        top:${Math.random() * 100}%;
+        animation: twinkle ${2 + Math.random() * 3}s ease-in-out infinite;
+        animation-delay: ${Math.random() * 4}s;
+        pointer-events:none;
+      `;
+      histContainer.appendChild(star);
+    }
+  }
+
+  // Footer stars
+  if (footerContainer) {
+    for (let i = 0; i < 10; i++) {
+      const star = document.createElement('div');
+      const size = 6 + Math.random() * 10;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      star.innerHTML = createStarSVG(size, color);
+      star.style.cssText = `
+        display:inline-block;
+        margin: 0 8px;
+        animation: twinkle ${2 + Math.random() * 2}s ease-in-out infinite;
+        animation-delay: ${Math.random() * 3}s;
+        opacity:0.5;
+      `;
+      footerContainer.appendChild(star);
+    }
+  }
+}
+
+// ===== MASCOTTE FLOTTANTE =====
+const mascotMessages = [
+  "Montre-moi ta bosse !",
+  "Devis gratuit en 2 min !",
+  "Je passe près de chez toi ?"
+];
+let mascotMsgIdx = 0;
+
+function rotateMascotMessage() {
+  const bubble = document.getElementById('mascotBubble');
+  if (!bubble) return;
+  mascotMsgIdx = (mascotMsgIdx + 1) % mascotMessages.length;
+  bubble.style.opacity = '0';
+  bubble.style.transform = 'translateY(5px)';
+  setTimeout(() => {
+    bubble.textContent = mascotMessages[mascotMsgIdx];
+    bubble.style.opacity = '1';
+    bubble.style.transform = 'translateY(0)';
+    bubble.style.transition = 'all 0.3s ease';
+  }, 200);
+}
+
+setInterval(rotateMascotMessage, 4000);
+
+// Accessibilité mascotte flottante
+document.getElementById('floatingMascot').addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDevis(); }
+});
+
+// ===== SLIDERS AVANT/APRÈS =====
+function initSliders() {
+  document.querySelectorAll('.slider-container').forEach((container, idx) => {
+    const before = document.getElementById(`sliderBefore${idx}`);
+    const divider = document.getElementById(`sliderDiv${idx}`);
+    const handle = document.getElementById(`sliderHandle${idx}`);
+    let dragging = false;
+
+    function setPosition(clientX) {
+      const rect = container.getBoundingClientRect();
+      let pct = (clientX - rect.left) / rect.width;
+      pct = Math.max(0.05, Math.min(0.95, pct));
+      const pctPx = (pct * 100) + '%';
+      before.style.clipPath = `inset(0 ${100 - pct * 100}% 0 0)`;
+      divider.style.left = pctPx;
+      handle.style.left = pctPx;
+    }
+
+    // Init at 50%
+    before.style.clipPath = 'inset(0 50% 0 0)';
+
+    const onMove = e => {
+      if (!dragging) return;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      setPosition(clientX);
+    };
+
+    const onUp = () => { dragging = false; };
+
+    container.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); });
+    container.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); }, {passive:true});
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, {passive:true});
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+  });
+}
+
+// ===== GALERIE =====
+const galleryItems = [
+  { src: '20260331_151838.jpg', alt: 'Réalisation Magic Bosses' },
+  { src: '20260331_152420.jpg', alt: 'Débosselage sans peinture' },
+  { src: 'capture_190208.png', alt: 'Réalisation Magic Bosses' },
+  { src: 'capture_190156.png', alt: 'Résultat débosselage' },
+  { src: 'Snapchat-694287755.jpg', alt: 'Intervention DSP' },
+  { src: 'Snapchat-2016392202.jpg', alt: 'Magic Bosses DSP' },
+  { src: '20260305_145721.jpg', alt: 'Travail de précision' },
+];
+
+let currentLightboxIdx = 0;
+let filteredItems = [...galleryItems];
+
+function renderGallery(items) {
+  const grid = document.getElementById('galleryGrid');
+  grid.innerHTML = '';
+  items.forEach((item, i) => {
+    const el = document.createElement('div');
+    el.className = 'gallery-item';
+    el.setAttribute('data-index', i);
+    el.innerHTML = `
+      <div style="position:relative">
+        <img src="${item.src}" alt="${item.alt}" class="gallery-real-img" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=gallery-placeholder style=min-height:180px><div class=ph-type>Magic Bosses</div></div>'">
+        <span class="watermark" style="position:absolute;bottom:6px;right:8px">© Magic Bosses</span>
+      </div>
+    `;
+    el.addEventListener('click', () => openLightbox(i, items));
+    grid.appendChild(el);
+  });
+}
+
+function openLightbox(idx, items) {
+  currentLightboxIdx = idx;
+  const lb = document.getElementById('lightbox');
+  lb.classList.add('open');
+  renderLightboxItem(items || filteredItems, idx);
+  document.body.style.overflow = 'hidden';
+}
+
+function renderLightboxItem(items, idx) {
+  const ph = document.getElementById('lightboxPlaceholder');
+  const item = items[idx];
+  if (!item) return;
+  ph.style.background = 'transparent';
+  ph.style.height = 'auto';
+  ph.innerHTML = `
+    <div style="position:relative;display:inline-block">
+      <img src="${item.src}" alt="${item.alt}" style="max-width:90vw;max-height:85vh;display:block;border-radius:8px" loading="lazy">
+      <span style="position:absolute;bottom:8px;right:12px;font-size:12px;color:rgba(255,255,255,0.5);font-family:'Barlow',sans-serif;letter-spacing:1px;text-shadow:0 1px 3px rgba(0,0,0,0.9)">© Magic Bosses</span>
+      <div style="position:absolute;bottom:-28px;left:0;right:0;text-align:center;font-size:13px;color:rgba(255,255,255,0.4)">${idx+1} / ${items.length}</div>
+    </div>
+  `;
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function navLightbox(dir) {
+  currentLightboxIdx = (currentLightboxIdx + dir + filteredItems.length) % filteredItems.length;
+  renderLightboxItem(filteredItems, currentLightboxIdx);
+}
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+document.addEventListener('keydown', e => {
+  if (document.getElementById('lightbox').classList.contains('open')) {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navLightbox(-1);
+    if (e.key === 'ArrowRight') navLightbox(1);
+  }
+  if (document.getElementById('adminPanel').style.display === 'flex' && e.key === 'Escape') closeAdmin();
+});
+
+// ===== PANNEAU DEVIS =====
+let photoBase64 = null;
+
+function openDevis() {
+  document.getElementById('devisPanel').classList.add('open');
+  document.getElementById('devisOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDevis() {
+  document.getElementById('devisPanel').classList.remove('open');
+  document.getElementById('devisOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Bulle mascotte contextuelle
+const devisBubbleMessages = {
+  devisPrenom: "Enchanté ! Je suis Maxime.",
+  devisNom: "Enchanté ! Je suis Maxime.",
+  devisAdresse: "Pour estimer si je suis dans ta zone !",
+  devisCP: "Ton code postal me permet de calculer la distance.",
+  devisVille: "Ça m'aide à organiser mes tournées !",
+  devisTel: "Pour te rappeler vite avec un devis personnalisé.",
+  devisType: "Pas sûr du type ? La photo m'aidera à trancher.",
+  devisDesc: "Donne-moi un max de détails, c'est utile !",
+  photoInput: "Une photo vaut mille mots — montre-moi !",
+};
+
+document.querySelectorAll('#devisForm input, #devisForm select, #devisForm textarea').forEach(el => {
+  el.addEventListener('focus', () => {
+    const msg = devisBubbleMessages[el.id];
+    if (msg) document.getElementById('devisBubble').textContent = msg;
+  });
+});
+
+// Upload photo — compression automatique
+function compressAndPreview(file) {
+  if (!file) return;
+  const img = new Image();
+  const reader = new FileReader();
+  reader.onload = e => {
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const MAX = 1200;
+      let w = img.width, h = img.height;
+      if (w > MAX || h > MAX) {
+        if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
+        else { w = Math.round(w * MAX / h); h = MAX; }
+      }
+      canvas.width = w;
+      canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      photoBase64 = canvas.toDataURL('image/jpeg', 0.82);
+      const preview = document.getElementById('photoPreview');
+      preview.style.display = 'block';
+      preview.innerHTML = `<img src="${photoBase64}" alt="Aperçu photo" style="max-height:200px;width:100%;object-fit:cover">`;
+      document.getElementById('devisBubble').textContent = "Parfait, je vois bien la bosse !";
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+document.getElementById('photoInput').addEventListener('change', function() {
+  compressAndPreview(this.files[0]);
+});
+document.getElementById('photoCameraInput').addEventListener('change', function() {
+  compressAndPreview(this.files[0]);
+});
+
+// ===== CALCUL DISTANCE HAVERSINE =====
+function haversine(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)**2 +
+    Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) * Math.sin(dLon/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+// Coordonnées de Lons-le-Saunier
+const LONS_LAT = 46.675;
+const LONS_LON = 5.556;
+
+// ===== DÉTECTION CLUSTERS =====
+// MAGIC APP SYNC POINT — clusters utilisés pour optimiser les tournées de Maxime
+function detectClusters(allDevis) {
+  allDevis.forEach(d => {
+    if (!d.coords) { d.cluster = false; return; }
+    const nearby = allDevis.filter(other =>
+      other.id !== d.id &&
+      other.coords &&
+      haversine(d.coords.lat, d.coords.lon, other.coords.lat, other.coords.lon) < 30
+    );
+    d.cluster = nearby.length >= 2;
+  });
+}
+
+// ===== SAUVEGARDE DEVIS =====
+// MAGIC APP SYNC POINT — données sauvegardées ici, lues par l'app Magic
+function saveDevis(devis) {
+  try {
+    const all = JSON.parse(localStorage.getItem('magicbosses_devis') || '[]');
+    all.push(devis);
+    detectClusters(all);
+    localStorage.setItem('magicbosses_devis', JSON.stringify(all));
+  } catch(e) {
+    console.warn('localStorage plein — devis non sauvegardé localement.');
+  }
+
+  // MAGIC APP SYNC POINT — envoi automatique vers le backend Magic Bosses
+  fetch(BACKEND_URL + '/webhook/devis', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      client_nom:       devis.nom,
+      client_prenom:    devis.prenom,
+      client_telephone: devis.telephone,
+      adresse:          devis.adresse + ', ' + devis.codePostal + ' ' + devis.ville,
+      creneau:          (devis.disponibilites || []).join(', '),
+      type_prestation:  devis.typeBosse,
+      notes:            devis.description || '',
+      photo_url:        devis.photoBase64 || null,
+    }),
+  }).catch(() => {}); // silencieux — ne bloque pas l'affichage du succès
+
+  showSuccess();
+}
+
+// ===== VALIDATION CHAMP PAR CHAMP =====
+function setFieldError(el, message) {
+  el.style.borderColor = '#F5820A';
+  const wrapper = el.closest('.form-group') || el.parentElement;
+  let err = wrapper.querySelector('.field-error');
+  if (!err) {
+    err = document.createElement('span');
+    err.className = 'field-error';
+    err.style.cssText = 'color:#F5820A;font-size:0.78rem;display:block;margin-top:5px;';
+    wrapper.appendChild(err);
+  }
+  err.textContent = message;
+}
+
+function clearFieldError(el) {
+  el.style.borderColor = '';
+  const wrapper = el.closest('.form-group') || el.parentElement;
+  const err = wrapper.querySelector('.field-error');
+  if (err) err.remove();
+}
+
+// Efface les erreurs en temps réel quand l'utilisateur corrige
+['devisPrenom','devisNom','devisAdresse','devisCP','devisVille','devisTel','devisType'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', () => clearFieldError(el));
+});
+
+// ===== SOUMISSION DEVIS =====
+function submitDevis(e) {
+  e.preventDefault();
+
+  let valid = true;
+
+  const prenomEl = document.getElementById('devisPrenom');
+  if (!prenomEl.value.trim()) { setFieldError(prenomEl, 'Prénom requis'); valid = false; }
+  else clearFieldError(prenomEl);
+
+  const nomEl = document.getElementById('devisNom');
+  if (!nomEl.value.trim()) { setFieldError(nomEl, 'Nom requis'); valid = false; }
+  else clearFieldError(nomEl);
+
+  const adresseEl = document.getElementById('devisAdresse');
+  if (!adresseEl.value.trim()) { setFieldError(adresseEl, 'Adresse requise'); valid = false; }
+  else clearFieldError(adresseEl);
+
+  const cpEl = document.getElementById('devisCP');
+  if (!/^\d{5}$/.test(cpEl.value.trim())) { setFieldError(cpEl, 'Code postal invalide (5 chiffres)'); valid = false; }
+  else clearFieldError(cpEl);
+
+  const villeEl = document.getElementById('devisVille');
+  if (!villeEl.value.trim()) { setFieldError(villeEl, 'Ville requise'); valid = false; }
+  else clearFieldError(villeEl);
+
+  const telEl = document.getElementById('devisTel');
+  if (!/^(\+33|0)[1-9](\s?\d{2}){4}$/.test(telEl.value.trim().replace(/\s/g,''))) {
+    setFieldError(telEl, 'Numéro invalide (ex: 06 12 34 56 78)'); valid = false;
+  } else clearFieldError(telEl);
+
+  const typeEl = document.getElementById('devisType');
+  if (!typeEl.value) { setFieldError(typeEl, 'Merci de choisir un type de bosse'); valid = false; }
+  else clearFieldError(typeEl);
+
+  if (!photoBase64) {
+    const btn = document.querySelector('.photo-upload-btn');
+    btn.style.borderColor = '#F5820A';
+    const wrapper = btn.parentElement;
+    let err = wrapper.querySelector('.field-error');
+    if (!err) {
+      err = document.createElement('span');
+      err.className = 'field-error';
+      err.style.cssText = 'color:#F5820A;font-size:0.78rem;display:block;margin-top:5px;';
+      wrapper.appendChild(err);
+    }
+    err.textContent = 'Une photo est requise pour estimer la bosse';
+    document.getElementById('devisBubble').textContent = "N'oublie pas la photo, c'est essentiel !";
+    valid = false;
+  }
+
+  const acceptCb = document.getElementById('acceptResponsabilite');
+  if (!acceptCb.checked) {
+    document.querySelector('.accept-box').style.borderColor = '#F5820A';
+    document.getElementById('devisBubble').textContent = "Merci d'accepter les conditions avant d'envoyer.";
+    valid = false;
+  } else {
+    document.querySelector('.accept-box').style.borderColor = '';
+  }
+
+  if (!valid) {
+    const firstError = document.querySelector('#devisPanel .field-error');
+    if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  const disponibilites = Array.from(document.querySelectorAll('.dispo-slot.sel')).map(b => b.dataset.val);
+
+  const devis = {
+    id: 'MB-' + Date.now(),
+    timestamp: new Date().toISOString(),
+    prenom: document.getElementById('devisPrenom').value.trim(),
+    nom: document.getElementById('devisNom').value.trim(),
+    adresse: document.getElementById('devisAdresse').value.trim(),
+    codePostal: document.getElementById('devisCP').value.trim(),
+    ville: document.getElementById('devisVille').value.trim(),
+    telephone: document.getElementById('devisTel').value.trim(),
+    typeBosse: document.getElementById('devisType').value,
+    description: document.getElementById('devisDesc').value.trim(),
+    photoBase64: photoBase64,
+    disponibilites: disponibilites,
+    coords: null,
+    distanceLons: null,
+    zone_locale: false,
+    cluster: false,
+    statut: 'en_attente'
+  };
+
+  document.getElementById('devisBubble').textContent = "Envoi en cours...";
+  document.querySelector('.form-submit-btn').textContent = "Envoi en cours...";
+  document.querySelector('.form-submit-btn').disabled = true;
+
+  // Géocodage silencieux via l'adresse du formulaire (pas de popup GPS)
+  const adresseComplete = devis.adresse + ', ' + devis.codePostal + ' ' + devis.ville + ', France';
+  fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(adresseComplete), {
+    headers: { 'Accept-Language': 'fr' }
+  })
+    .then(r => r.json())
+    .then(results => {
+      if (results && results[0]) {
+        const lat = parseFloat(results[0].lat);
+        const lon = parseFloat(results[0].lon);
+        devis.coords = { lat, lon };
+        devis.distanceLons = Math.round(haversine(lat, lon, LONS_LAT, LONS_LON) * 10) / 10;
+        devis.zone_locale = devis.distanceLons < 35;
+      }
+    })
+    .catch(() => {})
+    .finally(() => saveDevis(devis));
+}
+
+// ===== AFFICHAGE SUCCÈS + CONFETTI =====
+function showSuccess() {
+  document.getElementById('devisForm').style.display = 'none';
+  document.getElementById('devisSuccess').style.display = 'block';
+  document.getElementById('devisBubble').textContent = "Reçu ! Maxime analyse ta bosse et te recontacte très vite.";
+  launchConfetti();
+}
+
+function launchConfetti() {
+  const colors = ['#7B2FBE', '#F5820A', '#F5C518', '#a855f7', '#fb923c'];
+  for (let i = 0; i < 60; i++) {
+    setTimeout(() => {
+      const piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const size = 6 + Math.random() * 8;
+      piece.style.cssText = `
+        left: ${Math.random() * 100}vw;
+        width: ${size}px;
+        height: ${size}px;
+        background: ${color};
+        border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+        animation: confettiFall ${1.5 + Math.random() * 2}s linear forwards;
+        animation-delay: ${Math.random() * 0.8}s;
+        transform: rotate(${Math.random() * 360}deg);
+      `;
+      document.body.appendChild(piece);
+      setTimeout(() => piece.remove(), 4000);
+    }, i * 30);
+  }
+}
+
+// ===== PANNEAU ADMIN =====
+// MAGIC APP SYNC POINT — interface de gestion des devis, sync avec app Magic
+let adminClickCount = 0;
+let adminClickTimer = null;
+
+document.getElementById('footerLogo').addEventListener('click', () => {
+  adminClickCount++;
+  clearTimeout(adminClickTimer);
+  adminClickTimer = setTimeout(() => { adminClickCount = 0; }, 600);
+  if (adminClickCount >= 2) {
+    adminClickCount = 0;
+    openAdmin();
+  }
+});
+
+async function openAdmin() {
+  const ADMIN_HASH = '7b3f2a1e9c8d4b6f0e5a2c7d1f8b3e9a4c6d2f0b5e8a1c4d7f2b3e6a9c0d5f8';
+  function hashPassword(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = ((hash << 5) - hash) + str.charCodeAt(i);
+      hash |= 0;
+    }
+    return Math.abs(hash).toString(16).padStart(8,'0');
+  }
+  const TARGET = hashPassword('Maxime39190/');
+  const stored = sessionStorage.getItem('mb_admin_auth');
+  if (stored !== TARGET) {
+    const pwd = prompt('Mot de passe administrateur :');
+    if (!pwd || hashPassword(pwd) !== TARGET) {
+      alert('Mot de passe incorrect.');
+      return;
+    }
+    sessionStorage.setItem('mb_admin_auth', TARGET);
+  }
+
+  const panel = document.getElementById('adminPanel');
+  panel.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+
+  const list = document.getElementById('adminList');
+  list.innerHTML = '<div class="admin-empty">Chargement…</div>';
+
+  let all = [];
+  try {
+    const res = await fetch(BACKEND_URL + '/api/demandes');
+    all = await res.json();
+  } catch (e) {
+    list.innerHTML = '<div class="admin-empty">Impossible de charger les demandes (serveur inaccessible).</div>';
+    return;
+  }
+
+  // Détection clusters avec les coordonnées du backend
+  all.forEach(d => {
+    if (!d.lat || !d.lng) { d.cluster = false; return; }
+    const nearby = all.filter(other =>
+      other.id !== d.id && other.lat && other.lng &&
+      haversine(d.lat, d.lng, other.lat, other.lng) < 30
+    );
+    d.cluster = nearby.length >= 2;
+  });
+
+  // Stats
+  const stats = document.getElementById('adminStats');
+  const total = all.length;
+  const attente = all.filter(d => d.statut === 'en_attente').length;
+  const planifie = all.filter(d => d.statut === 'planifie' || d.statut === 'acceptee').length;
+  const clusters = all.filter(d => d.cluster).length;
+
+  stats.innerHTML = `
+    <div class="admin-stat"><div class="admin-stat-val">${total}</div><div class="admin-stat-label">Total devis</div></div>
+    <div class="admin-stat"><div class="admin-stat-val" style="color:#F5820A">${attente}</div><div class="admin-stat-label">En attente</div></div>
+    <div class="admin-stat"><div class="admin-stat-val" style="color:#a855f7">${planifie}</div><div class="admin-stat-label">Planifiés</div></div>
+    <div class="admin-stat"><div class="admin-stat-val" style="color:#F5C518">${clusters}</div><div class="admin-stat-label">Groupables</div></div>
+  `;
+
+  if (all.length === 0) {
+    list.innerHTML = '<div class="admin-empty">Aucun devis pour l\'instant.</div>';
+    return;
+  }
+
+  list.innerHTML = all.map(d => {
+    const date = new Date(d.created_at).toLocaleString('fr-FR');
+    const statutBadge = {
+      en_attente: `<span class="badge-statut badge-attente">EN ATTENTE</span>`,
+      planifie:   `<span class="badge-statut badge-planifie">PLANIFIÉ</span>`,
+      acceptee:   `<span class="badge-statut badge-planifie">ACCEPTÉE</span>`,
+      termine:    `<span class="badge-statut badge-termine">TERMINÉ</span>`,
+      rejetee:    `<span class="badge-statut badge-termine">REJETÉE</span>`,
+    }[d.statut] || '';
+    const clusterBadge = d.cluster ? `<span class="badge-cluster">🗺️ Groupable</span>` : '';
+
+    return `
+      <div class="devis-item" id="item-${d.id}">
+        <div class="devis-item-header">
+          <span class="devis-item-id">#${d.id}</span>
+          <span class="devis-item-name">${d.client_prenom} ${d.client_nom}</span>
+          ${statutBadge}
+          ${clusterBadge}
+          <span class="devis-item-date">${date}</span>
+        </div>
+        <div class="devis-item-body">
+          📍 ${d.adresse || ''} &nbsp;|&nbsp;
+          📞 ${d.client_telephone || ''} &nbsp;|&nbsp;
+          🔧 ${d.type_prestation || ''}
+          ${d.notes ? `<br>💬 ${d.notes}` : ''}
+          ${Array.isArray(d.disponibilites) && d.disponibilites.length ? `<br>📅 ${d.disponibilites.join(', ')}` : (d.creneau ? `<br>📅 ${d.creneau}` : '')}
+        </div>
+        <div class="devis-item-actions">
+          <button class="devis-action-btn" onclick="changeStatut(${d.id},'en_attente')">En attente</button>
+          <button class="devis-action-btn" onclick="changeStatut(${d.id},'planifie')">Planifié</button>
+          <button class="devis-action-btn" onclick="changeStatut(${d.id},'termine')">Terminé</button>
+          <button class="devis-action-btn" onclick="deleteDevis(${d.id})" style="border-color:rgba(239,68,68,0.4);color:rgba(239,68,68,0.7)">Supprimer</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function closeAdmin() {
+  document.getElementById('adminPanel').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// MAGIC APP SYNC POINT — changement de statut, synchronisé avec le backend
+async function changeStatut(id, statut) {
+  try {
+    await fetch(BACKEND_URL + '/api/demandes/' + id, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ statut }),
+    });
+  } catch (e) {
+    alert('Erreur lors de la mise à jour du statut.');
+    return;
+  }
+  openAdmin();
+}
+
+async function deleteDevis(id) {
+  if (!confirm('Supprimer ce devis ? Cette action est irréversible.')) return;
+  try {
+    await fetch(BACKEND_URL + '/api/demandes/' + id, { method: 'DELETE' });
+  } catch (e) {
+    alert('Erreur lors de la suppression.');
+    return;
+  }
+  openAdmin();
+}
+
+function exportJSON() {
+  const data = localStorage.getItem('magicbosses_devis') || '[]';
+  const blob = new Blob([data], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `magicbosses-devis-${new Date().toISOString().split('T')[0]}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ===== SPEED LINES HERO =====
+function createSpeedLines() {
+  const container = document.getElementById('heroSpeedlines');
+  if (!container) return;
+  const count = 10;
+  for (let i = 0; i < count; i++) {
+    const line = document.createElement('div');
+    line.className = 'speed-line';
+    const top = 10 + Math.random() * 80;
+    const duration = 3 + Math.random() * 5;
+    const delay = Math.random() * 8;
+    const width = 150 + Math.random() * 300;
+    const opacity = 0.3 + Math.random() * 0.5;
+    line.style.cssText = `top:${top}%;width:${width}px;animation-duration:${duration}s;animation-delay:${delay}s;opacity:${opacity}`;
+    container.appendChild(line);
+  }
+}
+
+// ===== CARTE LEAFLET =====
+function initLeafletMap() {
+  const mapEl = document.getElementById('mapLeaflet');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  const map = L.map('mapLeaflet', {
+    center: [46.55, 5.3],
+    zoom: 8,
+    zoomControl: true,
+    scrollWheelZoom: false
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap',
+    maxZoom: 13
+  }).addTo(map);
+
+  // Zone couvrant Jura (39), Ain (01), Saône-et-Loire (71) — cercle ~90km
+  L.circle([46.675, 5.556], {
+    radius: 50000,
+    color: '#7B2FBE',
+    fillColor: '#7B2FBE',
+    fillOpacity: 0.06,
+    weight: 2,
+    dashArray: '8 5'
+  }).addTo(map);
+
+  // Marqueur central
+  const iconLons = L.divIcon({
+    html: `<div style="background:#F5820A;width:16px;height:16px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 12px #F5820A"></div>`,
+    className: '', iconAnchor: [8, 8]
+  });
+  L.marker([46.675, 5.556], { icon: iconLons })
+    .addTo(map)
+    .bindPopup('<strong style="font-family:sans-serif">🔧 Magic Bosses<br>Lons-le-Saunier</strong>', { className: 'mb-popup' })
+    .openPopup();
+
+  // Villes des 3 départements (39-Jura, 01-Ain, 71-Saône-et-Loire)
+  const villes = [
+    // Nord — Saône-et-Loire
+    { name: 'Chalon-sur-Saône', lat: 46.781, lon: 4.853 },
+    { name: 'Louhans', lat: 46.628, lon: 5.224 },
+    // Nord-Est — Jura
+    { name: 'Dole', lat: 47.093, lon: 5.493 },
+    { name: 'Arbois', lat: 46.902, lon: 5.776 },
+    { name: 'Poligny', lat: 46.838, lon: 5.706 },
+    // Sud — Ain
+    { name: 'Bourg-en-Bresse', lat: 46.205, lon: 5.226 },
+    { name: 'Oyonnax', lat: 46.256, lon: 5.655 },
+    { name: 'Saint-Claude', lat: 46.386, lon: 5.862 },
+  ];
+
+  const iconVille = L.divIcon({
+    html: `<div style="background:#F5C518;width:8px;height:8px;border-radius:50%;border:2px solid rgba(255,255,255,0.6)"></div>`,
+    className: '', iconAnchor: [4, 4]
+  });
+
+  villes.forEach(v => {
+    L.marker([v.lat, v.lon], { icon: iconVille })
+      .addTo(map)
+      .bindTooltip(v.name, { permanent: true, direction: 'top', offset: [0, -8],
+        className: 'mb-tooltip' });
+  });
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  createStars();
+  createSpeedLines();
+  initSliders();
+  renderGallery(galleryItems);
+  initLeafletMap();
+
+  // Bulle hero après 2s
+  setTimeout(() => {
+    const b = document.getElementById('heroBubble');
+    if (b) { b.style.opacity = '1'; b.style.transition = 'opacity 0.5s ease'; }
+  }, 2000);
+
+  // Toggle disponibilités visuelles
+  document.querySelectorAll('.dispo-slot').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('sel');
+    });
+  });
+
+  // ===== BADGE JEUDI =====
+  function getNextThursday() {
+    const now = new Date();
+    const day = now.getDay();
+    const daysUntil = (4 - day + 7) % 7 || 7;
+    const next = new Date(now);
+    next.setDate(now.getDate() + daysUntil);
+    return next.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+  }
+  const badgeJeudi = document.createElement('div');
+  badgeJeudi.className = 'badge-jeudi';
+  badgeJeudi.textContent = `Je passe dans ta région le ${getNextThursday()}`;
+  const badgeContainer = document.getElementById('badgeJeudiContainer');
+  if (badgeContainer) badgeContainer.appendChild(badgeJeudi);
+
+  // ===== COMPTEUR ANIMÉ =====
+  let countersStarted = false;
+  function animateCounters() {
+    if (countersStarted) return;
+    countersStarted = true;
+    document.querySelectorAll('.stat-number').forEach(el => {
+      const target = +el.dataset.target;
+      const duration = 1500;
+      const steps = 60;
+      const increment = target / steps;
+      let current = 0;
+      const timer = setInterval(() => {
+        current = Math.min(current + increment, target);
+        el.textContent = Math.floor(current);
+        if (current >= target) clearInterval(timer);
+      }, duration / steps);
+    });
+  }
+  const statsObserver = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { animateCounters(); statsObserver.disconnect(); }
+  }, { threshold: 0.5 });
+  if (document.getElementById('statsBar')) statsObserver.observe(document.getElementById('statsBar'));
+
+  // ===== SOCIAL PROOF TOAST =====
+  setTimeout(() => {
+    const all = JSON.parse(localStorage.getItem('magicbosses_devis') || '[]');
+    const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const thisWeek = all.filter(d => new Date(d.timestamp) > weekAgo).length;
+    if (thisWeek >= 2) {
+      const toast = document.createElement('div');
+      toast.className = 'social-toast';
+      toast.innerHTML = `🔥 <strong>${thisWeek} personnes</strong> ont demandé un devis cette semaine`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 5000);
+    }
+  }, 3000);
+
+  // Réinitialiser le formulaire devis si panel fermé
+  document.getElementById('devisPanel').addEventListener('transitionend', function(e) {
+    if (!this.classList.contains('open') && e.propertyName === 'transform') {
+      setTimeout(() => {
+        const form = document.getElementById('devisForm');
+        const success = document.getElementById('devisSuccess');
+        if (form && success) {
+          form.reset();
+          form.style.display = 'block';
+          success.style.display = 'none';
+          photoBase64 = null;
+          document.getElementById('photoPreview').style.display = 'none';
+          document.getElementById('photoPreview').innerHTML = '';
+          document.querySelector('.photo-upload-btn').style.borderColor = '';
+          document.querySelector('.form-submit-btn').textContent = 'ENVOYER MA DEMANDE →';
+          document.querySelector('.form-submit-btn').disabled = false;
+          document.querySelectorAll('.dispo-slot').forEach(b => b.classList.remove('sel'));
+          const cb = document.getElementById('acceptResponsabilite');
+          if (cb) cb.checked = false;
+          document.querySelector('.accept-box').style.borderColor = '';
+          document.getElementById('devisBubble').textContent = "Dis-moi tout sur ta bosse !";
+        }
+      }, 400);
+    }
+  });
+});
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+
+<!-- ===== BANDEAU COOKIES ===== -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#0a0814;border-top:1px solid rgba(123,47,190,0.4);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+  <p style="margin:0;font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;flex:1;min-width:250px;">
+    Ce site utilise des ressources externes (Google Fonts, carte interactive) qui peuvent déposer des cookies. En continuant, vous acceptez leur utilisation.
+    <a href="#mentions-legales" style="color:var(--orange);text-decoration:underline;margin-left:4px;">En savoir plus</a>
+  </p>
+  <div style="display:flex;gap:10px;flex-shrink:0;">
+    <button onclick="refuserCookies()" style="background:transparent;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.6);padding:8px 16px;border-radius:6px;font-size:13px;cursor:pointer;">Refuser</button>
+    <button onclick="accepterCookies()" style="background:var(--orange);border:none;color:#000;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;">Accepter</button>
+  </div>
+</div>
+<script>
+(function() {
+  var consent = localStorage.getItem('cookieConsent');
+  if (!consent) {
+    document.getElementById('cookieBanner').style.display = 'flex';
+  }
+})();
+function accepterCookies() {
+  localStorage.setItem('cookieConsent', 'accepted');
+  document.getElementById('cookieBanner').style.display = 'none';
+}
+function refuserCookies() {
+  localStorage.setItem('cookieConsent', 'refused');
+  document.getElementById('cookieBanner').style.display = 'none';
+}
+</script>
+</body>
+</html>

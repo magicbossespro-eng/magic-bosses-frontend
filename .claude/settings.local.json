@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"C:\\\\Users\\\\ironm\\\\Downloads\\\\ChatGPT Image 28 mars 2026, 16_46_11 \\(1\\).png\" \"C:\\\\Users\\\\ironm\\\\site web magic bosses\\\\mascotte.png\")",
+      "Bash(cp \"C:\\\\Users\\\\ironm\\\\Downloads\\\\ChatGPT Image 28 mars 2026, 15_45_44.png\" \"C:\\\\Users\\\\ironm\\\\site web magic bosses\\\\logo.png\")",
+      "Bash(Snapchat)",
+      "Bash(Auto_detail)",
+      "Bash(Capture)",
+      "Bash(DEST=\"/c/Users/ironm/site web magic bosses\")",
+      "Bash(cp \"/c/Users/ironm/Downloads/20260331_140839.jpg\" \"$DEST/20260331_140839.jpg\")",
+      "Bash(cp \"/c/Users/ironm/Downloads/20260331_142036.jpg\" \"$DEST/20260331_142036.jpg\")",
+      "Bash(cp \"/c/Users/ironm/Downloads/20260331_144333.jpg\" \"$DEST/20260331_144333.jpg\")",
+      "Bash(cp \"/c/Users/ironm/Downloads/20260331_145415.jpg\" \"$DEST/20260331_145415.jpg\")",
+      "Bash(grep -E \"\\\\.\\(png|jpg|jpeg|svg|ico|webp\\)$\")",
+      "Bash(curl:*)",
+      "Bash(wait)",
+      "Bash(nslookup magicbosses.fr)",
+      "Bash(host magicbosses.fr)",
+      "WebSearch",
+      "Bash(gh repo:*)",
+      "Bash(bash simulation_devis.sh)"
+    ]
+  }
+}
