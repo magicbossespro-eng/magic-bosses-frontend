@@ -207,17 +207,22 @@ img{max-width:100%;height:auto;}
 .hero-bubble::after{content:'';position:absolute;bottom:-10px;right:20px;border:6px solid transparent;border-top-color:#fff;border-right:0;border-bottom:0;}
 .star-particle{position:absolute;pointer-events:none;}
 
-/* ===== SECTION HISTOIRE ===== */
-#histoire{background:linear-gradient(135deg,#06030f 0%,#0a0520 50%,#06030f 100%);padding:100px 24px;position:relative;overflow:hidden;}
-.histoire-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:3fr 2fr;gap:60px;align-items:center;}
-.histoire-deco{position:relative;display:flex;align-items:center;justify-content:center;height:100%;}
-.histoire-logo-bg{opacity:0.05;width:100%;max-width:320px;}
-.histoire-stars{position:absolute;width:100%;height:100%;}
+/* ===== SECTION HISTOIRE - FULL BLEED SPLIT ===== */
+#histoire{background:#000;padding:0;position:relative;overflow:hidden;}
+.histoire-inner{display:grid;grid-template-columns:1fr 1fr;min-height:85vh;align-items:stretch;}
+.histoire-deco{position:relative;overflow:hidden;min-height:600px;order:-1;}
+.histoire-deco::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 50%,#000 100%),linear-gradient(to top,rgba(245,130,10,0.35) 0%,transparent 55%);z-index:1;}
+.histoire-photo{position:absolute;inset:0;width:100%;height:100%;border-radius:0;border:none;box-shadow:none;max-width:none;}
+.histoire-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(0.75) contrast(1.05);display:block;}
+.histoire-stars{position:absolute;inset:0;z-index:2;pointer-events:none;}
+.histoire-logo-bg{display:none;}
+.histoire-left{padding:80px 72px;display:flex;flex-direction:column;justify-content:center;position:relative;background:#000;}
+.histoire-left::before{content:'5';position:absolute;top:-20px;right:-10px;font-family:'Bebas Neue',cursive;font-size:320px;color:transparent;-webkit-text-stroke:1px rgba(245,130,10,0.06);line-height:1;pointer-events:none;user-select:none;}
 .section-label{font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:5px;color:var(--orange);opacity:0.8;margin-bottom:12px;display:block;}
 .section-title{font-family:'Bebas Neue',cursive;font-size:clamp(44px,6vw,64px);color:#fff;line-height:1;margin-bottom:32px;}
-.histoire-text{font-family:'Barlow',sans-serif;font-weight:300;font-size:17px;color:rgba(255,255,255,0.72);line-height:1.85;margin-bottom:28px;}
-.histoire-quote{border-left:3px solid var(--orange);padding:22px 28px;background:rgba(245,130,10,0.06);backdrop-filter:blur(8px);margin-top:32px;border-radius:0 12px 12px 0;box-shadow:inset 0 1px 0 rgba(245,130,10,0.15);}
-.histoire-quote p{font-family:'Barlow',sans-serif;font-style:italic;font-size:19px;color:rgba(255,255,255,0.9);line-height:1.65;}
+.histoire-text{font-family:'Barlow',sans-serif;font-weight:300;font-size:16.5px;color:rgba(255,255,255,0.62);line-height:1.9;margin-bottom:22px;}
+.histoire-quote{border-left:3px solid var(--orange);padding:22px 28px;background:rgba(245,130,10,0.05);margin-top:32px;border-radius:0 12px 12px 0;}
+.histoire-quote p{font-family:'Barlow',sans-serif;font-style:italic;font-size:18px;color:rgba(255,255,255,0.85);line-height:1.65;}
 
 /* ===== SECTION DSP ===== */
 #dsp{padding:100px 24px;background:linear-gradient(135deg,#020010 0%,#050018 50%,#020010 100%);}
@@ -466,13 +471,15 @@ img{max-width:100%;height:auto;}
 /* ===== URGENCE HERO ===== */
 .hero-urgence{font-size:13px;color:rgba(255,255,255,0.5);margin-top:14px;font-style:italic;}
 
-/* ===== RÉASSURANCE BAR ===== */
-.reassurance-bar{display:flex;justify-content:center;flex-wrap:wrap;gap:0;background:rgba(123,47,190,0.05);border-top:1px solid rgba(123,47,190,0.18);border-bottom:1px solid rgba(123,47,190,0.18);padding:12px 24px;backdrop-filter:blur(10px);}
-.reassurance-item{display:flex;align-items:center;gap:12px;padding:10px 32px;font-size:14px;color:rgba(255,255,255,0.72);border-right:1px solid rgba(255,255,255,0.07);transition:color 0.2s;}
+/* ===== RÉASSURANCE BAR - FEATURE CARDS ===== */
+.reassurance-bar{display:grid;grid-template-columns:repeat(3,1fr);background:#060210;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);}
+.reassurance-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:52px 32px;border-right:1px solid rgba(255,255,255,0.05);transition:background 0.3s;cursor:default;position:relative;}
 .reassurance-item:last-child{border-right:none;}
-.reassurance-item:hover{color:rgba(255,255,255,0.95);}
-.reassurance-icon{color:var(--orange);flex-shrink:0;display:flex;align-items:center;}
-@media(max-width:768px){.reassurance-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.06);width:100%;padding:10px 20px;}.reassurance-item:last-child{border-bottom:none;}}
+.reassurance-item:hover{background:rgba(245,130,10,0.03);}
+.reassurance-icon{width:54px;height:54px;background:rgba(245,130,10,0.08);border:1px solid rgba(245,130,10,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--orange);flex-shrink:0;transition:all 0.3s;}
+.reassurance-item:hover .reassurance-icon{background:rgba(245,130,10,0.15);box-shadow:0 0 24px rgba(245,130,10,0.2);}
+.reassurance-item span:not(.reassurance-icon){font-family:'Barlow',sans-serif;font-size:15px;color:rgba(255,255,255,0.65);line-height:1.6;}
+@media(max-width:768px){.reassurance-bar{grid-template-columns:1fr;}.reassurance-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.05);padding:36px 24px;}.reassurance-item:last-child{border-bottom:none;}}
 
 /* ===== TÉMOIGNAGES ===== */
 .avis-inner{max-width:1100px;margin:0 auto;padding:80px 24px;}
@@ -583,7 +590,10 @@ img{max-width:100%;height:auto;}
 
   /* Histoire */
   .histoire-inner{grid-template-columns:1fr;}
-  .histoire-deco{display:none;}
+  .histoire-deco{min-height:320px;order:0;}
+  .histoire-deco::after{background:linear-gradient(to bottom,transparent 40%,#000 100%);}
+  .histoire-left{padding:48px 24px;order:1;}
+  .histoire-left::before{display:none;}
   .section-title{font-size:44px;}
 
   /* DSP / Sliders / Galerie / Tarifs */
