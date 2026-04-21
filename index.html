@@ -224,20 +224,26 @@ img{max-width:100%;height:auto;}
 .histoire-quote{border-left:3px solid var(--orange);padding:22px 28px;background:rgba(245,130,10,0.05);margin-top:32px;border-radius:0 12px 12px 0;}
 .histoire-quote p{font-family:'Barlow',sans-serif;font-style:italic;font-size:18px;color:rgba(255,255,255,0.85);line-height:1.65;}
 
-/* ===== SECTION DSP ===== */
-#dsp{padding:100px 24px;background:linear-gradient(135deg,#020010 0%,#050018 50%,#020010 100%);}
-.dsp-inner{max-width:1280px;margin:0 auto;}
-.section-header{text-align:center;margin-bottom:64px;}
-.dsp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-/* Glassmorphism cards */
-.dsp-card{background:rgba(255,255,255,0.025);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:36px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),box-shadow 0.3s ease,border-color 0.3s ease;position:relative;overflow:hidden;cursor:default;}
-.dsp-card::before{content:'';position:absolute;inset:0;border-radius:22px;background:linear-gradient(135deg,rgba(123,47,190,0.1) 0%,rgba(245,130,10,0.05) 100%);opacity:0;transition:opacity 0.3s;}
-.dsp-card:hover{border-color:rgba(123,47,190,0.38);box-shadow:0 12px 48px rgba(123,47,190,0.15),0 2px 16px rgba(0,0,0,0.4);transform:translateY(-4px);}
+/* ===== SECTION DSP - BENTO GRID ===== */
+#dsp{padding:100px 24px;background:#000;}
+.dsp-inner{max-width:1200px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:56px;}
+.dsp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.dsp-card{background:#09040f;border:1px solid rgba(255,255,255,0.06);border-radius:26px;padding:44px 40px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;cursor:default;}
+.dsp-card:nth-child(1){grid-column:span 2;background:linear-gradient(140deg,#0f0524 0%,#080214 100%);}
+.dsp-card:nth-child(4){grid-column:span 2;background:linear-gradient(140deg,#130507 0%,#0a0318 100%);}
+.dsp-card::before{content:'';position:absolute;inset:0;border-radius:26px;background:linear-gradient(135deg,rgba(123,47,190,0.12),rgba(245,130,10,0.05));opacity:0;transition:opacity 0.3s;}
+.dsp-card:hover{border-color:rgba(123,47,190,0.4);transform:translateY(-4px);box-shadow:0 20px 56px rgba(123,47,190,0.14);}
 .dsp-card:hover::before{opacity:1;}
-/* Icône avec fond pill (CSS only) */
-.dsp-icon{width:28px;height:28px;margin-bottom:26px;padding:16px;border-radius:16px;background:rgba(245,130,10,0.09);border:1px solid rgba(245,130,10,0.2);box-sizing:content-box;display:block;}
-.dsp-card-title{font-family:'Bebas Neue',cursive;font-size:24px;color:#fff;letter-spacing:1px;margin-bottom:12px;}
-.dsp-card-text{font-family:'Barlow',sans-serif;font-weight:300;font-size:15.5px;color:rgba(255,255,255,0.6);line-height:1.78;}
+/* Numéros watermark */
+.dsp-card::after{position:absolute;bottom:-12px;right:20px;font-family:'Bebas Neue',cursive;font-size:120px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.05);line-height:1;pointer-events:none;}
+.dsp-card:nth-child(1)::after{content:'01';}
+.dsp-card:nth-child(2)::after{content:'02';}
+.dsp-card:nth-child(3)::after{content:'03';}
+.dsp-card:nth-child(4)::after{content:'04';}
+.dsp-icon{width:26px;height:26px;margin-bottom:28px;padding:14px;border-radius:14px;background:rgba(245,130,10,0.1);border:1px solid rgba(245,130,10,0.22);box-sizing:content-box;display:block;}
+.dsp-card-title{font-family:'Bebas Neue',cursive;font-size:26px;color:#fff;letter-spacing:1px;margin-bottom:14px;}
+.dsp-card-text{font-family:'Barlow',sans-serif;font-weight:300;font-size:15.5px;color:rgba(255,255,255,0.52);line-height:1.82;}
 
 /* ===== AVANT/APRÈS ===== */
 #avantapres{padding:100px 24px;background:linear-gradient(135deg,#06030f,#0d0520,#06030f);}
@@ -598,6 +604,8 @@ img{max-width:100%;height:auto;}
 
   /* DSP / Sliders / Galerie / Tarifs */
   .dsp-grid{grid-template-columns:1fr;}
+  .dsp-card:nth-child(1),.dsp-card:nth-child(4){grid-column:span 1;}
+  .dsp-card{padding:32px 24px;}
   .sliders-row{grid-template-columns:1fr;}
   .gallery-grid{columns:2;}
   .tarifs-grid{grid-template-columns:1fr;}
