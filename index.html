@@ -216,7 +216,7 @@ img{max-width:100%;height:auto;}
 .histoire-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(0.75) contrast(1.05);display:block;}
 .histoire-stars{position:absolute;inset:0;z-index:2;pointer-events:none;}
 .histoire-logo-bg{display:none;}
-.histoire-left{padding:80px 72px;display:flex;flex-direction:column;justify-content:center;position:relative;background:#000;}
+.histoire-left{padding:100px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;background:#000;}
 .histoire-left::before{content:'5';position:absolute;top:-20px;right:-10px;font-family:'Bebas Neue',cursive;font-size:320px;color:transparent;-webkit-text-stroke:1px rgba(245,130,10,0.06);line-height:1;pointer-events:none;user-select:none;}
 .section-label{font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:5px;color:var(--orange);opacity:0.8;margin-bottom:12px;display:block;}
 .section-title{font-family:'Bebas Neue',cursive;font-size:clamp(44px,6vw,64px);color:#fff;line-height:1;margin-bottom:32px;}
@@ -225,11 +225,11 @@ img{max-width:100%;height:auto;}
 .histoire-quote p{font-family:'Barlow',sans-serif;font-style:italic;font-size:18px;color:rgba(255,255,255,0.85);line-height:1.65;}
 
 /* ===== SECTION DSP - BENTO GRID ===== */
-#dsp{padding:100px 24px;background:#000;}
+#dsp{padding:120px 32px;background:#000;}
 .dsp-inner{max-width:1200px;margin:0 auto;}
-.section-header{text-align:center;margin-bottom:56px;}
-.dsp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.dsp-card{background:#09040f;border:1px solid rgba(255,255,255,0.06);border-radius:26px;padding:44px 40px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;cursor:default;}
+.section-header{text-align:center;margin-bottom:76px;}
+.dsp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.dsp-card{background:#09040f;border:1px solid rgba(255,255,255,0.06);border-radius:26px;padding:52px 44px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;cursor:default;}
 .dsp-card:nth-child(1){grid-column:span 2;background:linear-gradient(140deg,#0f0524 0%,#080214 100%);}
 .dsp-card:nth-child(4){grid-column:span 2;background:linear-gradient(140deg,#130507 0%,#0a0318 100%);}
 .dsp-card::before{content:'';position:absolute;inset:0;border-radius:26px;background:linear-gradient(135deg,rgba(123,47,190,0.12),rgba(245,130,10,0.05));opacity:0;transition:opacity 0.3s;}
@@ -246,7 +246,7 @@ img{max-width:100%;height:auto;}
 .dsp-card-text{font-family:'Barlow',sans-serif;font-weight:300;font-size:15.5px;color:rgba(255,255,255,0.52);line-height:1.82;}
 
 /* ===== AVANT/APRÈS ===== */
-#avantapres{padding:100px 24px;background:#000;position:relative;}
+#avantapres{padding:120px 32px;background:#000;position:relative;}
 #avantapres::before{content:'RÉSULTATS';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',cursive;font-size:clamp(80px,14vw,200px);color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.03);white-space:nowrap;pointer-events:none;user-select:none;}
 .avantapres-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
 .sliders-row{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:56px;}
@@ -266,7 +266,7 @@ img{max-width:100%;height:auto;}
 .slider-caption{text-align:center;margin-top:12px;font-size:13px;color:rgba(255,255,255,0.3);font-style:italic;letter-spacing:0.5px;}
 
 /* ===== GALERIE ===== */
-#galerie{padding:100px 24px;background:#000;}
+#galerie{padding:120px 32px;background:#000;}
 .galerie-inner{max-width:1200px;margin:0 auto;}
 .galerie-filters{display:flex;gap:10px;flex-wrap:wrap;margin:36px 0;justify-content:center;}
 .filter-btn{background:transparent;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.5);padding:9px 24px;border-radius:50px;font-size:13px;letter-spacing:1px;cursor:pointer;transition:all 0.22s cubic-bezier(0.4,0,0.2,1);font-family:'Barlow',sans-serif;text-transform:uppercase;}
@@ -293,10 +293,10 @@ img{max-width:100%;height:auto;}
 .lightbox-placeholder{width:600px;max-width:90vw;height:400px;background:linear-gradient(135deg,#0d0d0d,#1a1a1a);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;border:1px solid rgba(255,255,255,0.06);}
 
 /* ===== TARIFS ===== */
-#tarifs{padding:100px 24px;background:#000;}
+#tarifs{padding:120px 32px;background:#000;}
 .tarifs-inner{max-width:1100px;margin:0 auto;}
-.tarifs-mention{font-style:italic;font-size:14px;color:rgba(255,255,255,0.38);text-align:center;max-width:640px;margin:0 auto 52px;line-height:1.8;}
-.tarifs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.tarifs-mention{font-style:italic;font-size:14px;color:rgba(255,255,255,0.38);text-align:center;max-width:640px;margin:0 auto 60px;line-height:1.8;}
+.tarifs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
 .tarif-grele{border-color:rgba(245,197,24,0.22)!important;background:rgba(245,197,24,0.025)!important;}
 .tarif-grele:hover{border-color:rgba(245,197,24,0.5)!important;box-shadow:0 12px 48px rgba(245,197,24,0.1),0 2px 16px rgba(0,0,0,0.4)!important;}
 .badge-gold{background:rgba(245,197,24,0.15);color:var(--gold);border:1px solid var(--gold);}
@@ -336,8 +336,8 @@ img{max-width:100%;height:auto;}
 .dispo-slot{background:#111;border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.35);padding:10px 4px;border-radius:6px;cursor:pointer;font-size:11px;font-family:'Barlow',sans-serif;font-weight:600;text-align:center;transition:all 0.2s;letter-spacing:0.5px;line-height:1.2;}
 .dispo-slot:hover{border-color:rgba(74,222,128,0.4);color:rgba(74,222,128,0.7);}
 .dispo-slot.sel{background:rgba(74,222,128,0.12);border-color:#4ade80;color:#4ade80;}
-.tarif-card{background:#080808;border:1px solid rgba(255,255,255,0.07);border-radius:24px;padding:40px 36px;position:relative;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),box-shadow 0.3s,border-color 0.3s;text-align:center;overflow:hidden;}
-.tarif-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple),var(--orange));opacity:0;transition:opacity 0.3s;}
+.tarif-card{background:#080808;border:1px solid rgba(255,255,255,0.07);border-radius:24px;padding:52px 40px;position:relative;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),box-shadow 0.3s,border-color 0.3s;text-align:center;overflow:visible;}
+.tarif-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple),var(--orange));opacity:0;transition:opacity 0.3s;border-radius:24px 24px 0 0;}
 .tarif-card:hover{border-color:rgba(123,47,190,0.3);box-shadow:0 24px 64px rgba(0,0,0,0.6);transform:translateY(-6px);}
 .tarif-card:hover::before{opacity:1;}
 .tarif-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:4px 18px;border-radius:50px;font-size:11px;font-weight:700;white-space:nowrap;letter-spacing:2px;text-transform:uppercase;}
@@ -373,7 +373,7 @@ img{max-width:100%;height:auto;}
 .tarif-ttc-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);border-radius:50px;padding:5px 14px;font-size:12px;color:rgba(74,222,128,0.9);font-weight:600;letter-spacing:0.5px;margin-bottom:10px;}
 
 /* ===== ZONE INTERVENTION ===== */
-#zone{padding:100px 24px;background:linear-gradient(135deg,#04020e,#080418,#04020e);}
+#zone{padding:120px 32px;background:linear-gradient(135deg,#04020e,#080418,#04020e);}
 .zone-inner{max-width:1280px;margin:0 auto;text-align:center;}
 .zone-visual{position:relative;width:320px;height:320px;margin:48px auto;}
 .zone-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;}
@@ -494,13 +494,13 @@ img{max-width:100%;height:auto;}
 @media(max-width:768px){.reassurance-bar{grid-template-columns:1fr;}.reassurance-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.05);padding:36px 24px;}.reassurance-item:last-child{border-bottom:none;}}
 
 /* ===== TÉMOIGNAGES ===== */
-.avis-inner{max-width:1100px;margin:0 auto;padding:100px 24px;}
-.avis-summary{display:flex;align-items:center;justify-content:center;gap:20px;margin:32px 0 48px;padding:20px 32px;background:#0a0a0a;border:1px solid rgba(255,255,255,0.06);border-radius:60px;width:fit-content;margin-left:auto;margin-right:auto;}
+.avis-inner{max-width:1100px;margin:0 auto;padding:120px 32px;}
+.avis-summary{display:flex;align-items:center;justify-content:center;gap:20px;margin:40px 0 64px;padding:20px 32px;background:#0a0a0a;border:1px solid rgba(255,255,255,0.06);border-radius:60px;width:fit-content;margin-left:auto;margin-right:auto;}
 .avis-summary-stars{color:var(--gold);font-size:22px;letter-spacing:2px;text-shadow:0 0 14px rgba(245,197,24,0.5);}
 .avis-summary-score{font-family:'Bebas Neue',cursive;font-size:32px;color:#fff;line-height:1;}
 .avis-summary-label{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.4;}
-.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.avis-card{background:#080808;border:1px solid rgba(255,255,255,0.06);border-radius:22px;padding:32px;display:flex;flex-direction:column;gap:16px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;}
+.avis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.avis-card{background:#080808;border:1px solid rgba(255,255,255,0.06);border-radius:22px;padding:38px;display:flex;flex-direction:column;gap:16px;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;}
 .avis-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background 0.3s;}
 .avis-card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,0.12);box-shadow:0 20px 56px rgba(0,0,0,0.5);}
 .avis-card:hover::before{background:linear-gradient(90deg,var(--purple),var(--orange));}
@@ -623,7 +623,7 @@ img{max-width:100%;height:auto;}
   .sliders-row{grid-template-columns:1fr;}
   .gallery-grid{columns:2;}
   .tarifs-grid{grid-template-columns:1fr;}
-  .tarif-card{overflow:hidden;padding:24px 16px;}
+  .tarif-card{padding:32px 20px;}
   .tarif-table-wrap{max-width:100%;overflow-x:auto;}
   .tarif-table{min-width:0;width:100%;font-size:12px;}
   .tarif-table th,.tarif-table td{padding:8px 6px;}
@@ -648,6 +648,15 @@ img{max-width:100%;height:auto;}
   .contact-section{padding:60px 20px 40px;}
   .contact-card{padding:18px 16px;gap:14px;}
   .contact-card-value{font-size:18px;}
+
+  /* Sections — respiration mobile */
+  #dsp,#avantapres,#galerie,#tarifs,#zone{padding:72px 20px;}
+  .avis-inner{padding:72px 20px;}
+  .section-header{margin-bottom:52px;}
+  .dsp-card{padding:32px 24px;}
+  .tarif-card{padding:32px 20px;}
+  .avis-card{padding:28px 24px;}
+  .histoire-left{padding:52px 28px;}
 
   /* Admin / Devis */
   .admin-stats{grid-template-columns:1fr 1fr;}
@@ -994,38 +1003,47 @@ img{max-width:100%;height:auto;}
       <div class="avis-summary-stars">★★★★★</div>
       <div>
         <div class="avis-summary-score">5.0 / 5</div>
-        <div class="avis-summary-label">Basé sur les avis clients</div>
+        <div class="avis-summary-label">4 avis Google vérifiés</div>
       </div>
       <div style="width:1px;height:36px;background:rgba(255,255,255,0.08)"></div>
       <div style="font-family:'Bebas Neue',cursive;font-size:28px;color:#fff">347+</div>
       <div class="avis-summary-label">bosses réparées</div>
     </div>
     <div class="avis-grid">
-      <div class="avis-card">
-        <div class="avis-stars">★★★★★</div>
-        <p class="avis-text">Coup de portière sur l'aile arrière, résultat impeccable en moins d'une heure. La technique est expliquée à chaque étape, c'est bluffant. Je recommande sans hésiter.</p>
-        <div class="avis-author">
-          <span class="avis-name">Nicolas B.</span>
-          <span class="avis-ville">— Dole</span>
-        </div>
-      </div>
       <div class="avis-card avis-card-featured">
         <div class="avis-stars">★★★★★</div>
-        <p class="avis-text">Plusieurs impacts de grêle sur le capot, voiture rendue comme neuve. Bilan complet à l'arrivée, technique bien expliquée. On voit quelqu'un qui maîtrise son métier et qui aime ce qu'il fait.</p>
+        <p class="avis-text">Impressionnée par le résultat ! Plus aucune trace et pour un prix largement inférieur à un passage en carrosserie. Rapide, efficace, je recommande sans hésiter. Merci Maxime</p>
         <div class="avis-author">
-          <span class="avis-name">Sophie C.</span>
-          <span class="avis-ville">— Lons-le-Saunier</span>
+          <span class="avis-name">Noémie Vannier</span>
+          <span class="avis-ville">— Avril 2025 · Google</span>
         </div>
       </div>
       <div class="avis-card">
         <div class="avis-stars">★★★★★</div>
-        <p class="avis-text">J'étais sceptique au départ, mais c'est un vrai savoir-faire. Contact sympa, tarif honnête, travail soigné — aucune trace visible. À recommander à tout le monde dans la région.</p>
+        <p class="avis-text">Super expérience ! Il m'a sauvé mon élément en débosselage sans peinture. Un carrossier me demandait 500 €, il l'a fait pour une centaine d'euros avec un résultat impeccable. Rapide, efficace et honnête, je recommande sans hésiter !</p>
         <div class="avis-author">
-          <span class="avis-name">Romain M.</span>
-          <span class="avis-ville">— Dole</span>
+          <span class="avis-name">Nolan C.</span>
+          <span class="avis-ville">— Avril 2025 · Google</span>
+        </div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">Entreprise très professionnelle, travail rapide et soigné. Le résultat est impeccable, on ne voit plus aucune bosse.</p>
+        <div class="avis-author">
+          <span class="avis-name">Marius Converset</span>
+          <span class="avis-ville">— Avril 2025 · Google</span>
+        </div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">Incroyable, de la personne au travail réalisé, je recommande à 100 % ! Rapidité, efficacité, qualité et prix, Max est un réel débosseleur professionnel capable de sauver votre véhicule ! Je recommencerai sans hésiter, merci !</p>
+        <div class="avis-author">
+          <span class="avis-name">H. Brd</span>
+          <span class="avis-ville">— Mars 2025 · Google</span>
         </div>
       </div>
     </div>
+    <p class="avis-note">Avis collectés sur Google Maps — vérifiables directement sur le profil Magic Bosses</p>
   </div>
 </section>
 
@@ -1114,6 +1132,37 @@ img{max-width:100%;height:auto;}
         </ul>
         <button class="tarif-btn" style="border-color:var(--gold);color:var(--gold)" onclick="openDevis()">Évaluation gratuite</button>
         <p class="tarif-note">*Franchise offerte pour tout véhicule grêlé pris en charge via votre assurance, sous conditions : montant de la réparation supérieur à la franchise, véhicule assuré tous risques ou garantie grêle active, accord préalable de votre assureur. Renseignez-vous auprès de Magic Bosses pour vérifier votre éligibilité.</p>
+      </div>
+      <!-- Carte Options complémentaires -->
+      <div class="tarif-card" style="grid-column:1/-1;max-width:840px;margin:0 auto;width:100%;border-color:rgba(123,47,190,0.25);">
+        <span class="tarif-badge" style="background:rgba(123,47,190,0.18);color:#c084fc;border:1px solid rgba(168,85,247,0.5);">Options · Sur demande</span>
+        <div class="tarif-name" style="margin-top:14px;">OPTIONS COMPLÉMENTAIRES</div>
+        <div class="tarif-desc" style="margin-bottom:28px;">À combiner avec votre intervention DSP — ou seules selon vos besoins</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;text-align:left;">
+          <div style="background:rgba(123,47,190,0.06);border:1px solid rgba(123,47,190,0.2);border-radius:16px;padding:26px 24px;">
+            <div style="font-size:28px;margin-bottom:10px;">✦</div>
+            <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:#fff;letter-spacing:1px;margin-bottom:8px;">REMPLISSAGE DE RAYURES</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.42);margin-bottom:18px;line-height:1.6;">Traitement ciblé des rayures superficielles et semi-profondes — sans peinture, résultat immédiat</div>
+            <ul class="tarif-features" style="margin-bottom:16px;">
+              <li>Rayures superficielles effacées</li>
+              <li>Rayures semi-profondes atténuées</li>
+              <li>Zéro peinture, zéro retouche</li>
+            </ul>
+            <div style="font-family:'Bebas Neue',cursive;font-size:26px;color:var(--orange);">Sur devis</div>
+          </div>
+          <div style="background:rgba(245,130,10,0.05);border:1px solid rgba(245,130,10,0.2);border-radius:16px;padding:26px 24px;">
+            <div style="font-size:28px;margin-bottom:10px;">◈</div>
+            <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:#fff;letter-spacing:1px;margin-bottom:8px;">LUSTRAGE COMPLET</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.42);margin-bottom:18px;line-height:1.6;">Restitution de l'éclat d'origine sur toute la carrosserie — finition professionnelle garantie</div>
+            <ul class="tarif-features" style="margin-bottom:16px;">
+              <li>Peinture ravivée et protégée</li>
+              <li>Micro-rayures éliminées</li>
+              <li>Brillance et protection durables</li>
+            </ul>
+            <div style="font-family:'Bebas Neue',cursive;font-size:26px;color:var(--orange);">Sur devis</div>
+          </div>
+        </div>
+        <button class="tarif-btn" style="max-width:320px;margin:0 auto;" onclick="openDevis()">Demander un devis</button>
       </div>
     </div>
     <!-- Encadré risques DSP -->
@@ -1358,6 +1407,19 @@ img{max-width:100%;height:auto;}
           <option value="grele">Grêle (multiples bosses)</option>
           <option value="sais_pas">Je ne sais pas</option>
         </select>
+      </div>
+      <div class="form-group">
+        <label>Options supplémentaires</label>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
+          <label id="optRayuresLabel" style="display:flex;align-items:center;gap:12px;cursor:pointer;padding:11px 14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:9px;font-size:14px;color:rgba(255,255,255,0.68);transition:border-color 0.2s;">
+            <input type="checkbox" id="optRayures" name="option_rayures" value="1" style="accent-color:var(--purple);width:16px;height:16px;flex-shrink:0;">
+            Remplissage de rayures
+          </label>
+          <label id="optLustrageLabel" style="display:flex;align-items:center;gap:12px;cursor:pointer;padding:11px 14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:9px;font-size:14px;color:rgba(255,255,255,0.68);transition:border-color 0.2s;">
+            <input type="checkbox" id="optLustrage" name="option_lustrage" value="1" style="accent-color:var(--purple);width:16px;height:16px;flex-shrink:0;">
+            Lustrage complet du véhicule
+          </label>
+        </div>
       </div>
       <div class="form-group">
         <label for="devisDesc">Description</label>
@@ -1806,7 +1868,7 @@ function saveDevis(devis) {
       adresse:          devis.adresse + ', ' + devis.codePostal + ' ' + devis.ville,
       creneau:          (devis.disponibilites || []).join(', '),
       type_prestation:  devis.typeBosse,
-      notes:            devis.description || '',
+      notes:            [devis.description, devis.optionRayures ? '+ Remplissage de rayures' : '', devis.optionLustrage ? '+ Lustrage complet' : ''].filter(Boolean).join(' | ') || '',
       photo_url:        devis.photoBase64 || null,
     }),
   }).catch(() => {}); // silencieux — ne bloque pas l'affichage du succès
@@ -1919,6 +1981,8 @@ function submitDevis(e) {
     ville: document.getElementById('devisVille').value.trim(),
     telephone: document.getElementById('devisTel').value.trim(),
     typeBosse: document.getElementById('devisType').value,
+    optionRayures: document.getElementById('optRayures').checked,
+    optionLustrage: document.getElementById('optLustrage').checked,
     description: document.getElementById('devisDesc').value.trim(),
     photoBase64: photoBase64,
     disponibilites: disponibilites,
