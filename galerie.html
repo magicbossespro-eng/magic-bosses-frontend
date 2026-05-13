@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie & Résultats Avant/Après | Magic Bosses — Débosselage Sans Peinture — Jura</title>
+<meta name="description" content="Galerie de réalisations Magic Bosses : sliders avant/après, vidéo débosselage sans peinture en action, photos de travaux réels. Aucun filtre, aucune retouche — résultats invisibles garantis.">
+<link rel="canonical" href="https://magicbosses.fr/galerie.html">
+<meta property="og:title" content="Galerie Résultats Magic Bosses — Avant/Après Débosselage Sans Peinture">
+<meta property="og:description" content="Sliders avant/après, vidéo débosselage sans peinture en action, galerie photos. Aucun filtre, résultats invisibles.">
+<meta property="og:url" content="https://magicbosses.fr/galerie.html">
+<meta property="og:image" content="https://magicbosses.fr/og-image.png">
+<meta name="theme-color" content="#7B2FBE">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;1,300&family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.page-hero { padding:140px 32px 80px; text-align:center; position:relative; }
+.page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(245,130,10,0.12),transparent 70%); pointer-events:none; }
+.page-hero h1 { font-family:var(--titre); font-size:clamp(48px,8vw,90px); color:var(--blanc); letter-spacing:2px; line-height:1; margin-bottom:18px; }
+.page-hero p  { font-size:17px; color:rgba(255,255,255,0.70); max-width:520px; margin:0 auto; line-height:1.75; }
+.breadcrumb   { display:flex; gap:6px; align-items:center; justify-content:center; margin-bottom:22px; }
+.breadcrumb a,.breadcrumb span { font-size:11px; color:rgba(255,255,255,0.40); letter-spacing:1.5px; text-transform:uppercase; }
+.breadcrumb a:hover { color:var(--orange); }
+.breadcrumb .sep { color:rgba(255,255,255,0.20); }
+
+/* SLIDERS */
+#resultats { padding:80px 32px 110px; background:rgba(0,0,0,0.35); }
+.aa-cont { max-width:1200px; margin:0 auto; }
+.sliders-grille { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:52px; }
+.slider-enveloppe { position:relative; }
+.slider-cont { position:relative; width:100%; padding-bottom:68%; overflow:hidden; border-radius:18px; cursor:ew-resize; user-select:none; border:1px solid rgba(255,255,255,0.07); box-shadow:0 16px 48px rgba(0,0,0,0.55); transition:box-shadow var(--base); }
+.slider-enveloppe:hover .slider-cont { box-shadow:0 0 0 1px rgba(245,130,10,0.30),0 24px 64px rgba(0,0,0,0.65),0 0 40px rgba(245,130,10,0.07); }
+.sl-apres,.sl-avant { position:absolute; inset:0; }
+.sl-avant { clip-path:inset(0 50% 0 0); }
+.filigrane-wrap { position:relative; width:100%; height:100%; }
+.filigrane-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
+.filigrane { position:absolute; bottom:7px; right:9px; font-size:10px; color:rgba(255,255,255,0.72); pointer-events:none; text-shadow:0 1px 3px rgba(0,0,0,0.9); }
+.sl-label { position:absolute; top:12px; z-index:3; padding:5px 14px; border-radius:50px; font-family:var(--titre); font-size:12px; letter-spacing:2px; backdrop-filter:blur(10px); }
+.sl-av { left:12px;  background:rgba(123,47,190,0.85); border:1px solid rgba(123,47,190,0.55); color:#fff; }
+.sl-ap { right:12px; background:rgba(245,130,10,0.90); border:1px solid rgba(245,130,10,0.55); color:#000; font-weight:700; }
+.sl-div { position:absolute; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,var(--orange),var(--violet)); left:50%; transform:translateX(-50%); z-index:2; }
+.sl-handle { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:40px; height:40px; background:var(--orange); border-radius:50%; z-index:3; display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 3px rgba(245,130,10,0.28),0 5px 20px rgba(245,130,10,0.50); cursor:ew-resize; }
+.sl-legende { text-align:center; margin-top:9px; font-size:12px; color:rgba(255,255,255,0.64); font-style:italic; }
+@media (max-width:768px) { .sliders-grille { grid-template-columns:1fr; } #resultats { padding:60px 20px 80px; } }
+
+/* VIDEO */
+#video-short { padding:90px 20px 80px; background:rgba(0,0,0,0.35); position:relative; overflow:hidden; }
+#video-short::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(123,47,190,.18) 0%,transparent 70%); pointer-events:none; }
+.vs-cont { max-width:340px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:32px; }
+.vs-titre-wrap { text-align:center; }
+.vs-tag { display:inline-block; background:rgba(245,130,10,.12); border:1px solid rgba(245,130,10,.45); color:var(--orange); font-size:11px; font-weight:700; letter-spacing:2px; padding:4px 14px; border-radius:20px; margin-bottom:14px; }
+.vs-titre { font-size:clamp(20px,5vw,28px); font-weight:900; letter-spacing:.5px; color:#fff; margin-bottom:8px; line-height:1.2; }
+.vs-accent { color:var(--orange); }
+.vs-sous { color:rgba(255,255,255,.45); font-size:13px; }
+.vs-phone-wrap { position:relative; width:280px; border-radius:22px; overflow:hidden; background:#000; animation:vsGlow 3s ease-in-out infinite; }
+@keyframes vsGlow { 0%,100% { box-shadow:0 0 0 2px rgba(245,130,10,.7),0 0 40px rgba(245,130,10,.25),0 0 80px rgba(123,47,190,.15); } 50% { box-shadow:0 0 0 2px rgba(123,47,190,.8),0 0 40px rgba(123,47,190,.3),0 0 80px rgba(245,130,10,.12); } }
+#videoShort { display:block; width:100%; aspect-ratio:9/16; object-fit:cover; }
+.vs-scanlines { position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.06) 3px,rgba(0,0,0,.06) 4px); pointer-events:none; z-index:3; }
+.vs-coin { position:absolute; width:18px; height:18px; z-index:6; }
+.vs-coin-tl { top:10px; left:10px;   border-top:2px solid var(--orange); border-left:2px solid var(--orange); }
+.vs-coin-tr { top:10px; right:10px;  border-top:2px solid var(--orange); border-right:2px solid var(--orange); }
+.vs-coin-bl { bottom:10px; left:10px;  border-bottom:2px solid var(--orange); border-left:2px solid var(--orange); }
+.vs-coin-br { bottom:10px; right:10px; border-bottom:2px solid var(--orange); border-right:2px solid var(--orange); }
+.vs-hud-top { position:absolute; top:14px; left:14px; right:14px; display:flex; justify-content:space-between; align-items:center; z-index:5; }
+.vs-badge-live { display:flex; align-items:center; gap:5px; background:rgba(0,0,0,.65); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.15); color:#fff; font-size:10px; font-weight:800; letter-spacing:1.5px; padding:4px 10px; border-radius:20px; }
+.vs-dot { width:6px; height:6px; border-radius:50%; background:#ff3b3b; animation:vsDot 1s ease-in-out infinite; }
+@keyframes vsDot { 0%,100%{opacity:1} 50%{opacity:.15} }
+.vs-badge-speed { background:rgba(245,130,10,.9); color:#fff; font-size:10px; font-weight:800; letter-spacing:.5px; padding:4px 10px; border-radius:20px; }
+.vs-hud-bot { position:absolute; bottom:0; left:0; right:0; padding:50px 12px 14px; background:linear-gradient(transparent,rgba(0,0,0,.88)); z-index:4; }
+.vs-caption { font-size:10px; color:rgba(255,255,255,.55); text-align:center; letter-spacing:.5px; }
+.vs-progress-bar { width:100%; height:2px; background:rgba(255,255,255,.15); border-radius:1px; margin-bottom:8px; overflow:hidden; }
+.vs-progress-fill { height:100%; width:0%; background:linear-gradient(90deg,var(--violet),var(--orange)); transition:width .5s linear; }
+.vs-waveform { display:flex; gap:3px; align-items:center; justify-content:center; height:20px; margin-bottom:8px; }
+.vs-waveform span { width:3px; background:var(--orange); border-radius:2px; animation:wave .8s ease-in-out infinite; }
+.vs-waveform span:nth-child(1){height:8px;animation-delay:0s} .vs-waveform span:nth-child(2){height:14px;animation-delay:.1s} .vs-waveform span:nth-child(3){height:10px;animation-delay:.2s} .vs-waveform span:nth-child(4){height:18px;animation-delay:.3s} .vs-waveform span:nth-child(5){height:12px;animation-delay:.4s} .vs-waveform span:nth-child(6){height:16px;animation-delay:.1s} .vs-waveform span:nth-child(7){height:8px;animation-delay:.2s} .vs-waveform span:nth-child(8){height:14px;animation-delay:.3s} .vs-waveform span:nth-child(9){height:10px;animation-delay:.4s} .vs-waveform span:nth-child(10){height:6px;animation-delay:0s}
+@keyframes wave { 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(1.8)} }
+.vs-waveform.paused span { animation-play-state:paused; }
+.vs-side-icons { position:absolute; right:10px; bottom:80px; z-index:5; display:flex; flex-direction:column; gap:20px; }
+.vs-icon-wrap { display:flex; flex-direction:column; align-items:center; gap:4px; color:rgba(255,255,255,.85); cursor:pointer; font-size:10px; transition:transform .2s; }
+.vs-icon-wrap:hover { transform:scale(1.1); }
+.vs-like.liked { color:#ef4444; }
+.vs-stats { display:flex; gap:32px; }
+.vs-stat { display:flex; flex-direction:column; align-items:center; gap:4px; }
+.vs-stat-n { font-family:var(--titre); font-size:28px; color:var(--orange); line-height:1; }
+.vs-stat-l { font-size:11px; color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:1.5px; }
+.vs-cta { font-size:18px; padding:14px 36px; }
+
+/* GALERIE BENTO */
+#galerie { padding:110px 32px; background:rgba(0,0,0,0.35); }
+.gal-cont { max-width:1200px; margin:0 auto; }
+.gal-bento { display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:280px 280px; gap:12px; margin-top:52px; }
+.gal-cell { position:relative; border-radius:16px; overflow:hidden; cursor:pointer; border:1px solid rgba(255,255,255,0.07); }
+.gal-cell-large  { grid-column:span 2; grid-row:span 2; }
+.gal-cell-wide   { grid-column:span 2; }
+.gal-cell-normal { grid-column:span 1; }
+.gal-cell img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.55s var(--ease); }
+.gal-cell:hover img { transform:scale(1.06); }
+.gal-cell::before { content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 55%); opacity:0; transition:opacity var(--base); }
+.gal-cell:hover::before { opacity:1; }
+.gal-cell::after { content:'⊕'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(0.5); font-size:42px; color:rgba(255,255,255,0.90); z-index:2; opacity:0; transition:all 0.3s var(--ease); }
+.gal-cell:hover::after { opacity:1; transform:translate(-50%,-50%) scale(1); }
+.gal-cell:hover { border-color:rgba(245,130,10,0.30); box-shadow:0 16px 48px rgba(0,0,0,0.55); }
+.gal-filigrane { position:absolute; bottom:8px; right:10px; z-index:3; font-size:10px; color:rgba(255,255,255,0.70); pointer-events:none; text-shadow:0 1px 3px rgba(0,0,0,0.9); }
+@media (max-width:900px) { .gal-bento { grid-template-columns:repeat(2,1fr); grid-template-rows:auto; } .gal-cell-large { grid-column:span 2; height:260px; } .gal-cell-wide { grid-column:span 2; height:200px; } .gal-cell-normal { height:180px; } }
+@media (max-width:480px) { .gal-cell-large,.gal-cell-wide,.gal-cell-normal { grid-column:span 2; height:200px; } #galerie { padding:70px 20px; } }
+@media (max-width:768px) { #video-short { padding:70px 20px 60px; } .page-hero { padding:120px 20px 60px; } #resultats { padding:60px 20px; } }
+</style>
+</head>
+<body>
+<div id="bgRays"></div>
+<canvas id="orageCanvas"></canvas>
+<div id="eclairFlash"></div>
+
+<nav id="navbar">
+  <div class="nav-cont">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Magic Bosses" width="145" height="52" loading="eager" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-txt" style="display:none">MAGIC <span>BOSSES</span></span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    <ul class="nav-liens" id="navLiens">
+      <li><a href="index.html"    onclick="fermerMenu()">Accueil</a></li>
+      <li><a href="services.html" onclick="fermerMenu()">Services</a></li>
+      <li><a href="tarifs.html"   onclick="fermerMenu()">Tarifs</a></li>
+      <li><a href="avis.html"     onclick="fermerMenu()">Avis</a></li>
+      <li><a href="galerie.html" class="actif" onclick="fermerMenu()">Galerie</a></li>
+      <li><a href="contact.html"  onclick="fermerMenu()">Contact</a></li>
+    </ul>
+    <button class="btn-nav" onclick="ouvrirDevis()">Devis Gratuit</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Accueil</a><span class="sep">›</span><span>Galerie</span></div>
+  <h1>GALERIE</h1>
+  <p>Vrais résultats, vraies photos — aucun filtre, aucune retouche. Avant/après, vidéo en action.</p>
+</div>
+
+<!-- SLIDERS AVANT/APRÈS -->
+<section id="resultats">
+  <div class="aa-cont">
+    <div class="en-tete rev">
+      <span class="label-section">Résultats</span>
+      <h2 class="titre-centre">LE RÉSULTAT PARLE LUI-MÊME</h2>
+      <div class="separateur"></div>
+      <p class="sous-titre" style="margin-top:12px">Faites glisser le curseur pour comparer avant et après</p>
+    </div>
+    <div class="sliders-grille">
+      <div class="slider-enveloppe rev">
+        <div class="slider-cont" data-idx="0">
+          <div class="sl-apres"><div class="filigrane-wrap"><img src="20260423_142019.jpg" alt="Après réparation débosselage sans peinture" loading="lazy"><span class="filigrane">© Magic Bosses</span></div></div>
+          <div class="sl-avant" id="sav0"><div class="filigrane-wrap"><img src="20260423_140551.jpg" alt="Avant réparation débosselage sans peinture" loading="lazy"><span class="filigrane">© Magic Bosses</span></div></div>
+          <span class="sl-label sl-av">AVANT</span><span class="sl-label sl-ap">APRÈS</span>
+          <div class="sl-div" id="sdiv0"></div>
+          <div class="sl-handle" id="shd0"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M7 4l-4 6 4 6M13 4l4 6-4 6" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>
+        </div>
+        <p class="sl-legende">Bosse capot · Résultat invisible</p>
+      </div>
+      <div class="slider-enveloppe rev" style="transition-delay:.1s">
+        <div class="slider-cont" data-idx="1">
+          <div class="sl-apres"><div class="filigrane-wrap"><img src="20260428_101350.jpg" alt="Après réparation débosselage sans peinture" loading="lazy"><span class="filigrane">© Magic Bosses</span></div></div>
+          <div class="sl-avant" id="sav1"><div class="filigrane-wrap"><img src="20260428_095329.jpg" alt="Avant réparation débosselage sans peinture" loading="lazy"><span class="filigrane">© Magic Bosses</span></div></div>
+          <span class="sl-label sl-av">AVANT</span><span class="sl-label sl-ap">APRÈS</span>
+          <div class="sl-div" id="sdiv1"></div>
+          <div class="sl-handle" id="shd1"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M7 4l-4 6 4 6M13 4l4 6-4 6" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>
+        </div>
+        <p class="sl-legende">Débosselage portière · Peinture intacte</p>
+      </div>
+      <div class="slider-enveloppe rev" style="transition-delay:.15s">
+        <div class="slider-cont" data-idx="2">
+          <div class="sl-apres"><div class="filigrane-wrap"><img src="20260331_142036.jpg" alt="Après réparation débosselage sans peinture" loading="lazy"><span class="filigrane">© Magic Bosses</span></div></div>
+          <div class="sl-avant" id="sav2"><div class="filigrane-wrap"><img src="20260331_140839.jpg" alt="Avant réparation débosselage sans peinture" loading="lazy"><span class="filigrane">© Magic Bosses</span></div></div>
+          <span class="sl-label sl-av">AVANT</span><span class="sl-label sl-ap">APRÈS</span>
+          <div class="sl-div" id="sdiv2"></div>
+          <div class="sl-handle" id="shd2"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M7 4l-4 6 4 6M13 4l4 6-4 6" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>
+        </div>
+        <p class="sl-legende">Bosse complexe · Travail chirurgical</p>
+      </div>
+      <div class="slider-enveloppe rev" style="transition-delay:.2s">
+        <div class="slider-cont" data-idx="3">
+          <div class="sl-apres"><div class="filigrane-wrap"><img src="20260507_134822.jpg" alt="Après réparation débosselage sans peinture" loading="lazy"><span class="filigrane">© Magic Bosses</span></div></div>
+          <div class="sl-avant" id="sav3"><div class="filigrane-wrap"><img src="20260507_133736.jpg" alt="Avant réparation débosselage sans peinture" loading="lazy"><span class="filigrane">© Magic Bosses</span></div></div>
+          <span class="sl-label sl-av">AVANT</span><span class="sl-label sl-ap">APRÈS</span>
+          <div class="sl-div" id="sdiv3"></div>
+          <div class="sl-handle" id="shd3"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M7 4l-4 6 4 6M13 4l4 6-4 6" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>
+        </div>
+        <p class="sl-legende">Résultat net · Zéro mastic</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDÉO -->
+<section id="video-short">
+  <div class="vs-cont">
+    <div class="vs-titre-wrap">
+      <span class="vs-tag">EN ACTION</span>
+      <h2 class="vs-titre">REGARDE UNE BOSSE <span class="vs-accent">DISPARAÎTRE</span></h2>
+      <p class="vs-sous">Vidéo accélérée — intervention réelle Magic Bosses</p>
+    </div>
+    <div class="vs-phone-wrap">
+      <div class="vs-scanlines"></div>
+      <div class="vs-coin vs-coin-tl"></div><div class="vs-coin vs-coin-tr"></div>
+      <div class="vs-coin vs-coin-bl"></div><div class="vs-coin vs-coin-br"></div>
+      <div class="vs-hud-top">
+        <div class="vs-badge-live"><span class="vs-dot"></span>LIVE</div>
+        <div class="vs-badge-speed">⚡ 2.5× ACCÉLÉRÉ</div>
+      </div>
+      <video id="videoShort" src="video-dsp-short.mp4" muted playsinline preload="none"></video>
+      <div class="vs-hud-bot">
+        <div class="vs-waveform" id="vsWave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="vs-progress-bar"><div class="vs-progress-fill" id="vsProgress"></div></div>
+        <p class="vs-caption">Débosselage Sans Peinture · Jura · Ain · Saône-et-Loire</p>
+      </div>
+      <div class="vs-side-icons">
+        <div class="vs-icon-wrap vs-like" onclick="this.classList.toggle('liked')"><svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><span>97</span></div>
+        <div class="vs-icon-wrap" onclick="if(navigator.share)navigator.share({title:'Magic Bosses',url:window.location.href})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="26" height="26"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><span>Partager</span></div>
+      </div>
+    </div>
+    <div class="vs-stats">
+      <div class="vs-stat"><span class="vs-stat-n">2.5×</span><span class="vs-stat-l">Accéléré</span></div>
+      <div class="vs-stat"><span class="vs-stat-n">0</span><span class="vs-stat-l">Peinture</span></div>
+      <div class="vs-stat"><span class="vs-stat-n">100%</span><span class="vs-stat-l">Invisible</span></div>
+    </div>
+    <button class="btn-orange vs-cta" onclick="ouvrirDevis()">Demande ton devis gratuit →</button>
+  </div>
+</section>
+
+<!-- GALERIE BENTO -->
+<section id="galerie">
+  <div class="gal-cont">
+    <div class="en-tete rev">
+      <span class="label-section">Portfolio</span>
+      <h2 class="titre-centre">MES RÉALISATIONS</h2>
+      <div class="separateur"></div>
+      <p class="sous-titre" style="margin-top:12px">Chaque véhicule traité avec la même exigence</p>
+    </div>
+    <div class="gal-bento" id="galBento"></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-label="Photo agrandie">
+  <button class="lb-fermer" onclick="fermerLightbox()" aria-label="Fermer">✕</button>
+  <div id="lbCont">
+    <button class="lb-nav lb-prec" onclick="navLb(-1)" aria-label="Précédent">‹</button>
+    <div id="lbImg"></div>
+    <button class="lb-nav lb-suiv" onclick="navLb(1)" aria-label="Suivant">›</button>
+  </div>
+</div>
+
+<section id="cta-final">
+  <div class="cta-lueur"></div>
+  <div class="cta-cont rev">
+    <span class="label-section" style="text-align:center;display:block">Ton tour</span>
+    <h2 class="cta-titre">TON VÉHICULE<br><span class="cta-accent">MÉRITE ÇA.</span></h2>
+    <p class="cta-sous">Envoie une photo — devis gratuit en 2h, sans engagement.</p>
+    <button class="btn-orange cta-btn" onclick="ouvrirDevis()">Devis gratuit →</button>
+    <div class="cta-garanties"><span>✓ Réponse sous 2h</span><span>✓ Déplacement inclus</span><span>✓ Paiement après résultat</span></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-trait"></div>
+  <div class="contact-cont">
+    <div class="en-tete rev"><span class="label-section">Me contacter</span><h2 class="titre-centre">PARLONS DE TA BOSSE</h2><div class="separateur"></div></div>
+    <div class="contact-cartes">
+      <a href="https://wa.me/33772009377" target="_blank" rel="noopener" class="contact-carte contact-wa rev"><div class="contact-icone"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><div class="contact-info"><span class="contact-label">WhatsApp</span><span class="contact-valeur">07 72 00 93 77</span><span class="contact-hint">⚡ Réponse rapide</span></div><span class="contact-fleche">→</span></a>
+      <a href="tel:+33772009377" class="contact-carte rev" style="transition-delay:.08s"><div class="contact-icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.1 2.38 2 2 0 012.08.4h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.06-.44a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div class="contact-info"><span class="contact-label">Téléphone</span><span class="contact-valeur">07 72 00 93 77</span><span class="contact-hint">Lun – Sam · 8h – 19h</span></div><span class="contact-fleche">→</span></a>
+    </div>
+  </div>
+  <div class="pied-page">
+    <div id="logoFooter" class="pied-logo"><img src="logo.png" alt="Magic Bosses" width="100" height="36" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none;font-family:var(--titre);font-size:20px;letter-spacing:2px">MAGIC <span style="color:var(--violet)">BOSSES</span></span></div>
+    <nav aria-label="Navigation secondaire"><ul style="display:flex;gap:20px;list-style:none;flex-wrap:wrap;justify-content:center"><li><a href="services.html" style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px">Services</a></li><li><a href="tarifs.html" style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px">Tarifs</a></li><li><a href="avis.html" style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px">Avis</a></li><li><a href="galerie.html" style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px">Galerie</a></li><li><a href="contact.html" style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px">Contact</a></li></ul></nav>
+    <div class="pied-legal"><p>Magic Bosses SASU — Capital 1 000 € · RCS Lons-le-Saunier n° 951 024 769</p><p style="margin-top:4px">© 2026 Magic Bosses — Tous droits réservés</p></div>
+  </div>
+</footer>
+
+<div id="mascotte" onclick="ouvrirDevis()" role="button" tabindex="0" aria-label="Devis gratuit"><div id="bulleFlottante">Montre-moi ta bosse !</div><img src="mascotte.png" alt="Maxime Magic Bosses" onerror="this.style.display='none';document.getElementById('mascotteFallback').style.display='flex'"><div id="mascotteFallback" class="mascotte-fallback">MB</div></div>
+<div id="devisOverlay" onclick="fermerDevis()"></div>
+<div id="devisPanel" role="dialog" aria-label="Formulaire de devis" aria-modal="true">
+  <div class="devis-entete"><img src="mascotte.png" alt="" width="54" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="mascotte-sm">MB</div><div id="bullePanneau">Dis-moi tout sur ta bosse !</div><button class="devis-fermer" onclick="fermerDevis()" aria-label="Fermer">✕</button></div>
+  <div class="devis-corps"><h2 class="devis-titre">DEVIS GRATUIT</h2>
+    <form id="devisForm" onsubmit="soumettreDevis(event)" novalidate>
+      <div class="form-ligne"><div class="form-champ"><label for="devisPrenom">Prénom *</label><input type="text" id="devisPrenom" name="prenom" required placeholder="Prénom" autocomplete="given-name"></div><div class="form-champ"><label for="devisNom">Nom *</label><input type="text" id="devisNom" name="nom" required placeholder="Nom" autocomplete="family-name"></div></div>
+      <div class="form-champ"><label for="devisAdresse">Adresse *</label><input type="text" id="devisAdresse" name="adresse" required placeholder="Numéro et rue" autocomplete="street-address"></div>
+      <div class="form-ligne"><div class="form-champ"><label for="devisCP">Code postal *</label><input type="text" id="devisCP" name="cp" required placeholder="39000" maxlength="5" inputmode="numeric"></div><div class="form-champ"><label for="devisVille">Ville *</label><input type="text" id="devisVille" name="ville" required placeholder="Lons-le-Saunier"></div></div>
+      <div class="form-champ"><label for="devisTel">Téléphone *</label><input type="tel" id="devisTel" name="tel" required placeholder="06 12 34 56 78" autocomplete="tel"></div>
+      <div class="form-champ"><label for="devisType">Type de bosse *</label><select id="devisType" name="type" required><option value="">— Choisir —</option><option value="bosse_simple">Bosse simple</option><option value="bosse_arete">Bosse sur arête</option><option value="bosse_technique">Bosse technique</option><option value="grele">Dommages grêle</option><option value="multiple">Bosses multiples</option></select></div>
+      <div class="form-options"><label class="opt"><input type="checkbox" id="optRayures"> Rayures</label><label class="opt"><input type="checkbox" id="optLustrage"> Lustrage</label></div>
+      <div class="form-champ"><label for="devisDesc">Description (optionnel)</label><textarea id="devisDesc" name="desc" rows="3" placeholder="Détails..."></textarea></div>
+      <div class="form-champ"><button type="button" class="btn-photo" onclick="document.getElementById('photoInput').click()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Joindre une photo</button><input type="file" id="photoInput" accept="image/*" style="display:none"><div id="photoApercu" style="display:none;margin-top:10px;border-radius:8px;overflow:hidden;border:1px solid rgba(123,47,190,0.28)"></div></div>
+      <div class="form-champ"><div class="dispo-label">Disponibilités (optionnel)</div><div class="dispo-grille" id="dispoGrille"></div></div>
+      <div class="accept-bloc"><label class="accept-label"><input type="checkbox" id="acceptResponsabilite" required><span>J'accepte l'intervention de débosselage sans peinture. <strong>Résultat garanti ou remboursé.</strong></span></label></div>
+      <button type="submit" class="btn-envoyer" id="btnEnvoyer">ENVOYER MON DEVIS →</button>
+    </form>
+    <div id="devisSucces" style="display:none;padding:40px 24px;text-align:center"><div style="font-size:54px;margin-bottom:14px">✅</div><h3 style="font-family:var(--titre);font-size:30px;color:var(--or);margin-bottom:12px">DEMANDE REÇUE !</h3><p style="color:rgba(255,255,255,0.68);line-height:1.72;font-size:15px">Maxime te recontacte très vite.</p><button class="btn-orange" style="margin-top:26px;border:none" onclick="fermerDevis()">Fermer</button></div>
+  </div>
+</div>
+<div id="adminPanel" role="dialog" aria-modal="true" style="display:none"><div class="admin-interieur"><div class="admin-entete"><h2>🗂 MAGIC BOSSES — ADMIN</h2><button class="admin-btn" onclick="exporterJSON()">⬇ Export JSON</button><button class="admin-btn admin-fermer" onclick="fermerAdmin()">✕ Fermer</button></div><div class="admin-stats" id="adminStats"></div><div id="adminListe"></div></div></div>
+<div id="cookieBanner" style="display:none"><p>Ce site utilise Google Fonts et OpenStreetMap (cookies possibles).</p><div class="cookie-btns"><button onclick="refuserCookies()">Refuser</button><button class="cookie-accepter" onclick="accepterCookies()">Accepter</button></div></div>
+
+<script>
+// Sliders avant/après
+(function(){
+  document.querySelectorAll('.slider-cont').forEach(function(cont, i){
+    var avant=document.getElementById('sav'+i), div=document.getElementById('sdiv'+i), handle=document.getElementById('shd'+i);
+    if(!avant) return;
+    var glisse=false;
+    function pos(clientX){ var r=cont.getBoundingClientRect(), p=Math.max(0.04,Math.min(0.96,(clientX-r.left)/r.width)); avant.style.clipPath='inset(0 '+((1-p)*100)+'% 0 0)'; div.style.left=(p*100)+'%'; handle.style.left=(p*100)+'%'; }
+    avant.style.clipPath='inset(0 50% 0 0)';
+    cont.addEventListener('mousedown',function(e){glisse=true;pos(e.clientX);});
+    cont.addEventListener('touchstart',function(e){glisse=true;pos(e.touches[0].clientX);},{passive:true});
+    window.addEventListener('mousemove',function(e){if(glisse)pos(e.clientX);});
+    window.addEventListener('touchmove',function(e){if(glisse)pos(e.touches[0].clientX);},{passive:true});
+    window.addEventListener('mouseup',function(){glisse=false;});
+    window.addEventListener('touchend',function(){glisse=false;});
+  });
+})();
+
+// Vidéo short
+(function(){
+  var vid=document.getElementById('videoShort');
+  var wave=document.getElementById('vsWave');
+  var prog=document.getElementById('vsProgress');
+  if(!vid) return;
+  vid.addEventListener('timeupdate',function(){ if(vid.duration&&prog) prog.style.width=(vid.currentTime/vid.duration*100)+'%'; });
+  vid.addEventListener('ended',function(){ vid.currentTime=0; vid.play(); });
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){vid.play().then(function(){if(wave)wave.classList.remove('paused');}).catch(function(){});}else{vid.pause();if(wave)wave.classList.add('paused');} }); },{threshold:0.4});
+    obs.observe(vid);
+  }
+})();
+
+// Galerie bento
+(function(){
+  var photos=[
+    {src:'20260331_151838.jpg',alt:'Réalisation Magic Bosses',taille:'large'},
+    {src:'20260331_152420.jpg',alt:'Débosselage sans peinture',taille:'normal'},
+    {src:'capture_190208.png', alt:'Réalisation Magic Bosses',taille:'normal'},
+    {src:'capture_190156.png', alt:'Résultat débosselage',taille:'wide'},
+    {src:'Snapchat-694287755.jpg',alt:'intervention débosselage sans peinture',taille:'normal'},
+    {src:'Snapchat-2016392202.jpg',alt:'Magic Bosses débosselage sans peinture',taille:'normal'},
+    {src:'20260305_145721.jpg',alt:'Travail de précision',taille:'normal'},
+  ];
+  var classes={large:'gal-cell gal-cell-large rev',wide:'gal-cell gal-cell-wide rev',normal:'gal-cell gal-cell-normal rev'};
+  var bento=document.getElementById('galBento');
+  if(!bento) return;
+  photos.forEach(function(p,i){
+    var el=document.createElement('div');
+    el.className=classes[p.taille]||classes.normal;
+    el.style.transitionDelay=(i*0.07)+'s';
+    el.innerHTML='<img src="'+p.src+'" alt="'+p.alt+'" loading="lazy" onerror="this.parentNode.style.background=\'#111\'"><span class="gal-filigrane">© Magic Bosses</span>';
+    el.addEventListener('click',function(){ouvrirLightbox(i);});
+    bento.appendChild(el);
+  });
+})();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

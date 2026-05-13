@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact & Zone d'Intervention | Magic Bosses — Jura, Ain, Saône-et-Loire</title>
+<meta name="description" content="Contactez Magic Bosses : WhatsApp, téléphone, email. Zone d'intervention : Lons-le-Saunier et 50 km alentour (Jura, Ain, Saône-et-Loire). Devis gratuit en 2h.">
+<link rel="canonical" href="https://magicbosses.fr/contact.html">
+<meta property="og:title" content="Contact Magic Bosses — Débosselage Sans Peinture à domicile Jura">
+<meta property="og:description" content="WhatsApp, téléphone, email. Zone intervention 50 km autour Lons-le-Saunier. Devis gratuit 2h.">
+<meta property="og:url" content="https://magicbosses.fr/contact.html">
+<meta property="og:image" content="https://magicbosses.fr/og-image.png">
+<meta name="theme-color" content="#7B2FBE">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"AutoRepair","name":"Magic Bosses","telephone":"+33772009377","email":"magicbosses.pro@gmail.com","url":"https://magicbosses.fr","address":{"@type":"PostalAddress","addressLocality":"Lons-le-Saunier","postalCode":"39000","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":46.675,"longitude":5.556},"areaServed":[{"@type":"AdministrativeArea","name":"Jura"},{"@type":"AdministrativeArea","name":"Ain"},{"@type":"AdministrativeArea","name":"Saône-et-Loire"}],"openingHours":"Mo-Sa 08:00-19:00"}
+</script>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;1,300&family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.page-hero { padding:140px 32px 80px; text-align:center; position:relative; }
+.page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(123,47,190,0.12),transparent 70%); pointer-events:none; }
+.page-hero h1 { font-family:var(--titre); font-size:clamp(48px,8vw,90px); color:var(--blanc); letter-spacing:2px; line-height:1; margin-bottom:18px; }
+.page-hero p  { font-size:17px; color:rgba(255,255,255,0.70); max-width:520px; margin:0 auto; line-height:1.75; }
+.breadcrumb   { display:flex; gap:6px; align-items:center; justify-content:center; margin-bottom:22px; }
+.breadcrumb a,.breadcrumb span { font-size:11px; color:rgba(255,255,255,0.40); letter-spacing:1.5px; text-transform:uppercase; }
+.breadcrumb a:hover { color:var(--orange); }
+.breadcrumb .sep { color:rgba(255,255,255,0.20); }
+
+/* ZONE INTERVENTION */
+#zone { padding:80px 32px 110px; background:rgba(0,0,0,0.35); }
+.zone-cont { max-width:1100px; margin:0 auto; text-align:center; }
+.zone-deps { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin:36px 0 52px; }
+.zone-dep { display:flex; flex-direction:column; align-items:center; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:18px; padding:22px 48px; transition:all var(--base); }
+.zone-dep:hover { border-color:rgba(245,130,10,0.32); transform:translateY(-3px); box-shadow:0 14px 36px rgba(0,0,0,0.4); }
+.zone-num { font-family:var(--titre); font-size:56px; color:var(--orange); line-height:1; }
+.zone-nom { font-size:12px; color:rgba(255,255,255,0.75); letter-spacing:2px; text-transform:uppercase; margin-top:4px; }
+
+.villes-grille { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; text-align:left; margin-bottom:36px; }
+.ville-bloc { background:rgba(0,0,0,0.55); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:28px 30px; }
+.ville-dep { font-family:var(--titre); font-size:16px; color:var(--orange); letter-spacing:1px; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.07); }
+.ville-liste { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.ville-liste li { font-size:14px; color:rgba(255,255,255,0.75); display:flex; align-items:center; gap:8px; }
+.ville-liste li strong { color:#fff; }
+.ville-base { font-size:11px; color:var(--orange); font-style:italic; }
+
+.zone-rayon { display:flex; justify-content:center; gap:28px; flex-wrap:wrap; background:rgba(123,47,190,0.06); border:1px solid rgba(123,47,190,0.18); border-radius:14px; padding:18px 28px; font-size:14px; color:rgba(255,255,255,0.75); }
+.zone-rayon strong { color:#fff; }
+
+@media (max-width:768px) { #zone { padding:60px 20px 80px; } .page-hero { padding:120px 20px 60px; } .villes-grille { grid-template-columns:1fr; } .zone-rayon { flex-direction:column; gap:12px; text-align:center; } }
+
+/* CONTACT ÉTENDU */
+.contact-page { padding:0 32px 80px; position:relative; z-index:2; }
+.contact-page-cont { max-width:800px; margin:0 auto; }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:32px; }
+.c-carte {
+  display:flex; align-items:center; gap:18px;
+  background:rgba(20,10,40,0.85); border:1px solid rgba(123,47,190,0.22);
+  border-radius:18px; padding:22px 26px; color:#fff;
+  text-decoration:none; transition:all 0.28s ease;
+}
+.c-carte:hover { transform:translateY(-2px); border-color:rgba(245,130,10,0.45); box-shadow:0 12px 36px rgba(0,0,0,0.6); }
+.c-carte.c-wa { border-color:rgba(37,211,102,0.30); background:rgba(37,211,102,0.06); }
+.c-carte.c-wa:hover { border-color:rgba(37,211,102,0.55); }
+.c-icone { width:50px; height:50px; border-radius:13px; background:rgba(245,130,10,0.10); border:1px solid rgba(245,130,10,0.25); display:flex; align-items:center; justify-content:center; color:var(--orange); flex-shrink:0; }
+.c-carte.c-wa .c-icone { color:#25d366; background:rgba(37,211,102,0.10); border-color:rgba(37,211,102,0.30); }
+.c-info { display:flex; flex-direction:column; gap:3px; flex:1; }
+.c-label { font-size:10px; text-transform:uppercase; letter-spacing:3px; color:rgba(255,255,255,0.55); }
+.c-valeur { font-family:var(--titre); font-size:21px; letter-spacing:0.5px; color:#fff; }
+.c-hint { font-size:12px; color:rgba(255,255,255,0.55); }
+.c-carte.c-wa .c-hint { color:rgba(37,211,102,0.70); }
+.c-fleche { font-size:20px; color:rgba(255,255,255,0.20); }
+.c-carte:hover .c-fleche { color:var(--orange); }
+.c-static { cursor:default; }
+.c-static:hover { transform:none; border-color:rgba(123,47,190,0.22); box-shadow:none; }
+.contact-devis-btn { display:block; width:100%; background:var(--orange); color:#000; border:none; padding:18px; border-radius:12px; font-family:var(--titre); font-size:22px; letter-spacing:2px; cursor:pointer; transition:all 0.28s ease; box-shadow:0 4px 24px rgba(245,130,10,0.35); text-align:center; margin-top:8px; }
+.contact-devis-btn:hover { transform:translateY(-2px); box-shadow:0 8px 36px rgba(245,130,10,0.55); }
+@media (max-width:768px) { .contact-grid { grid-template-columns:1fr; } .contact-page { padding:0 20px 60px; } }
+</style>
+</head>
+<body>
+<div id="bgRays"></div>
+<canvas id="orageCanvas"></canvas>
+<div id="eclairFlash"></div>
+
+<nav id="navbar">
+  <div class="nav-cont">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Magic Bosses" width="145" height="52" loading="eager" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-txt" style="display:none">MAGIC <span>BOSSES</span></span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    <ul class="nav-liens" id="navLiens">
+      <li><a href="index.html"    onclick="fermerMenu()">Accueil</a></li>
+      <li><a href="services.html" onclick="fermerMenu()">Services</a></li>
+      <li><a href="tarifs.html"   onclick="fermerMenu()">Tarifs</a></li>
+      <li><a href="avis.html"     onclick="fermerMenu()">Avis</a></li>
+      <li><a href="galerie.html"  onclick="fermerMenu()">Galerie</a></li>
+      <li><a href="contact.html" class="actif" onclick="fermerMenu()">Contact</a></li>
+    </ul>
+    <button class="btn-nav" onclick="ouvrirDevis()">Devis Gratuit</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Accueil</a><span class="sep">›</span><span>Contact</span></div>
+  <h1>CONTACT</h1>
+  <p>WhatsApp, téléphone ou email — réponse garantie sous 2h. Intervention dans un rayon de 50 km autour de Lons-le-Saunier.</p>
+</div>
+
+<!-- CONTACT CARTES -->
+<div class="contact-page">
+  <div class="contact-page-cont">
+    <div class="contact-grid">
+      <a href="https://wa.me/33772009377" target="_blank" rel="noopener" class="c-carte c-wa">
+        <div class="c-icone"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+        <div class="c-info"><span class="c-label">WhatsApp — réponse rapide</span><span class="c-valeur">07 72 00 93 77</span><span class="c-hint">⚡ Réponse en quelques minutes</span></div>
+        <span class="c-fleche">→</span>
+      </a>
+      <a href="tel:+33772009377" class="c-carte">
+        <div class="c-icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.1 2.38 2 2 0 012.08.4h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.06-.44a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div class="c-info"><span class="c-label">Téléphone</span><span class="c-valeur">07 72 00 93 77</span><span class="c-hint">Lun – Sam · 8h – 19h</span></div>
+        <span class="c-fleche">→</span>
+      </a>
+      <a href="mailto:magicbosses.pro@gmail.com" class="c-carte">
+        <div class="c-icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="c-info"><span class="c-label">Email</span><span class="c-valeur" style="font-size:16px">magicbosses.pro@gmail.com</span><span class="c-hint">Réponse sous 24h</span></div>
+        <span class="c-fleche">→</span>
+      </a>
+      <div class="c-carte c-static">
+        <div class="c-icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="c-info"><span class="c-label">Horaires</span><span class="c-valeur">Lun – Sam</span><span class="c-hint">8h00 – 19h00</span></div>
+      </div>
+    </div>
+    <button class="contact-devis-btn" onclick="ouvrirDevis()">ENVOYER UNE PHOTO POUR UN DEVIS →</button>
+  </div>
+</div>
+
+<!-- ZONE INTERVENTION -->
+<section id="zone">
+  <div class="zone-cont">
+
+    <div class="en-tete">
+      <span class="label-section">Déplacements</span>
+      <h2 class="titre-centre">OÙ J'INTERVIENS</h2>
+      <div class="separateur"></div>
+      <p class="sous-titre" style="margin-top:12px">Je me déplace chez vous — déplacement toujours inclus dans le tarif</p>
+    </div>
+
+    <!-- 3 départements -->
+    <div class="zone-deps">
+      <div class="zone-dep"><span class="zone-num">39</span><span class="zone-nom">Jura</span></div>
+      <div class="zone-dep"><span class="zone-num">01</span><span class="zone-nom">Ain</span></div>
+      <div class="zone-dep"><span class="zone-num">71</span><span class="zone-nom">Saône-et-Loire</span></div>
+    </div>
+
+    <!-- Villes -->
+    <div class="villes-grille">
+
+      <div class="ville-bloc">
+        <div class="ville-dep">Jura (39)</div>
+        <ul class="ville-liste">
+          <li>🔧 <strong>Lons-le-Saunier</strong> <span class="ville-base">— Base</span></li>
+          <li>Dole</li>
+          <li>Poligny</li>
+          <li>Arbois</li>
+          <li>Saint-Claude</li>
+          <li>Clairvaux-les-Lacs</li>
+        </ul>
+      </div>
+
+      <div class="ville-bloc">
+        <div class="ville-dep">Saône-et-Loire (71)</div>
+        <ul class="ville-liste">
+          <li>Chalon-sur-Saône</li>
+          <li>Louhans</li>
+          <li>Tournus</li>
+          <li>Mâcon</li>
+          <li>Le Creusot</li>
+          <li>Montceau-les-Mines</li>
+        </ul>
+      </div>
+
+      <div class="ville-bloc">
+        <div class="ville-dep">Ain (01)</div>
+        <ul class="ville-liste">
+          <li>Bourg-en-Bresse</li>
+          <li>Oyonnax</li>
+          <li>Nantua</li>
+          <li>Viriat</li>
+          <li>Ambérieu-en-Bugey</li>
+          <li>Pont-d'Ain</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="zone-rayon">
+      <span>📍 Rayon d'intervention : <strong>environ 80 km</strong> autour de Lons-le-Saunier</span>
+      <span>⏱ Durée max : <strong>~1h de route</strong></span>
+      <span>🚗 Déplacement <strong>toujours inclus</strong></span>
+    </div>
+
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-trait"></div>
+  <div class="pied-page">
+    <div id="logoFooter" class="pied-logo"><img src="logo.png" alt="Magic Bosses" width="100" height="36" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none;font-family:var(--titre);font-size:20px;letter-spacing:2px">MAGIC <span style="color:var(--violet)">BOSSES</span></span></div>
+    <nav aria-label="Navigation secondaire"><ul style="display:flex;gap:20px;list-style:none;flex-wrap:wrap;justify-content:center"><li><a href="services.html" style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px">Services</a></li><li><a href="tarifs.html" style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px">Tarifs</a></li><li><a href="avis.html" style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px">Avis</a></li><li><a href="galerie.html" style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px">Galerie</a></li><li><a href="contact.html" style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px">Contact</a></li></ul></nav>
+    <div class="pied-social">
+      <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+    </div>
+    <div class="pied-legal"><p>Magic Bosses SASU — Capital 1 000 € · RCS Lons-le-Saunier n° 951 024 769</p><p style="margin-top:4px">© 2026 Magic Bosses — Tous droits réservés</p></div>
+  </div>
+</footer>
+
+<div id="mascotte" onclick="ouvrirDevis()" role="button" tabindex="0" aria-label="Devis gratuit"><div id="bulleFlottante">Montre-moi ta bosse !</div><img src="mascotte.png" alt="Maxime Magic Bosses" onerror="this.style.display='none';document.getElementById('mascotteFallback').style.display='flex'"><div id="mascotteFallback" class="mascotte-fallback">MB</div></div>
+<div id="devisOverlay" onclick="fermerDevis()"></div>
+<div id="devisPanel" role="dialog" aria-label="Formulaire de devis" aria-modal="true">
+  <div class="devis-entete"><img src="mascotte.png" alt="" width="54" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="mascotte-sm">MB</div><div id="bullePanneau">Dis-moi tout sur ta bosse !</div><button class="devis-fermer" onclick="fermerDevis()" aria-label="Fermer">✕</button></div>
+  <div class="devis-corps"><h2 class="devis-titre">DEVIS GRATUIT</h2>
+    <form id="devisForm" onsubmit="soumettreDevis(event)" novalidate>
+      <div class="form-ligne"><div class="form-champ"><label for="devisPrenom">Prénom *</label><input type="text" id="devisPrenom" name="prenom" required placeholder="Prénom" autocomplete="given-name"></div><div class="form-champ"><label for="devisNom">Nom *</label><input type="text" id="devisNom" name="nom" required placeholder="Nom" autocomplete="family-name"></div></div>
+      <div class="form-champ"><label for="devisAdresse">Adresse *</label><input type="text" id="devisAdresse" name="adresse" required placeholder="Numéro et rue" autocomplete="street-address"></div>
+      <div class="form-ligne"><div class="form-champ"><label for="devisCP">Code postal *</label><input type="text" id="devisCP" name="cp" required placeholder="39000" maxlength="5" inputmode="numeric"></div><div class="form-champ"><label for="devisVille">Ville *</label><input type="text" id="devisVille" name="ville" required placeholder="Lons-le-Saunier"></div></div>
+      <div class="form-champ"><label for="devisTel">Téléphone *</label><input type="tel" id="devisTel" name="tel" required placeholder="06 12 34 56 78" autocomplete="tel"></div>
+      <div class="form-champ"><label for="devisType">Type de bosse *</label><select id="devisType" name="type" required><option value="">— Choisir —</option><option value="bosse_simple">Bosse simple</option><option value="bosse_arete">Bosse sur arête</option><option value="bosse_technique">Bosse technique</option><option value="grele">Dommages grêle</option><option value="multiple">Bosses multiples</option></select></div>
+      <div class="form-options"><label class="opt"><input type="checkbox" id="optRayures"> Rayures</label><label class="opt"><input type="checkbox" id="optLustrage"> Lustrage</label></div>
+      <div class="form-champ"><label for="devisDesc">Description (optionnel)</label><textarea id="devisDesc" name="desc" rows="3" placeholder="Détails..."></textarea></div>
+      <div class="form-champ"><button type="button" class="btn-photo" onclick="document.getElementById('photoInput').click()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Joindre une photo</button><input type="file" id="photoInput" accept="image/*" style="display:none"><div id="photoApercu" style="display:none;margin-top:10px;border-radius:8px;overflow:hidden;border:1px solid rgba(123,47,190,0.28)"></div></div>
+      <div class="form-champ"><div class="dispo-label">Disponibilités (optionnel)</div><div class="dispo-grille" id="dispoGrille"></div></div>
+      <div class="accept-bloc"><label class="accept-label"><input type="checkbox" id="acceptResponsabilite" required><span>J'accepte l'intervention de débosselage sans peinture. <strong>Résultat garanti ou remboursé.</strong></span></label></div>
+      <button type="submit" class="btn-envoyer" id="btnEnvoyer">ENVOYER MON DEVIS →</button>
+    </form>
+    <div id="devisSucces" style="display:none;padding:40px 24px;text-align:center"><div style="font-size:54px;margin-bottom:14px">✅</div><h3 style="font-family:var(--titre);font-size:30px;color:var(--or);margin-bottom:12px">DEMANDE REÇUE !</h3><p style="color:rgba(255,255,255,0.68);line-height:1.72;font-size:15px">Maxime te recontacte très vite.</p><button class="btn-orange" style="margin-top:26px;border:none" onclick="fermerDevis()">Fermer</button></div>
+  </div>
+</div>
+<div id="adminPanel" role="dialog" aria-modal="true" style="display:none"><div class="admin-interieur"><div class="admin-entete"><h2>🗂 MAGIC BOSSES — ADMIN</h2><button class="admin-btn" onclick="exporterJSON()">⬇ Export JSON</button><button class="admin-btn admin-fermer" onclick="fermerAdmin()">✕ Fermer</button></div><div class="admin-stats" id="adminStats"></div><div id="adminListe"></div></div></div>
+<div id="cookieBanner" style="display:none"><p>Ce site utilise Google Fonts et une carte interactive (OpenStreetMap) pouvant déposer des cookies.</p><div class="cookie-btns"><button onclick="refuserCookies()">Refuser</button><button class="cookie-accepter" onclick="accepterCookies()">Accepter</button></div></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
