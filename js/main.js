@@ -4,6 +4,7 @@
 
 var BACKEND = 'https://magic-bosses-api.onrender.com';
 var photoBase64 = null;
+if (typeof emailjs !== 'undefined') emailjs.init('9NHs0kqyXJ7EbKBA8');
 
 // ── Orage animé — pluie + éclairs (canvas global) ─────────
 (function () {
@@ -230,6 +231,17 @@ function sauvegarderDevis(devis) {
       photo_url:devis.photoBase64||null,
     }),
   }).catch(function(){});
+  if (typeof emailjs !== 'undefined') {
+    emailjs.send('service_j4gkgvx','template_w3dzsq7',{
+      prenom: devis.prenom,
+      nom: devis.nom,
+      telephone: devis.telephone,
+      adresse: devis.adresse+', '+devis.codePostal+' '+devis.ville,
+      type_bosse: devis.typeBosse,
+      creneaux: (devis.disponibilites||[]).join(', ')||'Non précisé',
+      notes: [devis.description,devis.optionRayures?'+ Rayures':'',devis.optionLustrage?'+ Lustrage':''].filter(Boolean).join(' | ')||''
+    }).catch(function(){});
+  }
   afficherSucces();
 }
 function afficherSucces() {
