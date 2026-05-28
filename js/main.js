@@ -2,7 +2,7 @@
 // MAGIC BOSSES — JS COMMUN (toutes les pages)
 // ============================================================
 
-var BACKEND = 'https://magic-bosses-backend-production.up.railway.app';
+var BACKEND = 'https://magic-bosses-api.onrender.com';
 var photoBase64 = null;
 
 // ── Orage animé — pluie + éclairs (canvas global) ─────────
